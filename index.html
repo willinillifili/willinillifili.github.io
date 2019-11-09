@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>
+    Sabana Auto Parts
+  </title>
+  <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <script src="script.js"></script>
+  <script>
+  $(document).ready(function() {
+    $(".feature").hover(function(){
+      $(this).stop().animate({
+        bottom: "+=20px"
+      }, 300);
+      $(".featureText").stop().animate({
+        color: "#969614"
+      }, 10);
+    },function(){
+      $(this).stop().animate({
+        bottom: "-=20px"
+      }, 300);
+      $(".featureText").stop().animate({
+        color: "#141414"
+      }, 10);
+    });
+  })
+  </script>
+</head>
+<body>
+  <div class="flex-row flex-end ai-center" id="contact">
+    <div class="contactDatum
+    flex-column
+    jc-center" id="address">
+    <h6>
+      PR-829, BO. BUENA VISTA, SECTOR SABANA, BAYAMON, PR 00956
+    </h6>
+  </div>
+  <div class="contactDatum
+  flex-column
+  jc-center" id="number">
+  <h6>
+    (787) 799-6415
+  </h6>
+</div>
+<div class="contactDatum
+flex-column
+jc-center" id="email">
+<h6>
+  email@email.com
+</h6>
+</div>
+</div>
+<div id="content" style="height: auto; width: auto;">
+  <div id="navbar" class="flex-row space-between layer">
+    <div id="logoContainer">
+      <a href="./index.html"><img alt="logo" src="./assets/logo.jpg" /></a>
+    </div>
+    <div id="linkArea"
+    class="flex-row">
+    <div class="navLink
+    flex-column
+    jc-center
+    ai-center">
+    <a href="#">
+      Inicio
+    </a>
+  </div>
+  <div class="navLink
+  flex-column
+  jc-center
+  ai-center">
+  <a href="#">
+    Especiales
+  </a>
+</div>
+<div class="navLink
+flex-column
+jc-center
+ai-center">
+<a href="#">
+  Contactenos
+</a>
+</div>
+<div class="navLink
+flex-column
+jc-center
+ai-center">
+<a href="#">
+  Localizacion
+</a>
+</div>
+<div class="navLink
+flex-column
+jc-center
+ai-center">
+<a href="#">
+  Item
+</a>
+</div>
+
+</div>
+</div>
+<div class="corpus flex-column jc-center ai-center">
+  <div class="fill">
+  </div>
+  <div class="banner
+  flex-column
+  ai-center
+  jc-center">
+  <!--div style="height: 25%;"></div-->
+  <div class="bannerMain fadeIn">
+    <p>
+      LO ENCONTRARAS AQUI
+    </p>
+  </div>
+  <div class="bannerSub tight-contain flyInBottom">
+    <h4>
+      Trabajamos todo tipo de
+      piezas para autos y camiones
+      livianos
+    </h4>
+  </div>
+  <div class="button flex-row ai-center jc-center flyInBottom">
+    <a href="#">VER ESPECIAL DEL DIA</a>
+  </div>
+  <div class="promoImage">
+    <img id="promo" alt="promo" src="./assets/promoespecial.jpg"/>
+  </div>
+</div>
+<div class="subsection">
+  <div class="featuresContainer flex-row layer">
+    <div id="f1" class="feature flex-column flex-start ai-center">
+      <img alt="athmovil" src="./assets/athmovil.png"/>
+      <div class="featureText  flex-column jc-center">
+        <p>
+          Aceptamos pagos por ATH movil
+        </p>
+      </div>
+    </div>
+    <div id="f2" class="feature flex-column flex-start ai-center">
+      <img alt="messenger" src="./assets/messenger.png"/>
+      <div class="featureText  flex-column jc-center">
+        <p>
+          Cont&#225;ctanos por texto o messenger
+        </p>
+      </div>
+    </div>
+    <div id="f3" class="feature flex-column flex-start ai-center">
+      <img alt="pin" src="./assets/pin.png"/>
+      <div class="featureText  flex-column jc-center">
+        <p>
+          Hacemos envios por correo a toda la isla y EEUU
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!--div class="promo firstPromo centralize"  id="athmovil">
+ <div class="promoImage">
+   <img alt="athmovilpromo" src="./assets/promoathmovil.jpg"/>
+ </div>
+</div>
+<div class="divider"></div>
+<div class="promo secondPromo centralize" id="texto">
+  <div class="promoImage">
+    <img alt="textopromo" src="./assets/promotexto.jpg"/>
+  </div>
+</div>
+<div class="divider"></div>
+<div class="promo thirdPromo centralize" id="envios">
+  <div class="promoImage">
+    <img alt="enviospromo" src="./assets/promotexto.jpg"/>
+</div-->
+</div>
+</div>
+<footer>
+  <span>Sabanas Auto</span>
+  <span>PR-829, BO. BUENA VISTA, SECTOR SABANA, BAYAMON, PR 00956</span>
+  <span>(787) 799-6415</span>
+</footer>
+</body>
+</html>
