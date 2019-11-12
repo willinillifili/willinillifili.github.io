@@ -1,10 +1,11 @@
 function removeBanner() {
   $(".bannerMain,.bannerSub, .button").css("display", "none");
-  $(".saleImage").css("display", "flex");
+  $(".promoImage").css("display", "flex");
+  $("#promo").attr("src", "./assets/promoespecial.jpg");
 }
 
 $(document).ready(function(){
-  $(".button").click(removeBanner);
+  $(".button, .especiales").click(removeBanner);
 
   $("#f1").click(function(){
     removeBanner();
@@ -19,6 +20,16 @@ $(document).ready(function(){
   $("#f3").click(function(){
     removeBanner();
     $("#promo").attr("src", "./assets/promoathmovil.jpg");
+  });
+
+  $("#promo").click(function(){
+    src = $(this).attr('src');
+    $(".overlay").css("display", "flex");
+    $("#promoLarge").attr("src", src);
+  });
+
+  $(".back").click(function(){
+    $(".overlay").css("display", "none");
   });
 
 
