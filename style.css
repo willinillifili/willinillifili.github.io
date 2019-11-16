@@ -323,7 +323,6 @@ body::after {
     animation-fill-mode: backwards;
     padding: 10px;
     font-size: 200%;
-    opacity: 30%;
 }
 
 .button:hover {
