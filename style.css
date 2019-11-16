@@ -6,6 +6,10 @@
     --text-color-4: #5A7684;
 }
 
+a {
+  color: white;
+}
+
 @font-face {
     font-family:'Excelerate';
     src:  url(./fonts/excelates.woff);
@@ -194,7 +198,7 @@ tight-contain {
 }
 
 #logoContainer {
-    width: 40%;
+    width: 30%;
 }
 
 #logoContainer img  {
@@ -267,6 +271,29 @@ body::after {
     height: 66.66%;
 }
 
+.location {
+  display: none;
+  width: 60%;
+  height: 100%;
+}
+
+.contact {
+  display: none;
+  justify-content: space-between;
+  display: none;
+  height: 40%;
+  width: 40%;
+}
+
+.contact-method {
+  width: 100%;
+  justify-content: space-between;
+  color: white;
+  font-family: arial;
+  font-weight: bold;
+  font-size: 150%;
+}
+
 .bannerMain {
     width: auto;
     height: auto;
@@ -321,14 +348,14 @@ body::after {
     //margin-left: 10%;
     position: absolute;
     z-index: 1;
-    background-color: rgba(222,222,222,1);
+    background-color: rgba(222,222,222,0);
     align-items: flex-end;
     justify-content: space-evenly;
 }
 
 .feature {
     width: 20%;
-    height: 100%;
+    height: 80%;
     position: relative;
     bottom: 60px;
 //    background-color: rgba(222,222,222,0.9);
@@ -358,7 +385,8 @@ body::after {
     text-align: center;
     //flex-overflow:;
     font-family: 'Roboto Condensed';
-    color: rgb(20, 20, 20);
+    font-weight: bold;
+    color: white;
     font-size: 150%;
     cursor: pointer;
 }
@@ -465,4 +493,90 @@ footer {
 
 footer span {
   margin: 10px;
+}
+
+@media only screen and (max-width: 760px) {
+
+  #content {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+  }
+
+  #logoContainer {
+    width: 60%;
+  }
+
+  #navbar, .corpus {
+    flex-direction: column;
+  }
+
+  #navbar {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .inicio {
+    display: none;
+  }
+
+  #linkArea {
+    padding-right: 20px;
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  #navbar {
+    position: relative;
+    z-index: 2;
+    margin: 0px;
+  }
+
+  .banner {
+    height: 60%;
+    justify-content: flex-start;
+  }
+
+  .spread {
+    margin: 30px;
+  }
+
+  .bannerMain p {
+    font-size: 30px;
+  }
+
+  .bannerSub {
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 15px;
+  }
+
+  .button {
+    font-size: 100%;
+  }
+
+  .fill {
+    display: none;
+  }
+
+  .featureText {
+    font-size: 90%;
+  }
+
+  .contact{
+    width: 100%;
+    font-size: 80%;
+  }
+
+  .fb {
+    display: none;
+  }
+
+  .location {
+    width: 100%;
+    height: 90%;
+  }
 }

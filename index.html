@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
   <link rel="stylesheet" type="text/css" href="./style.css">
+  <script src="https://kit.fontawesome.com/6228ba2463.js" crossorigin="anonymous"></script>
   <script src="script.js"></script>
   <script>
   $(document).ready(function() {
@@ -35,7 +36,7 @@
     <img id="promoLarge" alt="promoLarge" src="./assets/promoespecial.jpg"/>
     <button class="back" style="margin:10px;"> VOLVER </button>
   </div>
-  <div class="flex-row flex-end ai-center" id="contact">
+  <!--div class="flex-row flex-end ai-center" id="contact">
     <div class="contactDatum
     flex-column
     jc-center" id="address">
@@ -57,73 +58,51 @@ jc-center" id="email">
   email@email.com
 </h6>
 </div>
-</div>
+</div-->
 <div id="content" style="height: auto; width: auto;">
   <div id="navbar" class="flex-row space-between layer">
     <div id="logoContainer">
       <a href="./index.html"><img alt="logo" src="./assets/logo.jpg" /></a>
     </div>
-    <div id="linkArea"
-    class="flex-row">
-    <div class="navLink
-    flex-column
-    jc-center
-    ai-center">
-    <a href="./index.html">
-      Inicio
-    </a>
+    <div id="linkArea" class="flex-row">
+      <div class="inicio navLink flex-column jc-center ai-center">
+        <a href="./index.html">
+          Inicio
+        </a>
+      </div>
+      <div class="navLink especiales flex-column jc-center ai-center">
+        <a href="#">
+          Especiales
+        </a>
+      </div>
+      <div class="contactenos navLink flex-column jc-center ai-center">
+        <a href="#">
+          Contactenos
+        </a>
+      </div>
+      <div class="localizacion navLink flex-column jc-center ai-center">
+        <a href="#">
+          Localizacion
+        </a>
+      </div>
+    </div>
   </div>
-  <div class="navLink especiales
-  flex-column
-  jc-center
-  ai-center">
-  <a href="#">
-    Especiales
-  </a>
-</div>
-<div class="navLink
-flex-column
-jc-center
-ai-center">
-<a href="#">
-  Contactenos
-</a>
-</div>
-<div class="navLink
-flex-column
-jc-center
-ai-center">
-<a href="#">
-  Localizacion
-</a>
-</div>
-<div class="navLink
-flex-column
-jc-center
-ai-center">
-<a href="#">
-  Item
-</a>
-</div>
-
-</div>
-</div>
-<div class="corpus flex-column jc-center ai-center">
-  <div class="fill">
-  </div>
+  <div class="corpus flex-column jc-center ai-center">
+    <div class="fill">
+    </div>
   <div class="banner
   flex-column
   ai-center
   jc-center">
   <!--div style="height: 25%;"></div-->
-  <div class="bannerMain fadeIn">
+  <div class="bannerMain fadeIn spread">
     <p>
       LO ENCONTRARAS AQUI
     </p>
   </div>
-  <div class="bannerSub tight-contain flyInBottom">
+  <div class="bannerSub tight-contain flyInBottom spread">
     <h2>
-      Trabajamos todo tipo de
+      Todo tipo de
       piezas para autos y camiones
       livianos
     </h2>
@@ -134,6 +113,38 @@ ai-center">
   <div class="promoImage">
     <img id="promo" alt="promo" src="./assets/promoespecial.jpg"/>
   </div>
+  <div class="location">
+    <div style="width: 100%">
+      <iframe width="100%" height="100%" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=RR-8%20Box%201995%2C%20Bayam%C3%B3n%2C%20PR%2000956+(%20Sabanas%20Auto%20Parts)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=B&amp;output=embed"
+      frameborder="0"
+      scrolling="no"
+      marginheight="0"
+      marginwidth="0">
+      <a href="https://www.maps.ie/coordinates.html">latitude longitude finder</a>
+    </iframe>
+  </div>
+  <br/>
+</div>
+<div class="contact flex-column">
+  <div class="contact-method flex-row phone">
+    <span style="color:white;">
+      <i class="fas fa-phone-alt fa-2x"></i>
+    </span><div>(787) 799-6415</div>
+  </div>
+  <div class="contact-method flex-row email">
+    <span style="color:white;"><i class="far fa-envelope fa-2x">
+    </i></span><div>email@email.com
+    </div>
+  </div>
+  <div class="contact-method flex-row social">
+    <span style="color:white;"><i class="fab fa-facebook-square fa-2x">
+    </i></span><div>
+      <a href="https://www.facebook.com/sabanaautoparts">
+        <span class="fb">facebook.com/</span>sabanaautoparts
+      </a>
+      </div>
+  </div>
+</div>
 </div>
 <div class="subsection">
   <div class="featuresContainer flex-row layer">
@@ -141,7 +152,7 @@ ai-center">
       <img alt="athmovil" src="./assets/athmovil.png"/>
       <div class="featureText  flex-column jc-center">
         <p>
-          Aceptamos pagos por ATH movil
+          Pagos por ATH movil
         </p>
       </div>
     </div>
@@ -157,7 +168,7 @@ ai-center">
       <img alt="pin" src="./assets/pin.png"/>
       <div class="featureText  flex-column jc-center">
         <p>
-          Hacemos envios por correo a toda la isla y EEUU
+          Envios a toda la isla y EEUU
         </p>
       </div>
     </div>
