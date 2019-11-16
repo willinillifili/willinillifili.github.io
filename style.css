@@ -495,7 +495,7 @@ footer span {
   margin: 10px;
 }
 
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 600px) {
 
   #content {
     flex-direction: column;
@@ -578,5 +578,9 @@ footer span {
   .location {
     width: 100%;
     height: 90%;
+  }
+
+  footer {
+    display: none;
   }
 }
