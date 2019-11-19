@@ -608,4 +608,10 @@ footer span {
   .dsktp {
     display : none;
   }
+
+  .email {
+    font-size: 110%;
+    padding: 0px;
+    margin: 0px;
+  }
 }
