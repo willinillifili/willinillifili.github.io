@@ -2,179 +2,422 @@
 <html lang="es">
 <head>
   <title>
-    Sabana Auto Parts
+    Clasificados Electronicos
   </title>
   <meta charset="UTF-8">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/6228ba2463.js" crossorigin="anonymous"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
-  <link rel="stylesheet" type="text/css" href="./style.css">
-  <script src="https://kit.fontawesome.com/6228ba2463.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="./style-alt.css">
   <script src="script.js"></script>
-  <script>
-  $(document).ready(function() {
-    $(".feature").hover(function(){
-      $(this).stop().animate({
-        bottom: "+=20px"
-      }, 300);
-      $(".featureText").stop().animate({
-        color: "#969614"
-      }, 10);
-    },function(){
-      $(this).stop().animate({
-        bottom: "-=20px"
-      }, 300);
-      $(".featureText").stop().animate({
-        color: "#141414"
-      }, 10);
-    });
-  })
-  </script>
 </head>
 <body>
-  <div class="overlay centralize">
-    <img id="promoLarge" alt="promoLarge" src="./assets/promoespecial.jpg"/>
-    <button class="back" style="margin:10px;"> VOLVER </button>
-  </div>
-  <div id="content">
-  <div id="navbar" class="flex-row space-between layer">
-    <div id="logoContainer">
-      <a href="./index.html"><img alt="logo" src="./assets/logo.jpg" /></a>
-    </div>
-    <div id="linkArea" class="flex-row">
-      <div class="inicio navLink flex-column jc-center ai-center">
-        <a href="./index.html">
-          Inicio
-        </a>
+  <div class="content centralize">
+    <div class="navbar ">
+      <div class="toggle centralize">
+        <i class="fas fa-bars fa-2x"></i>
       </div>
-      <div class="navLink especiales flex-column jc-center ai-center">
-        <a href="#">
-          Especiales
-        </a>
+      <div id="nav-items">
+        <div class="nav-item">
+          <span>VEHICULOS</span>
+          <div class="dropdown centralize">
+            <span class="dropdown-item">AUTOS</span>
+            <span class="dropdown-item">MOTORAS</span>
+            <span class="dropdown-item">BOTES</span>
+            <span class="dropdown-item">CLASICOS</span>
+            <span class="dropdown-item">AVIONES</span>
+            <span class="dropdown-item">REMOLQUES</span>
+            <span class="dropdown-item">PICKUPS</span>
+            <span class="dropdown-item">VANES</span>
+          </div>
+        </div>
+        <div class="nav-item">
+          <span>BIENES RAICES</span>
+          <div class="dropdown centralize">
+            <span class="dropdown-item">CONDOMINIOS</span>
+            <span class="dropdown-item">CASAS VENTA</span>
+            <span class="dropdown-item">APARTAMENTOS</span>
+            <span class="dropdown-item">CASAS RENTA</span>
+            <span class="dropdown-item">COMERCIALES</span>
+            <span class="dropdown-item">VACACIONES</span>
+            <span class="dropdown-item">TERRENOS</span>
+          </div>
+        </div>
+        <div class="nav-item">
+          <span>NEGOCIOS</span>
+          <div class="dropdown centralize">
+            <span class="dropdown-item">SERVICIOS</span>
+            <span class="dropdown-item">EMPLEOS</span>
+            <span class="dropdown-item">SALUD</span>
+            <span class="dropdown-item">MEGA PAGINAS</span>
+          </div>
+        </div>
+        <div class="nav-item">
+          <span>MUCHO MAS</span>
+          <div class="dropdown centralize">
+            <span class="dropdown-item">MASCOTAS</span>
+            <span class="dropdown-item">MUEBLES</span>
+            <span class="dropdown-item">ROPA</span>
+            <span class="dropdown-item">MUCHO MAS</span>
+            <span class="dropdown-item">ENSERES</span>
+            <span class="dropdown-item">INSTRUMENTOS</span>
+            <span class="dropdown-item">LIBROS</span>
+            <span class="dropdown-item">CLASES</span>
+            <span class="dropdown-item">CLASES</span>
+            <span class="dropdown-item">CLASES</span>
+            <span class="dropdown-item">CLASES</span>
+          </div>
+        </div>
+        <div class="nav-item account-action">ACCEDER</div>
+        <div class="nav-item account-action">REGISTRARSE</div>
+        <div class="nav-item account-action">PREMIUM</div>
       </div>
-      <div class="contactenos navLink flex-column jc-center ai-center">
-        <a href="#">
-          Contactenos
-        </a>
-      </div>
-      <div class="localizacion navLink flex-column jc-center ai-center">
-        <a href="#">
-          Localizacion
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="corpus flex-column jc-center ai-center">
-    <div class="fill">
-    </div>
-  <div class="banner
-  flex-column
-  ai-center
-  jc-center">
-  <!--div style="height: 25%;"></div-->
-  <div class="bannerMain fadeIn spread">
-    <p>
-      LO ENCONTRARAS AQUI
-    </p>
-  </div>
-  <div class="bannerSub tight-contain flyInBottom spread">
-    <h2>
-      Todo tipo de
-      piezas para autos y camiones
-      livianos
-    </h2>
-  </div>
-  <div class="button flex-row ai-center jc-center flyInBottom">
-    <a href="#">VER ESPECIAL DEL MES</a>
-  </div>
-  <div class="promoImage">
-    <img id="promo" alt="promo" src="./assets/promoespecial.jpg"/>
-  </div>
-  <div class="location">
-    <div style="width: 100%">
-      <iframe width="100%" height="100%" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=RR-8%20Box%201995%2C%20Bayam%C3%B3n%2C%20PR%2000956+(%20Sabanas%20Auto%20Parts)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=B&amp;output=embed"
-      frameborder="0"
-      scrolling="no"
-      marginheight="0"
-      marginwidth="0">
-      <a href="https://www.maps.ie/coordinates.html">latitude longitude finder</a>
-    </iframe>
-  </div>
-  <br/>
-</div>
-<div class="contact flex-column">
-  <div class="contact-method flex-row phone">
-    <span style="color:white;">
-      <i class="fas fa-phone-alt fa-2x"></i>
-    </span><div>(787) 799-6415</div>
-  </div>
-  <div class="contact-method flex-row email">
-    <span style="color:white;"><i class="far fa-envelope fa-2x">
-    </i></span><span class="email">
-    ventas@sabanaautoparts
-  </span>
-  </div>
-  <div class="contact-method flex-row social">
-    <span style="color:white;"><i class="fab fa-facebook-square fa-2x">
-    </i></span><div>
-      <a href="https://www.facebook.com/sabanaautoparts">
-        <span class="fb">facebook.com/</span><u>sabanaautoparts</u>
-      </a>
-      </div>
-  </div>
-</div>
-</div>
-<div class="subsection">
-  <div class="featuresContainer flex-row layer">
-    <div id="f1" class="feature flex-column flex-start ai-center">
-      <img alt="athmovil" src="./assets/athmovil.png"/>
-      <div class="featureText  flex-column jc-center">
-        <p>
-          Pagos <span class="dsktp">por ATH movil</span>
-        </p>
+      <div class="accounts centralize">
+
       </div>
     </div>
-    <div id="f2" class="feature flex-column flex-start ai-center">
-      <img alt="messenger" src="./assets/messenger.png"/>
-      <div class="featureText  flex-column jc-center">
-        <p>
-          Cont&#225;ctanos <span class="dsktp">por texto o messenger</span>
-        </p>
-      </div>
+    <div class="layer">
     </div>
-    <div id="f3" class="feature flex-column flex-start ai-center">
-      <img alt="pin" src="./assets/pin.png"/>
-      <div class="featureText  flex-column jc-center">
-        <p>
-          Envios <span class="dsktp">a toda la isla y EEUU</span>
-        </p>
+    <!--div class="offer centralize-row">
+       <!--span class="highlight">
+         ¡Realtors y Dealers!
+       </span>
+       1000 anuncios por $40 |
+       Anuncios de tarjeta $60 por un año, 787-882-0592.
+    </div-->
+    <div class="main-container flex-column">
+      <div class="main flex-column">
+        <div class="action centralize">
+          <div class="banner centralize">
+          <div class="logo centralize">
+            <img alt="logo" src="./assets/banner4big.png"/>
+          </div>
+          <!--div class="slogan centralize-row">
+            <div class="centralize-row">
+              1.5 millones &nbsp
+              <span class="highlight">de accessos en el 2018 |
+              Mas de</span> &nbsp 10,000 &nbsp
+              <span class="highlight">anuncios</sp>
+            </div>
+          </div-->
+        </div>
+        <div class="searchbar centralize-row">
+          <form action="" class="centralize-row">
+            <input type="text" placeholder="que (y donde).." name="search">
+            <button class="centralize" type="submit">
+              <span style="color: white;">
+              <i class="fa fa-search fa-2x"></i>
+              <span>
+            </button>
+          </form>
+        </div>
+        <div class="post margin centralize-row">
+          <button class="centralize-row">
+            Publicar Gratis
+          </button>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
-</div>
-<!--div class="promo firstPromo centralize"  id="athmovil">
- <div class="promoImage">
-   <img alt="athmovilpromo" src="./assets/promoathmovil.jpg"/>
- </div>
-</div>
-<div class="divider"></div>
-<div class="promo secondPromo centralize" id="texto">
-  <div class="promoImage">
-    <img alt="textopromo" src="./assets/promotexto.jpg"/>
-  </div>
-</div>
-<div class="divider"></div>
-<div class="promo thirdPromo centralize" id="envios">
-  <div class="promoImage">
-    <img alt="enviospromo" src="./assets/promotexto.jpg"/>
-</div-->
-</div>
-</div>
-<footer>
-  <span>Sabanas Auto</span>
-  <span>PR-829, BO. BUENA VISTA, SECTOR SABANA, BAYAMON, PR 00956</span>
-  <span>(787) 799-6415</span>
-</footer>
-</body>
-</html>
+      <div class="categories centralize">
+        <div class="cat-title flex-row">
+          <div class="cat-title-icon">
+            <img alt="vehiculos" src="./assets/icon-vehiculos1.png">
+          </div>
+          <div>VEHICULOS</div>
+        </div>
+        <div class="category flex-row">
+          <div class="cat-center flex-row">
+            <div class="subcategory centralize">
+            <div class="subcat-image">
+              <img src="./assets/vehiculos/220autos.jpg"
+              alt="subcat-image"/>
+            </div>
+            <div class="subcat-title">
+              autos
+            </div>
+          </div>
+          <div class="subcategory centralize">
+            <div class="subcat-image">
+              <img src="./assets/vehiculos/220motoras.jpg"
+              alt="subcat-image"/>
+            </div>
+            <div class="subcat-title">
+              motoras
+            </div>
+          </div>
+          <div class="subcategory centralize">
+              <div class="subcat-image">
+                <img src="./assets/vehiculos/220botes.jpg"
+                alt="subcat-image"/>
+              </div>
+              <div class="subcat-title">
+                botes
+              </div>
+            </div>
+            <div class="subcategory centralize">
+              <div class="subcat-image">
+                <img src="./assets/vehiculos/220antiguos.jpg"
+                alt="subcat-image"/>
+              </div>
+              <div class="subcat-title">
+                clasicos
+              </div>
+            </div>
+            <div class="subcategory centralize">
+              <div class="subcat-image">
+                <img src="./assets/vehiculos/220aviones.jpg"
+                alt="subcat-image"/>
+              </div>
+              <div class="subcat-title">
+                aviones
+              </div>
+            </div>
+            <div class="subcategory centralize">
+              <div class="subcat-image">
+                <img src="./assets/vehiculos/220remolques.jpg"
+                alt="subcat-image"/>
+              </div>
+              <div class="subcat-title">
+                remolques
+              </div>
+            </div>
+            <div class="subcategory centralize">
+              <div class="subcat-image">
+                <img src="./assets/vehiculos/220pickup.jpg"
+                alt="subcat-image"/>
+              </div>
+              <div class="subcat-title">
+                pickups
+              </div>
+            </div>
+            <div class="subcategory centralize">
+              <div class="subcat-image">
+                <img src="./assets/vehiculos/220vanes.jpg"
+                alt="subcat-image"/>
+              </div>
+              <div class="subcat-title">
+                vanes
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="cat-title flex-row">
+            <div class="cat-title-icon">
+              <img alt="vehiculos" src="./assets/icon-bienesraices1.png">
+            </div>
+            <div>BIENES RAICES</div>
+          </div>
+          <div class="category flex-row">
+            <div class="cat-center flex-row">
+            <div class="subcategory centralize">
+              <div class="subcat-image">
+                <img src="./assets/bienesraices/220condominios.jpg"
+                alt="subcat-image"/>
+              </div>
+              <div class="subcat-title">
+                condominios
+              </div>
+            </div>
+            <div class="subcategory centralize">
+              <div class="subcat-image">
+                <img src="./assets/bienesraices/220casasventas.jpg"
+                alt="subcat-image"/>
+              </div>
+              <div class="subcat-title">
+                casas venta
+              </div>
+            </div>
+            <div class="subcategory centralize">
+              <div class="subcat-image">
+                <img src="./assets/bienesraices/220apartamentos.jpg"
+                alt="subcat-image"/>
+              </div>
+              <div class="subcat-title">
+                apartamentos
+              </div>
+            </div>
+            <div class="subcategory centralize">
+              <div class="subcat-image">
+                <img src="./assets/bienesraices/220casasalquiler.jpg"
+                alt="subcat-image"/>
+              </div>
+              <div class="subcat-title">
+                casas renta
+              </div>
+            </div>
+            <div class="subcategory centralize">
+              <div class="subcat-image">
+                <img src="./assets/bienesraices/220comerciales.jpg"
+                alt="subcat-image"/>
+              </div>
+              <div class="subcat-title">
+                comerciales
+              </div>
+            </div>
+            <div class="subcategory centralize">
+              <div class="subcat-image">
+                <img src="./assets/bienesraices/220vacaciones.jpg"
+                alt="subcat-image"/>
+              </div>
+              <div class="subcat-title">
+                vacaciones
+              </div>
+            </div>
+            <div class="subcategory centralize">
+              <div class="subcat-image">
+                <img src="./assets/bienesraices/220terrenos.jpg"
+                alt="subcat-image"/>
+              </div>
+              <div class="subcat-title">
+                terrenos
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="cat-title flex-row">
+            <div class="cat-title-icon">
+            <img alt="vehiculos" src="./assets/icon-muchomas1.png">
+          </div>
+            <div>MUCHO MAS</div>
+          </div>
+          <div class="category flex-row">
+            <div class="cat-center flex-row">
+            <div class="subcategory centralize">
+              <div class="subcat-image">
+                <img src="./assets/muchomas/220mascotas.jpg"
+                alt="subcat-image"/>
+              </div>
+              <div class="subcat-title">
+                mascotas
+              </div>
+            </div>
+            <div class="subcategory centralize">
+              <div class="subcat-image">
+                <img src="./assets/muchomas/220muebles.jpg"
+                alt="subcat-image"/>
+              </div>
+              <div class="subcat-title">
+                muebles
+              </div>
+            </div>
+            <div class="subcategory centralize">
+              <div class="subcat-image">
+                <img src="./assets/muchomas/220ropa.jpg"
+                alt="subcat-image"/>
+              </div>
+              <div class="subcat-title">
+                ropa
+              </div>
+            </div>
+            <div class="subcategory centralize">
+              <div class="subcat-image">
+                <img src="./assets/muchomas/220miscelaneos.jpg"
+                alt="subcat-image"/>
+              </div>
+              <div class="subcat-title">
+                mucho mas
+              </div>
+            </div>
+            <div class="subcategory centralize">
+              <div class="subcat-image">
+                <img src="./assets/muchomas/220enceres.jpg"
+                alt="subcat-image"/>
+              </div>
+              <div class="subcat-title">
+                enceres
+              </div>
+            </div>
+            <div class="subcategory centralize">
+              <div class="subcat-image">
+                <img src="./assets/muchomas/220instrumentos.jpg"
+                alt="subcat-image"/>
+              </div>
+              <div class="subcat-title">
+                instrumentos
+              </div>
+            </div>
+            <div class="subcategory centralize">
+              <div class="subcat-image">
+                <img src="./assets/muchomas/220libros.jpg"
+                alt="subcat-image"/>
+              </div>
+              <div class="subcat-title">
+                libros
+              </div>
+            </div>
+            <div class="subcategory centralize">
+              <div class="subcat-image">
+                <img src="./assets/muchomas/220clases.jpg"
+                alt="subcat-image"/>
+              </div>
+              <div class="subcat-title">
+                clases
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class="cat-title flex-row">
+            <div class="cat-title-icon">
+            <img alt="vehiculos" src="./assets/icon-vehiculos1.png">
+          </div>
+            <div>NEGOCIOS</div>
+          </div>
+          <div class="category flex-row">
+            <div class="cat-center flex-row">
+            <div class="subcategory centralize">
+              <div class="subcat-image">
+                <img src="./assets/negocios/220servicios.jpg"
+                alt="subcat-image"/>
+              </div>
+              <div class="subcat-title">
+                servicios
+              </div>
+            </div>
+            <div class="subcategory centralize">
+              <div class="subcat-image">
+                <img src="./assets/negocios/220empleos.jpg"
+                alt="subcat-image"/>
+              </div>
+              <div class="subcat-title">
+                empleos
+              </div>
+            </div>
+            <div class="subcategory centralize">
+              <div class="subcat-image">
+                <img src="./assets/negocios/220salud.jpg"
+                alt="subcat-image"/>
+              </div>
+              <div class="subcat-title">
+                salud
+              </div>
+            </div>
+            <div class="subcategory centralize">
+              <div class="subcat-image">
+                <img src="./assets/negocios/220mega.jpg"
+                alt="subcat-image"/>
+              </div>
+              <div class="subcat-title">
+                mega paginas
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="options centralize-row">
+        <div class="option"><u>Mi Cuenta</u></div>
+        <div class="option"><u>Contacto</u></div>
+        <div class="option"><u>Otros Paises</u></div>
+        <div class="option"><u>English</u></div>
+      </div>
+      </div>
+    </div><!--content end-->
+  </body>
+  <footer>
+    <a href="https://www.freepik.com/free-photos-vectors/background">
+      Background photo created by freepik - www.freepik.com</a>
+  </footer>
+  </html>
