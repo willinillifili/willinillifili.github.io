@@ -14,76 +14,83 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="./style-alt.css">
   <script src="script.js"></script>
+  <!--antes de deploy que min width sea 1000px mover logo al top var,
+       agrandar boton de CTA, a~nadir flechas a 'mucho mas' en mobil,
+       en mobil no ense~a todas la categorias, ad space yellowpages, un logo en el homepage de yellow pages
+     -->
 </head>
 <body>
   <div class="content centralize">
+    <div class="layer">
+    </div>
+    <div class="top-bar mobile-hide">
+      <a href="https://www.clasificadoselectronicos.com/contacto.htm" class="tb-item">Otros Paises</a>
+      <a href="https://www.clasificadoselectronicos.com/mundo.htm" class="tb-item">Contacto</a>
+    </div>
     <div class="navbar">
       <div class="toggle centralize">
         <i class="fas fa-bars fa-2x"></i>
       </div>
       <div id="nav-items">
         <div class="nav-item">
-          <span>VEHICULOS</span>
+          <span class="main-category">VEHICULOS</span>
           <div class="dropdown centralize">
-            <span class="dropdown-item">AUTOS</span>
-            <span class="dropdown-item">MOTORAS</span>
-            <span class="dropdown-item">BOTES</span>
-            <span class="dropdown-item">CLASICOS</span>
-            <span class="dropdown-item">AVIONES</span>
-            <span class="dropdown-item">REMOLQUES</span>
-            <span class="dropdown-item">PICKUPS</span>
-            <span class="dropdown-item">VANES</span>
+            <span class="dropdown-item">
+              <a href="https://clasificadoselectronicos.com/cgi-bin/getcars.cgi?db=1">AUTOS</a></span>
+            <span class="dropdown-item">
+              <a href="https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=motoras">MOTORAS</a></span>
+            <span class="dropdown-item"><a href="https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=botes">BOTES</a></span>
+            <span class="dropdown-item"><a href="https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=antiguos">CLASICOS</a></span>
+            <span class="dropdown-item"><a href="https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=aviones">AVIONES</a></span>
+            <span class="dropdown-item"><a href="https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=remolques">REMOLQUES</a></span>
+            <span class="dropdown-item"><a href="https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=pickups">PICKUPS</a></span>
+            <span class="dropdown-item"><a href="https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=vanes">VANES</a></span>
           </div>
         </div>
         <div class="nav-item">
-          <span>BIENES RAICES</span>
+          <span class="main-category">BIENES RAICES</span>
           <div class="dropdown centralize">
-            <span class="dropdown-item">CONDOMINIOS</span>
-            <span class="dropdown-item">CASAS VENTA</span>
-            <span class="dropdown-item">APARTAMENTOS</span>
-            <span class="dropdown-item">CASAS RENTA</span>
-            <span class="dropdown-item">COMERCIALES</span>
-            <span class="dropdown-item">VACACIONES</span>
-            <span class="dropdown-item">TERRENOS</span>
+            <span class="dropdown-item"><a href="https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=condominios">CONDOMINIOS</a></span>
+            <span class="dropdown-item"><a href="https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=casasventas">CASAS VENTA</a></span>
+            <span class="dropdown-item"><a href="https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=apartamentosalquiler">APARTAMENTOS</a></span>
+            <span class="dropdown-item"><a href="https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=casasalquiler">CASAS RENTA</a></span>
+            <span class="dropdown-item"><a href="https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=comerciales">COMERCIALES</a></span>
+            <span class="dropdown-item"><a href="https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=vacaciones">VACACIONES</a></span>
+            <span class="dropdown-item"><a href="https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=terrenos">TERRENOS</a></span>
           </div>
         </div>
         <div class="nav-item">
-          <span>NEGOCIOS</span>
+          <span class="main-category">NEGOCIOS</span>
           <div class="dropdown centralize">
-            <span class="dropdown-item">SERVICIOS</span>
-            <span class="dropdown-item">EMPLEOS</span>
-            <span class="dropdown-item">SALUD</span>
-            <span class="dropdown-item">MEGA PAGINAS</span>
+            <span class="dropdown-item"><a href="https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=servicios">SERVICIOS</a></span>
+            <span class="dropdown-item"><a href="https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=empleos">EMPLEOS</a></span>
+            <span class="dropdown-item"><a href="https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=salud">SALUD</a></span>
+            <span class="dropdown-item"><a href="./yellowpages.html">MEGA PAGINAS</a></span>
           </div>
         </div>
         <div class="nav-item">
-          <span>MUCHO MAS</span>
+          <span class="main-category">MUCHO MAS</span>
           <div class="dropdown centralize">
-            <span class="dropdown-item">MASCOTAS</span>
-            <span class="dropdown-item">MUEBLES</span>
-            <span class="dropdown-item">ROPA</span>
-            <span class="dropdown-item">MUCHO MAS</span>
-            <span class="dropdown-item">ENSERES</span>
-            <span class="dropdown-item">INSTRUMENTOS</span>
-            <span class="dropdown-item">LIBROS</span>
-            <span class="dropdown-item">CLASES</span>
-            <span class="dropdown-item">CLASES</span>
-            <span class="dropdown-item">CLASES</span>
-            <span class="dropdown-item">CLASES</span>
+            <span class="dropdown-item"><a href="https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=mascotas">MASCOTAS</a></span>
+            <span class="dropdown-item"><a href="https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=muebles">MUEBLES</a></span>
+            <span class="dropdown-item"><a href="https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=ropa">ROPA</a></span>
+            <span class="dropdown-item"><a href="https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=miscelaneos">MUCHO MAS</a></span>
+            <span class="dropdown-item"><a href="https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=enceres">ENSERES</a></span>
+            <span class="dropdown-item"><a href="https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=instrumentos">INSTRUMENTOS</a></span>
+            <span class="dropdown-item"><a href="https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=libros">LIBROS</a></span>
+            <span class="dropdown-item"><a href="https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=clases">CLASES</a></span>
           </div>
         </div>
-        <div class="nav-item account-action">ACCEDER</div>
-        <div class="nav-item account-action">REGISTRARSE</div>
-        <div class="nav-item account-action">PREMIUM</div>
+        <div class="nav-item account-action"><a href="https://www.clasificadoselectronicos.com/cgi-bin/micuenta.cgi">MI CUENTA</a></div>
+        <div class="nav-item account-action"><a href="https://www.clasificadoselectronicos.com/puertorico/regusuario.htm">REGISTRARSE</a></div>
+        <div class="nav-item account-action"><a href="https://www.clasificadoselectronicos.com/html-files/premium.htm">PREMIUM</a></div>
       </div>
       <div class="accounts centralize">
 
       </div>
     </div>
-    <div class="layer">
-    </div>
     <!--div class="offer centralize-row">
-    <!--span class="highlight">
+    <span class="highlight">
     ¡Realtors y Dealers!
   </span>
   1000 anuncios por $40 |
@@ -100,7 +107,7 @@
         <div class="centralize-row">
         1.5 millones &nbsp
         <span class="highlight">de accessos en el 2018 |
-        Mas de</span> &nbsp 10,000 &nbsp
+        Mas de</a></span> &nbsp 10,000 &nbsp
         <span class="highlight">anuncios</sp>
       </div>
     </div-->
@@ -143,8 +150,10 @@
         </div>
       </div>
       <div class="post margin centralize-row">
-        <button class="centralize-row">
-          Publicar Gratis
+        <button
+        class="centralize-row"
+        onclick="window.location.href = 'https://www.clasificadoselectronicos.com/cgi-bin/formanunciopr.cgi';">
+        PUBLICAR GRATIS
         </button>
       </div>
     </div>
@@ -156,21 +165,22 @@
         <div>VEHICULOS</div>
       </div>
       <div class="category-container flex-row">
-        <div class="arrow centralize">
+        <div class="arrow centralize right">
           <img alt="dd" src="./assets/dropdown.png">
         </div>
         <div class="category flex-row">
           <div class="cat-center flex-row">
-            <div class="subcategory centralize">
+            <div onclick="window.location.href = 'https://clasificadoselectronicos.com/cgi-bin/getcars.cgi?db=1'"
+            class="subcategory centralize">
               <div class="subcat-image">
-                <img src="./assets/vehiculos/220autos.jpg"
-                alt="subcat-image"/>
+                <img src="./assets/vehiculos/220autos.jpg" alt="subcat-image"/>
               </div>
               <div class="subcat-title">
                 autos
               </div>
             </div>
-            <div class="subcategory centralize">
+            <div onclick="window.location.href = 'https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=motoras'"
+            class="subcategory centralize">
               <div class="subcat-image">
                 <img src="./assets/vehiculos/220motoras.jpg"
                 alt="subcat-image"/>
@@ -179,7 +189,8 @@
                 motoras
               </div>
             </div>
-            <div class="subcategory centralize">
+            <div onclick="window.location.href = 'https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=botes'"
+            class="subcategory centralize">
               <div class="subcat-image">
                 <img src="./assets/vehiculos/220botes.jpg"
                 alt="subcat-image"/>
@@ -188,7 +199,8 @@
                 botes
               </div>
             </div>
-            <div class="subcategory centralize">
+            <div onclick="window.location.href='https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=antiguos'"
+            class="subcategory centralize">
               <div class="subcat-image">
                 <img src="./assets/vehiculos/220antiguos.jpg"
                 alt="subcat-image"/>
@@ -197,7 +209,8 @@
                 clasicos
               </div>
             </div>
-            <div class="subcategory centralize">
+            <div onclick="window.location.href='https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=aviones'"
+            class="subcategory centralize">
               <div class="subcat-image">
                 <img src="./assets/vehiculos/220aviones.jpg"
                 alt="subcat-image"/>
@@ -206,7 +219,8 @@
                 aviones
               </div>
             </div>
-            <div class="subcategory centralize">
+            <div onclick="window.location.href='https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=aviones'"
+            class="subcategory centralize">
               <div class="subcat-image">
                 <img src="./assets/vehiculos/220remolques.jpg"
                 alt="subcat-image"/>
@@ -215,7 +229,8 @@
                 remolques
               </div>
             </div>
-            <div class="subcategory centralize">
+            <div onclick="window.location.href='https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=pickups'"
+            class="subcategory centralize">
               <div class="subcat-image">
                 <img src="./assets/vehiculos/220pickup.jpg"
                 alt="subcat-image"/>
@@ -224,7 +239,8 @@
                 pickups
               </div>
             </div>
-            <div class="subcategory centralize">
+            <div onclick="window.location.href='https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=vanes'"
+            class="subcategory centralize">
               <div class="subcat-image">
                 <img src="./assets/vehiculos/220vanes.jpg"
                 alt="subcat-image"/>
@@ -235,7 +251,7 @@
             </div>
           </div>
         </div>
-        <div id="left" class="arrow centralize">
+        <div class="arrow centralize left">
           <img alt="dd" src="./assets/dropdown.png">
         </div>
       </div>
@@ -246,12 +262,13 @@
         <div>BIENES RAICES</div>
       </div>
       <div class="category-container flex-row">
-        <div class="arrow centralize">
+        <div class="arrow centralize right">
           <img alt="dd" src="./assets/dropdown.png">
         </div>
         <div class="category flex-row">
           <div class="cat-center flex-row">
-            <div class="subcategory centralize">
+            <div onclick="window.location.href='https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=condominios'"
+            class="subcategory centralize">
               <div class="subcat-image">
                 <img src="./assets/bienesraices/220condominios.jpg"
                 alt="subcat-image"/>
@@ -260,7 +277,8 @@
                 condominios
               </div>
             </div>
-            <div class="subcategory centralize">
+            <div onclick="window.location.href='https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=casasventas'"
+            class="subcategory centralize">
               <div class="subcat-image">
                 <img src="./assets/bienesraices/220casasventas.jpg"
                 alt="subcat-image"/>
@@ -269,7 +287,8 @@
                 casas venta
               </div>
             </div>
-            <div class="subcategory centralize">
+            <div onclick="window.location.href='https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=apartamentosalquiler'"
+            class="subcategory centralize">
               <div class="subcat-image">
                 <img src="./assets/bienesraices/220apartamentos.jpg"
                 alt="subcat-image"/>
@@ -278,7 +297,8 @@
                 apartamentos
               </div>
             </div>
-            <div class="subcategory centralize">
+            <div onclick="window.location.href='https://www.clasificadoselectronicos.com/220casasalquiler.jpg'"
+            class="subcategory centralize">
               <div class="subcat-image">
                 <img src="./assets/bienesraices/220casasalquiler.jpg"
                 alt="subcat-image"/>
@@ -287,7 +307,8 @@
                 casas renta
               </div>
             </div>
-            <div class="subcategory centralize">
+            <div onclick="window.location.href='https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=comerciales'"
+            class="subcategory centralize">
               <div class="subcat-image">
                 <img src="./assets/bienesraices/220comerciales.jpg"
                 alt="subcat-image"/>
@@ -296,7 +317,8 @@
                 comerciales
               </div>
             </div>
-            <div class="subcategory centralize">
+            <div onclick="window.location.href='https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=vacaciones'"
+            class="subcategory centralize">
               <div class="subcat-image">
                 <img src="./assets/bienesraices/220vacaciones.jpg"
                 alt="subcat-image"/>
@@ -305,7 +327,8 @@
                 vacaciones
               </div>
             </div>
-            <div class="subcategory centralize">
+            <div onclick="window.location.href='https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=terrenos'"
+            class="subcategory centralize">
               <div class="subcat-image">
                 <img src="./assets/bienesraices/220terrenos.jpg"
                 alt="subcat-image"/>
@@ -316,7 +339,7 @@
             </div>
           </div>
         </div>
-        <div id="left" class="arrow centralize">
+        <div class="arrow centralize left">
           <img alt="dd" src="./assets/dropdown.png">
         </div>
       </div>
@@ -326,11 +349,13 @@
         </div>
         <div>MUCHO MAS</div>
       </div>
-      <div class="category-container flex-row">
-        <div class="arrow centralize">
+      <div onclick="window.location.href=''"
+      class="category-container flex-row">
+        <div class="arrow centralize right">
           <img alt="dd" src="./assets/dropdown.png">
         </div>
-        <div class="category flex-row">
+        <div onclick="window.location.href='https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=mascotas'"
+        class="category flex-row">
           <div class="cat-center flex-row">
             <div class="subcategory centralize">
               <div class="subcat-image">
@@ -341,7 +366,8 @@
                 mascotas
               </div>
             </div>
-            <div class="subcategory centralize">
+            <div onclick="window.location.href='https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=muebles'"
+            class="subcategory centralize">
               <div class="subcat-image">
                 <img src="./assets/muchomas/220muebles.jpg"
                 alt="subcat-image"/>
@@ -350,7 +376,8 @@
                 muebles
               </div>
             </div>
-            <div class="subcategory centralize">
+            <div onclick="window.location.href='https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=ropa'"
+            class="subcategory centralize">
               <div class="subcat-image">
                 <img src="./assets/muchomas/220ropa.jpg"
                 alt="subcat-image"/>
@@ -359,7 +386,8 @@
                 ropa
               </div>
             </div>
-            <div class="subcategory centralize">
+            <div onclick="window.location.href='https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=miscelaneos'"
+            class="subcategory centralize">
               <div class="subcat-image">
                 <img src="./assets/muchomas/220miscelaneos.jpg"
                 alt="subcat-image"/>
@@ -368,7 +396,8 @@
                 mucho mas
               </div>
             </div>
-            <div class="subcategory centralize">
+            <div onclick="window.location.href='https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=enceres'"
+            class="subcategory centralize">
               <div class="subcat-image">
                 <img src="./assets/muchomas/220enceres.jpg"
                 alt="subcat-image"/>
@@ -377,7 +406,8 @@
                 enceres
               </div>
             </div>
-            <div class="subcategory centralize">
+            <div onclick="window.location.href='https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=instrumentos'"
+            class="subcategory centralize">
               <div class="subcat-image">
                 <img src="./assets/muchomas/220instrumentos.jpg"
                 alt="subcat-image"/>
@@ -386,7 +416,8 @@
                 instrumentos
               </div>
             </div>
-            <div class="subcategory centralize">
+            <div onclick="window.location.href='https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=libros'"
+            class="subcategory centralize">
               <div class="subcat-image">
                 <img src="./assets/muchomas/220libros.jpg"
                 alt="subcat-image"/>
@@ -395,7 +426,8 @@
                 libros
               </div>
             </div>
-            <div class="subcategory centralize">
+            <div onclick="window.location.href='https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=clases'"
+            class="subcategory centralize">
               <div class="subcat-image">
                 <img src="./assets/muchomas/220clases.jpg"
                 alt="subcat-image"/>
@@ -406,20 +438,18 @@
             </div>
           </div>
         </div>
-        <div id="left" class="arrow centralize">
+        <div class="arrow centralize left">
           <img alt="dd" src="./assets/dropdown.png">
         </div>
       </div>
       <div class="cat-title flex-row">
-        <div class="cat-title-icon">
-          <img alt="vehiculos" src="./assets/icon-vehiculos1.png">
-        </div>
         <div>NEGOCIOS</div>
       </div>
       <div class="category-container flex-row">
         <div class="category flex-row">
           <div class="cat-center flex-row">
-            <div class="subcategory centralize">
+            <div onclick="window.location.href='https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=servicios'"
+            class="subcategory centralize">
               <div class="subcat-image">
                 <img src="./assets/negocios/220servicios.jpg"
                 alt="subcat-image"/>
@@ -428,7 +458,8 @@
                 servicios
               </div>
             </div>
-            <div class="subcategory centralize">
+            <div onclick="window.location.href='https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=empleos'"
+            class="subcategory centralize">
               <div class="subcat-image">
                 <img src="./assets/negocios/220empleos.jpg"
                 alt="subcat-image"/>
@@ -437,7 +468,8 @@
                 empleos
               </div>
             </div>
-            <div class="subcategory centralize">
+            <div onclick="window.location.href='https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi?n=PR&c=salud'"
+            class="subcategory centralize">
               <div class="subcat-image">
                 <img src="./assets/negocios/220salud.jpg"
                 alt="subcat-image"/>
@@ -446,7 +478,8 @@
                 salud
               </div>
             </div>
-            <div class="subcategory centralize">
+            <div onclick="window.location.href='https://www.megapaginas.com/'"
+            class="subcategory centralize">
               <div class="subcat-image">
                 <img src="./assets/negocios/220mega.jpg"
                 alt="subcat-image"/>
@@ -460,15 +493,15 @@
       </div>
     </div>
   </div>
-  <div class="options centralize-row">
+  <!--div class="options centralize-row">
     <div class="option"><u>Mi Cuenta</u></div>
     <div class="option"><u>Contacto</u></div>
     <div class="option"><u>Otros Paises</u></div>
     <div class="option"><u>English</u></div>
-  </div>
+  </div-->
 </div>
 </div><!--content end-->
 </body>
 <footer>
-  </footer>
-  </html>
+</footer>
+</html>
