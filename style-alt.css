@@ -18,14 +18,24 @@
 }
 
 
+@keyframes swell {
+  0% {width: 60px; height: 60px; margin-right: -30px}
+  100% {width: 80px; height: 80px; margin-right: -40px}
+}
+
+@-webkit-keyframes swell {
+  0% {width: 60px; height: 60px; margin-right: -30px}
+  100% {width: 80px; height: 80px; margin-right: -40px}
+}
+
 @keyframes scroll-right {
   0% {right : 0%}
-  100% {right: 90%}
+  100% {right: 97%}
 }
 
 @-webkit-keyframes scroll-right {
   0% {right : 0%}
-  100% {right: 90%}
+  100% {right: 97%}
 }
 
 
@@ -409,7 +419,8 @@ tight-contain {
 
 .main {
   height: 100%;
-  width: 80%;
+
+  width: 90%;
   background-color: inherit;
   align-items: center;
 }
@@ -535,13 +546,17 @@ form button {
   background: rgba(0,187,170,1);
 }
 
+.category-meta-container {
+  width: 100%;
+}
+
 .categories {
   height: auto;
   width: 100%;
 }
 
 .cat-title {
-  font-size: 80%;
+  font-size: 85%;
   width : auto;
   font-weight: bold;
   justify-content: center;
@@ -574,15 +589,20 @@ form button {
 .category {
   font-size: 80%;
   margin: 0px;
-  overflow: hidden;
+  overflow-x: scroll;
+  overflow-y: hidden;
   //justify-content: center;
-  border-radius: 2px 2px 2px 2px;
+  border-radius: 0px 0px 2px 2px;
   width: 100%;
   height: auto;
   align-items: space-between;
   flex-wrap: wrap;
   background: rgba(245, 245, 245, 1);
-  box-shadow: 0 0 10px grey;
+  box-shadow: 5px 5px 10px grey;
+}
+
+.category::-webkit-scrollbar {
+  display: none;
 }
 
 
@@ -658,11 +678,11 @@ form button {
 
 .subcat-title {
   //color: rgba(225,225,225,0.95);
-  color : rgba(0,0,0,0.8);
+  color : rgba(0,0,0,0.65);
   padding: 5px;
   text-transform: capitalize;
   cursor: pointer;
-  font-size: 80%;
+  font-size: 90%;
 }
 
 form span i{
@@ -695,6 +715,7 @@ form span i{
   .arrow:hover {
     width: 80px;
     height: 80px;
+    margin-right: -40px;
   }
 
 .left {
@@ -756,18 +777,10 @@ form span i{
   }
 
   .cat-center {
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     width: 100%;
     position: relative;
-  }
-
-  .subcategory {
-    float: left;
-  }
-
-  .subcat-image {
-    width: 217px;
   }
 
   .search-tools-yellowpages {
@@ -821,8 +834,8 @@ form span i{
   .cat-title {
     color: black; //#ffddbb;
     height: 2em;
-    width: 80%;
-    font-size: 100%;
+    width: 100%;
+    font-size: 125%;
     text-align: center;
     display: flex;
     flex-direction: row;
@@ -901,8 +914,14 @@ form span i{
   }
 
   /*remember to change category with category-container*/
+
+  .category-meta-container {
+    width: auto;
+    height: auto;
+  }
+
   .category-container,.category {
-    width: 80%;
+    width: auto;
     align-items: center;
     position: relative;
     justify-content: center;
@@ -910,18 +929,45 @@ form span i{
   }
 
   .category {
-    width: 100%;
+    justify-content: flex-start;
+    height: auto;
+    width: 950px;
     overflow: hidden;
     margin: 0;
   }
 
+  .cat-center {
+    padding-right: 30px;
+    justify-content: flex-start;
+    align-items: center;
+    width: 1950px;
+  }
+
+  /* margin changes to .subcategory have to be accompanied
+  by padding change on parent container*/
   .subcategory {
-    width: 20%;
-    margin: 24px;
-    height: 12em;
-    font-size: 170%;
-    margin-right: 49px;
-    text-transform: capitalize;
+    width: 200px;
+    height: 200px;
+    margin: 30px 0px 30px 30px;
+  }
+
+  .subcat-image {
+    height: 80%;
+    width: auto;
+  }
+
+  .subcat-image img {
+    border-radius: 5px 5px 0px 0px;
+  }
+
+  .subcat-title {
+    height: 20%;
+    vertical-align: middle;
+    width: 100%;
+    font-size: 20px;
+    border: 1px solid lightgrey;
+    border-radius: 0px 0px 5px 5px;
+    padding: 0px;
   }
 
   .toggle {
