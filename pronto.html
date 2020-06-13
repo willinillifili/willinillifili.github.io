@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html style="height:100%;">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+  crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="./script.js"></script>
+  <script>
+  $(document).ready(function(){
+    var navSides = $('.navSides');
+    $('.mobile-toggler').click(function(){
+      let isdisplayed = navSides.css('display');
+      if (isdisplayed === "none") {
+        $('.navSides, .navbarOptions').css('display', 'flex');
+      }
+      else {
+        $('.navSides, .navbarOptions').css('display', 'none');
+      }
+    });
+  });
+  </script>
+  <title>Partido Renovación Puerto Rico</title>
+  <style>
+  h1, h2 {
+    font-family: 'Anton';
+  }
+  p {
+    text-align: justify;
+    font-family: 'Oswald';
+  }
+  h1, p {
+    color: white;
+  }
+  </style>
+</head>
+<body id="propuestaBody" style="height:100%;">
+  <div class='band'>
+  </div>
+  <div id="header">
+  </div>
+  <div class="mainNavBar">
+    <div id="logoCC" class="row-justify">
+      <div class="logoContainer secondary">
+        <div id="logo">
+          <a href="./index.html">
+            <img class="logo" src="./images/logoLowRes.png"/>
+          </a>
+        </div>
+      </div>
+    </div>
+      <nav class="navbar navbar-expand-lg navbar-dark"style="background-color: black;">
+        <!--a class="navbar-brand" href="#">Navbar</a-->
+        <div class="mobile-toggler">
+          <img alt="mobile-toggler" src="./images/bars-solid-white.png">
+        </div>
+        <div class="navbar-nav navbarOptions">
+          <div class="navSides">
+            <a class="nav-item nav-link" href="./index.html">COMIENZO</a>
+            <a class="nav-item nav-link" href="./plan.html">NUESTRO PLAN</a>
+            <a class="nav-item nav-link" href="./estadidad.html">¿ESTADIDAD?</a>
+            <a class="nav-item nav-link active" href="./reto.html">RETO</a>
+          </div>
+          <div class="navSides">
+            <a class="nav-item nav-link" href="./pronto.html">CANDIDATOS</a>
+            <a class="nav-item nav-link" href="./pronto.html">ENSAYOS</a>
+            <a class="nav-item nav-link" href="./contacto.html">CONTACTO</a>
+            <a class="nav-item nav-link" href="./noticias.html">NOTICIAS</a>
+          </div>
+        </div>
+      </nav>
+</div>
+<div id="header">
+</div>
+<div id="header2">
+  <a href="./index.html">
+    <img src="./images/logoLowRes.png" class="logoMob"/></a>
+</div>
+<div class="propuestaContentContainer column-justify">
+  <div class="propuestaContent column-justify">
+    <div class="RetoHeader">
+      <!--h1><font id="pParProp">Subpropuesta Tal</font></h1-->
+      <h2><font>*En Desarrollo*</font></h2>
+    </div>
+  </div>
+</div>
+<!-- Quantcast Tag -->
+<script type="text/javascript">
+var _qevents = _qevents || [];
+(function() {
+var elem = document.createElement('script');
+elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+elem.async = true;
+elem.type = "text/javascript";
+var scpt = document.getElementsByTagName('script')[0];
+scpt.parentNode.insertBefore(elem, scpt);
+})();
+_qevents.push({
+qacct:"p-feMRhwkdRRxQw"
+});
+</script>
+<noscript>
+<div style="display:none;">
+<img src="//pixel.quantserve.com/pixel/p-feMRhwkdRRxQw.gif" border="0" height="1" width="1" alt="Quantcast"/>
+</div>
+</noscript>
+<!-- End Quantcast tag -->
+
+</body>
+<footer>
+</footer>

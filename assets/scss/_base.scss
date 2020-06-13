@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+:root {
+  --chevron-color: gray;
+  --logo-star-color: #ffd801;
+  --logo-garita-color: #885533;
+  --logo-blue: #004377;
+  --logo-red: #bb3301;
+  --logo-green: #66ff55;
+  --black: #000c14;
+  --bg-option-blue: #3e5c76;
+  --bg-option-blue2: #00cfc1;
+  --bg-option-dandelion: #eeba0b;
+  --bg-option-wine: #3c1518;
+  --proposals-text: white;
+  --proposals-bg-color: #031d33;
+  --gr-short: 38.2%; 
+  --gr-long: 61.80%;
+}
+
+body {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	font-family: "Nunito", sans-serif;
+	height: inherit;
+}
+
+footer {
+	margin-top: 100px;
+	padding: 25px 0px 25px 0px;
+	background: var(--black);
+	color: white;
+}
+
+img {
+	width: 100%;
+	height: 100%;
+}
+
+h1, h2, h3, h4, h5 { 
+	font-family: 'Anton';
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+	transition: color 0.5s;
+	cursor: pointer;
+	color: white;
+}
+
+a:hover {
+	color: var(--logo-star-color);
+}
+
+iframe {
+	border: none;
+	border: 2px solid white;
+}
+
+body:before {
+		position: fixed;
+		z-index: -24;
+		display: block;
+		content: " ";
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		//background-color: rgba(0, 0, 0, 0.3);
+		//background-color: rgba(0, 67, 119, 0.5);
+		//background-color: rgba(187, 51, 1, 0.2); 
+		background-color: rgba(102, 255, 85, 0.1);
+		filter: brightness(100%);
+}
+
+body:after {
+		position: fixed;
+		z-index: -25;
+		display: block;
+		content: " ";
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-image: url('../images/cafe-blur.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+		filter: brightness(80%);
+}
+
+.ytp-chrome-top-buttons { display : none !important; }
+
+.gr-short-width { width: var(--gr-short); }
+
+.gr-long-width { width: var(--gr-long); }
+
+.gr-short-height { height: var(--gr-short); }
+
+.gr-long-height { height: var(--gr-long); }
+
+@mixin flex($direction:row, $mainAxis:flex-start, $oppositeAxis: flex-start) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $mainAxis;
+	align-items: $oppositeAxis;
+}
+
+.section {
+	margin: auto;
+	width: 90%;
+}
+
+.hover {
+	cursor: pointer;
+	transition: background-color 0.25s;
+}
+
+.desktop { display: none; }
+.mobile { display: flex; }
+
+@media only screen and (min-width: 800px) {
+
+ .desktop { display: block; }
+ .mobile { display: none; }	
+	
+ .section { 
+	width: 85%;
+ } 
+
+}
