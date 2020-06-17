@@ -1,7 +1,7 @@
 	#menu {
 		@include flex(row, space-between,center);
 		height: 90px;
-		margin-bottom: 80px;
+		margin-bottom: 50px;
 	
 		.logo, .menu-items {
 			height: 100%;
