@@ -38,11 +38,12 @@
 				& .option {
 					@include flex(column, center, center);
 					cursor: pointer;
+					
 					margin-top: 30px;
 					width: 100%;
 					height: 50px;
 					& h3 {
-						font-family: sans-serif;
+						font-family: 'Oswald', sans-serif;
 						font-size: 20px;
 						color: white; 
 					}
@@ -50,16 +51,110 @@
 				}
 				
 				& .option.hover:hover { background-color: #c25d38; }
+				
+				& .option:nth-of-type(1) { clip-path: polygon(100% 0%, 100% 50%, 100% 100%, 10% 100%, 5% 50%, 0% 0%); }
+				& .option:nth-of-type(2) { clip-path: polygon(100% 0%, 100% 50%, 100% 100%, 15% 100%, 19% 50%, 15% 0%); }
+				& .option:nth-of-type(3) { clip-path: polygon(100% 0%, 100% 50%, 100% 100%, 0% 100%, 5% 50%, 10% 0%); }
+				
 			}
 		}
 		
 		.video {
 			height: 400px;
-			width: 98%;
+			width: 100%;
 		}
 		
-		iframe { border: 1px solid var(--red);}
+		iframe { border: 1px solid var(white);}
 	}
+	
+	.summary { 
+		margin-top: 30px;
+		height: auto;
+		width: 100%;
+		background: white;
+	}
+	
+	.panels { 
+		@include flex(column);
+		height: 100%;
+		overflow-y: hidden;
+		
+		& .left-panel {
+			padding: 90px 0px 90px 0px;
+			background: white;
+			height: 100%;
+			.header > h1 { 
+				color: black;
+				font-size: 20px;
+				font-style: italic;
+			}
+			
+			& .header {  
+				margin-bottom: 15px;
+			}
+			
+			width: 100%;
+			
+			& .content {
+				font-size: 13px;
+				line-height: 25px;
+				text-align: justify;
+				& a {
+					color: black;
+				}
+			}
+		}
+		
+		& .design {
+			height: 100%;
+			& img { object-fit: cover; }
+			width: var(--gr-short);
+		}
+	}
+	
+	.plan {
+		margin-top: 30px;
+		background: transparent;
+		& .propuesta {
+			cursor: pointer;
+			padding: 30px;
+			font-size: 20px;
+			font-family: "Anton";
+			font-style: italic;
+			text-align: right;
+			color: white;
+			margin-bottom: 30px;
+			height: 1em;
+			width: 80%;
+			background: var(--black);
+			transition: background-color 0.25s;
+		}
+		
+		& .propuesta:hover { 
+			background: red;
+		}
+			
+		& .propuesta:nth-of-type(2) { width: 70%; }
+		& .propuesta:nth-of-type(3) { width: 60%; }
+		& .propuesta:nth-of-type(4) { width: 50%; }
+	}
+	
+		.estadidad {
+		background: var(--blue);
+		& .panels, .left-panel { 
+			color: white;
+			background: var(--blue);
+		}
+		
+		& .panels .left-panel .header h1 { color: white;}
+		
+		& .panels .left-panel .content a { color: white; }
+		
+		.design img { object-fit: contain; }
+		
+		.design { margin-left: 30px; }
+	}
+
 
 
 
@@ -70,50 +165,55 @@
 		@include flex(row);
 	
 		.nav-panel, .video {
-			height: 80%;
+			height: 90%;
 			//min-height: 202.39px;
 		}
 		
 		.nav-panel {
+			@include flex(column, space-between);
 			position: relative;
 			background: transparent;
 			width: 38.2%;
+			margin-right: 20px;
 			& .header { 
 				text-align: left;
 				color: white;
-				font-size: 50px;
-				& h2 {
-					position: relative;
-					top: -25px;
+				font-size: 2.75em;
+				height: var(--gr-short);
+				& img {
+					object-fit: contain;
+					object-position: left;
 				}
 			}
 			
 			& .star {
 				position: absolute;
 				top: 80px;
-				right: 200px;
+				right: 5%;
 				width: 90px;
 				height: 90px;
 			}
 			
 			& .star img {
 				object-fit: contain;
+				filter: brightness(150%);
 			}
 			
 			& .options {
+				width: 100%;
+				height: var(--gr-long);
 				@include flex(column, space-between);
 				& .option {
 					@include flex(column, center, center);
 					cursor: pointer;
+					font-style: italic;
 					margin-top: 30px;
-					width: 450px;
-					height: 75px;
+					width: 100%;
+					height: 20%;
 					& h3 {
-						font-family: sans-serif;
-						font-size: 45px;
+						font-size: 250%;
 						color: white; 
 					}
-					background: var(--logo-red);
 				}
 				
 				& .option.hover:hover { background-color: #c25d38; }
@@ -124,4 +224,98 @@
 			width: 61.80%;
 		}
 	}
+	
+	.summary { 
+		margin-top: var(--standard-separation);
+		height: 60vh;
+		width: 100%;
+	}
+	
+	.panels { 
+		@include flex(row);
+		height: 100%;
+		overflow-y: hidden;
+		
+		& .left-panel {
+			padding: 30px 0px 30px 0px;
+			background: white;
+			height: 100%;
+			.header > h1 { 
+				color: black;
+				font-size: 50px;
+				font-style: italic;
+			}
+			
+			& .header {  
+				margin-bottom: 15px;
+			}
+			
+			width: var(--gr-long);
+			
+			& .content {
+				font-size: 20px;
+				line-height: 30px;
+				text-align: justify;
+				& a {
+					color: black;
+				}
+			}
+		}
+		
+		& .design {
+			height: 100%;
+			& img { object-fit: cover; }
+			width: var(--gr-short);
+		}
+	}
+	
+	.plan {
+		margin-top: var(--standard-separation);
+		background: transparent;
+		& .propuesta {
+			cursor: pointer;
+			padding: 30px;
+			font-size: 50px;
+			font-family: "Anton";
+			font-style: italic;
+			text-align: right;
+			color: white;
+			margin-bottom: 30px;
+			height: 1em;
+			width: 80%;
+			background: var(--black);
+			transition: background-color 0.25s;
+		}
+		
+		& .propuesta:hover { 
+			background: red;
+		}
+			
+		& .propuesta:nth-of-type(2) { width: 70%; }
+		& .propuesta:nth-of-type(3) { width: 60%; }
+		& .propuesta:nth-of-type(4) { width: 50%; }
+	}
+	
+	.estadidad {
+		background: var(--blue);
+		& .panels, .left-panel { 
+			color: white;
+			background: var(--blue);
+		}
+		
+		& .panels .left-panel .header h1 { color: white;}
+		
+		& .panels .left-panel .content a { color: white; }
+		
+		.design img { object-fit: contain; }
+		
+		.design { margin-left: 30px; }
+	}
+}
+
+@media only screen and (max-width: 1250px) {
+	
+	.star { top: 0px !important; }
+	
+	.header { font-size: 295% !important; }
 }
