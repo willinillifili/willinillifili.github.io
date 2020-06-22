@@ -1,5 +1,7 @@
 	#index-content {
 		height: auto;
+		margin-top: 50px;
+		margin-bottom: 100px;
 		@include flex(column-reverse);
 	
 		.nav-panel, .video {
@@ -50,11 +52,11 @@
 					background: var(--red);
 				}
 				
-				& .option.hover:hover { background-color: #c25d38; }
+				& .option.hover:hover { background-color: var(--light-red); }
 				
-				& .option:nth-of-type(1) { clip-path: polygon(100% 0%, 100% 50%, 100% 100%, 10% 100%, 5% 50%, 0% 0%); }
-				& .option:nth-of-type(2) { clip-path: polygon(100% 0%, 100% 50%, 100% 100%, 15% 100%, 19% 50%, 15% 0%); }
-				& .option:nth-of-type(3) { clip-path: polygon(100% 0%, 100% 50%, 100% 100%, 0% 100%, 5% 50%, 10% 0%); }
+				& .option:nth-of-type(1) { clip-path: polygon(100% 0%, 100% 50%, 100% 100%, 15% 100%, 7.5% 50%, 0% 0%); }
+				& .option:nth-of-type(2) { clip-path: polygon(100% 0%, 100% 50%, 100% 100%, 22% 100%, 28% 50%, 22% 0%); }
+				& .option:nth-of-type(3) { clip-path: polygon(100% 0%, 100% 50%, 100% 100%, 0% 100%, 7.5% 50%, 15% 0%); }
 				
 			}
 		}
@@ -96,7 +98,8 @@
 			width: 100%;
 			
 			& .content {
-				font-size: 13px;
+				font-size: 15px;
+				font-weight: bold;
 				line-height: 25px;
 				text-align: justify;
 				& a {
@@ -123,6 +126,7 @@
 			font-style: italic;
 			text-align: right;
 			color: white;
+			text-transform: capitalize;
 			margin-bottom: 30px;
 			height: 1em;
 			width: 80%;
@@ -130,8 +134,13 @@
 			transition: background-color 0.25s;
 		}
 		
+		& .propuesta:after {
+			display: inline-block;
+			content: ">>";
+		}
+		
 		& .propuesta:hover { 
-			background: red;
+			background: var(--logo-blue);
 		}
 			
 		& .propuesta:nth-of-type(2) { width: 70%; }
@@ -155,12 +164,55 @@
 		.design { margin-left: 30px; }
 	}
 
-
-
+	.summary-link { 
+		font-family: 'Oswald'; 
+		font-size: 18px;
+	}
+	
+	.sub-proposals {
+		padding: 50px 0px 50px 0px;
+		background: var(--black);
+		display: none;
+		flex-direction: column;
+		height: inherit;
+		align-items: center;
+		justify-content: center;
+		
+		& h1 { 
+			text-transform: capitalize;
+			color: white;
+			text-decoration: underline;
+		}
+		
+		& .sub-proposal {
+			font-family: 'Oswald';
+			font-weight: bold;
+			color: white;
+			margin-top: 30px;
+			cursor: pointer;
+			transition: background-color 0.25s;
+			background: var(--red);
+			width: 100%;
+			padding: 15px;
+			&:hover { background: var(--light-red);}
+		}
+		
+		& .sub-proposal:after {
+			display: inline-block;
+			content: ">>";
+		}
+		
+		& .return { 
+			margin-top: 30px;
+			color: white;
+			cursor: pointer;
+		}
+	}
 
 @media only screen and (min-width: 800px) {
 	#index-content {
 		height: 80vh;
+		margin-top: 100px;
 		min-height: 202.39px;
 		@include flex(row);
 	
@@ -216,7 +268,6 @@
 					}
 				}
 				
-				& .option.hover:hover { background-color: #c25d38; }
 			}
 		}	
 		
@@ -253,18 +304,18 @@
 			width: var(--gr-long);
 			
 			& .content {
-				font-size: 20px;
+				font-size: 21px;
+				font-weight: normal;
 				line-height: 30px;
 				text-align: justify;
-				& a {
-					color: black;
-				}
 			}
 		}
 		
 		& .design {
 			height: 100%;
-			& img { object-fit: cover; }
+			& img { 
+				object-fit: cover;
+			}
 			width: var(--gr-short);
 		}
 	}
@@ -283,12 +334,7 @@
 			margin-bottom: 30px;
 			height: 1em;
 			width: 80%;
-			background: var(--black);
 			transition: background-color 0.25s;
-		}
-		
-		& .propuesta:hover { 
-			background: red;
 		}
 			
 		& .propuesta:nth-of-type(2) { width: 70%; }
@@ -310,6 +356,31 @@
 		.design img { object-fit: contain; }
 		
 		.design { margin-left: 30px; }
+	}
+	
+	.summary-link { font-size: 30px; }
+
+	.sub-proposals {
+	& h1 { 
+		text-transform: capitalize;
+		color: white;
+		font-size: 50px;
+		text-decoration: underline;
+	}
+		
+	& .sub-proposal {
+		font-family: 'Oswald';
+		font-weight: bold;
+		color: white;
+		font-size: 30px;
+		margin-top: 30px;
+		cursor: pointer;
+		transition: background-color 0.25s;
+		background: var(--red);
+		width: 100%;
+		padding: 15px;
+		&:hover { background: var(--light-red);}
+	}	
 	}
 }
 

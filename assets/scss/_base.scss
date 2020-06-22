@@ -5,13 +5,14 @@
   --chevron-color: gray;
   --logo-star-color: #ffd801;
   --logo-garita-color: #885533;
+  --light-red: #c25d38;
   --logo-blue: #004377;
   --logo-red: #bb3301;
   --logo-green: #66ff55;
-  --black: #000c14;
+  --black: #001d33;
   --bg-option-blue: #3e5c76;
   --bg-option-blue2: #00cfc1;
-  --bg-option-dandelion: #eeba0b;
+  --bg-option-dandelion: #eeba0;
   --bg-option-wine: #3c1518;
   --proposals-text: white;
   --proposals-bg-color: #031d33;
@@ -56,7 +57,7 @@ a {
 }
 
 a:hover {
-	color: var(--logo-star-color);
+	color: var(--logo-star-color) !important;
 }
 
 iframe {
@@ -92,7 +93,7 @@ body:after {
 		background-image: url('../images/bandera3.jpg');
 		background-repeat: no-repeat;
 		background-size: cover;
-		filter: brightness(100%);
+		filter: brightness(80%);
 }
 
 .ytp-chrome-top-buttons { display : none !important; }
@@ -135,10 +136,10 @@ body:after {
  }
 
  footer {
-	margin-top: 100px;
 	padding: 25px 0px 25px 0px;
 	background: white;
 	color: black;
+	border-top: 2px solid var(--red);
  }
 
 }

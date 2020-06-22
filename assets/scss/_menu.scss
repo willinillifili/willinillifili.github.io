@@ -1,7 +1,6 @@
 	#menu {
 		@include flex(row, space-between,center);
 		height: 90px;
-		margin-bottom: 50px;
 	
 		.logo, .menu-items {
 			height: 100%;
@@ -22,8 +21,8 @@
 			z-index: 51;
 			background: white;
 			border-radius: 100px;
-			width: 95px;
-			height: 95px;
+			width: 70px;
+			height: 70px;
 			cursor: pointer;
 		}
 
@@ -74,6 +73,7 @@
 		display: block;
 		width: 100%;
 		background: white;
+		border-bottom: 2px solid var(--red);
 	}
 	
 	.showMenu { width: 50% !important; }
@@ -83,7 +83,6 @@
 	
 	#menu {
 		@include flex(row, space-between,center);
-		margin-bottom: 100px;
 	
 		.logo, .menu-items {
 			height: 100%;

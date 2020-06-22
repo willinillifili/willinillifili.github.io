@@ -1,0 +1,48 @@
+#article { 
+	@include flex(row, center);
+}	
+.article {
+	margin: 2px 0px 2px 0px;
+	background: white;	
+	padding: 30px 20px 30px 20px;
+	
+	& .return a {
+		color: black;
+		font-style: italic;
+		font-weight: bold;
+	}
+	
+	& .return { margin-top: 15px; }
+	
+	& .media {
+		height: 300px;
+		margin: 20px 0px 20px 0px;
+	}
+	
+	& .content {
+		font-weight: bold;
+		line-height: 30px;
+		text-align: justify;
+	}
+}
+
+
+@media only screen and (min-width: 800px) {
+	
+	#article { 
+		& .article {
+			height: 100%;
+			padding: 100px 75px 100px 75px;
+			width: 50%;
+			& .media {
+				height: 500px;
+			}
+		
+			& .content {
+				line-height: 35px;
+			}
+		}
+		
+	}
+	
+}

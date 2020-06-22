@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="./assets/css/style.css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="script-test.js"></script>
+  <script src="./assets/js/script-index.js"></script>
   <title>Partido Renovación Puerto Rico</title>
 </head>
 <body>   <div class="menu-background"></div>
@@ -30,23 +30,22 @@
 			<img src="./assets/images/logo.png" alt="title"/>
 		</div>
 		<div class="options gr-long-height">
-			<div class="option hover">
-				<a href="plan.html"><h3> Propuestas </h3></a>
-			</div>
-			<div class="option hover">
-				<a href="pronto.html">
-				<h3> Candidatos </h3></a>
-			</div>
-			<div class="option hover">
-				<a href="pronto.html"><h3> Donaciones </h3></a>
-			</div>
+			<a class="option hover" href="plan.html">
+				<h3> Propuestas </h3>
+			</a>
+			<a class="option hover" href="pronto.html">
+				<h3> Candidatos </h3>
+			</a>
+			<a class="option hover" href="pronto.html">
+				<h3> Donaciones </h3>
+			</a>		
 		</div>
 	</div>
 	<div class="video gr-long-width">
 		<iframe  
 			width="100%" 
 			height="100%" 
-			src="https://www.youtube.com/embed/aKLJG28Clc0?autoplay=1" 
+			src="https://www.youtube.com/embed/aKLJG28Clc0" 
 			allowfullscreen>
 		</iframe>
 	</div>	
@@ -67,12 +66,13 @@
 				Unidos, debemos tratar de ser como ese país. Debemos imitar 
 				lo mejor de todos los países. Antes de cambiar nuestro estatus 
 				necesitamos aprender a gobernar lo que tenemos.
-				<a href="./plan.html">
 					<br><br>
 					<b>
-						<em>Necesitamos valores, no colores >> </em>
+						<em>
+						<a class="summary-link"
+						   href="./plan.html">Necesitamos valores, no colores >> </a>
+						</em>
 					</b>
-				</a>
 			</div>
 		</div>
 		<div class="design desktop">
@@ -80,11 +80,21 @@
 		</div>
 	</div>
   </div>
-  <div class="summary plan">
-	<div class="propuesta"> Reforma Democratica >> </div>
-	<div class="propuesta"> Reforma Educativa >> </div>
-	<div class="propuesta"> Reforma Economica >> </div>
-	<div class="propuesta"> Reforma Anticrimen >> </div>
+  <div id="proposals" class="summary plan">
+	{{#categories}}
+		<div id="{{ id }}" class="propuesta"> {{ title }} </div>
+	{{/categories}}
+	<div class="sub-proposals">
+		<h1>{{ parentTitle }}</h1>
+		{{#subProposal}}
+			<div id="{{content-id}}" 
+			     class="sub-proposal">
+				 {{title}} </div>
+		{{/subProposal}}
+		<div 
+		   onclick="window.location.reload()"
+		   class="return"> Regresar </div>
+	</div>
   </div>
    <div class="summary estadidad">
 	<div class="section panels">
@@ -104,12 +114,14 @@
 				piensan que nuestra esperanza se encuentra en un cambio de estatus 
 				es sabio comentar sobre este asunto para demostrar que las alternativas 
 				de estatus tienen graves obstáculos. 
-				<a href="./plan.html">
 					<br><br>
 					<b>
-						<em>Lee el ensayo completo >> </em>
+						<em>
+							<a class="summary-link" 
+							   href="./estadidad.html">	
+							   Lee el articulo completo >></a> 
+						</em>
 					</b>
-				</a>
 			</div>
 		</div>
 		<div class="design desktop">
