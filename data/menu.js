@@ -15,7 +15,7 @@ const menu = {
 	
 		{
 			"title": '¿estadidad?',
-			"url": 'estadidad.html'
+			"url": 'essay.html'
 		},
 	
 		{

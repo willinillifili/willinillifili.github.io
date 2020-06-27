@@ -15,7 +15,7 @@ const menu = {
 	
 		{
 			"title": '¿estadidad?',
-			"url": 'essay.html'
+			"url": 'estadidad.html'
 		},
 	
 		{
@@ -129,25 +129,9 @@ const menu = {
 };const footer = {
 	copyright : "Copyright Raul Lopez, M.D, todos los derechos reservados. 2020"
 };$(document).ready(function(){
-	
-	// add field to menuItem objects and refactor the menu data object
-	
-	let items = [];
-	let logo = menu.logo;
-	let menuItems = menu.menuItems;
-	menuItems.forEach((menuItem) => {
-		items.push({
-			title : menuItem.title,
-			url : menuItem.url,
-			id: menuItem.title.replace(" ", "")
-		});
-	});
-	data = { menuItems : items, logo : logo };
 	var template = $("#menu").html();
-	var output = Mustache.render(template, data);
+	var output = Mustache.render(template, menu);
 	$("#menu").html(output);
-	
-	// handle mobile menu UI mechanics
 	
 	var menuIsShowing = 0;
 	$(".snackbar").click(function() {
@@ -163,20 +147,6 @@ const menu = {
 			menuIsShowing = 0;
 		}
 	});
-	
-	$(".menu-item").click(function() {
-		if (menuIsShowing) {
-			$(".menu-items").removeClass('showMenu');
-			$(".menu-item").removeClass('showMenuItems');
-			menuIsShowing = 0;
-		}
-	})
-});$(document).ready(function(){
-	let proposalSection = $("#proposals").offset().top - 100;
-	$("#propuestas, #nuestroplan, #plan-link").on("click", function(e) {
-		e.preventDefault();
-		$("html, body").scrollTop(proposalSection);
-	});
 });$(document).ready(function() {
 	let template = $("#proposals").html();
 	var output = Mustache.render(template, proposals);
@@ -188,23 +158,13 @@ const menu = {
 		$(".propuesta").css("display", "none");
 		let id = propuesta.attr("id");
 		let parent = propuesta.text();
-		let data = {
-			"parentTitle"      : parent,
-			"subProposal" : subProposals[id] 
-		};
+		let data = { "subProposal" : subProposals[id] };
 		let output = Mustache.render(template, data);
-		$(".sub-proposals").html(output);
-		$(".sub-proposals").css("display", "flex");	
-	});
-	
-	$(".sub-proposals").on("click", ".sub-proposal", function(){
-		let contentID = $(this).attr("id");
-		let title = $(this).text();
+		$("#sub-proposals").html(output);
 		// article page needs subProposal data if one of the subProposal links gets clicked.
 		// things you gotta do when everything is left to the front-end.
-		window.localStorage.setItem("content-id", contentID);
-		window.localStorage.setItem("title", title);
-		window.location.assign("./article.html")
+		window.localStorage.setItem("content-id", data["subProposal"]["content-id"]);
+		window.localStorage.setItem("title", data["subProposal"]["title"]);
 	});
 });$(document).ready(function() {
 	footerTemplate = $("footer").html();

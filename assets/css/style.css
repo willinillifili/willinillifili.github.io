@@ -260,12 +260,18 @@ body:after {
     height: 60px; } }
 #index-content {
   height: auto;
-  margin-top: 50px;
+  margin-top: 15px;
   margin-bottom: 100px;
   display: flex;
   flex-direction: column-reverse;
   justify-content: flex-start;
   align-items: flex-start; }
+  #index-content .mobile-logo {
+    height: 125px;
+    margin-bottom: 15px; }
+    #index-content .mobile-logo img {
+      object-fit: contain;
+      object-position: left; }
   #index-content .nav-panel {
     position: relative;
     background: transparent;
@@ -561,9 +567,15 @@ body:after {
     .estadidad .panels .left-panel .content a {
       color: white; }
     .estadidad .design img {
-      object-fit: contain; }
+      object-fit: contain;
+      height: 80%;
+      width: 80%; }
     .estadidad .design {
-      margin-left: 30px; }
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      margin-left: 100px; }
 
   .summary-link {
     font-size: 30px; }
@@ -625,5 +637,36 @@ body:after {
       height: 500px; }
     #article .article .content {
       line-height: 35px; } }
+#essay .article {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; }
+  #essay .article .media {
+    margin: 0;
+    height: 200px; }
+  #essay .article .media img {
+    object-fit: contain; }
+  #essay .article ul {
+    list-style-type: square; }
+  #essay .article .index li {
+    cursor: pointer;
+    text-decoration: underline; }
+
+@media only screen and (min-width: 800px) {
+  #essay {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start; }
+    #essay .article {
+      width: 65%; }
+      #essay .article .media {
+        margin: 50px; }
+      #essay .article .index {
+        margin-bottom: 50px; }
+        #essay .article .index li {
+          font-size: 20px;
+          line-height: 40px; } }
 
 /*# sourceMappingURL=style.css.map */

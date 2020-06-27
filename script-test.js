@@ -4,13 +4,13 @@ const menu = {
 	
 	menuItems : [
 		{
-			"title": 'comienzo',
-			"url": 'index.html'
+			"title" : 'comienzo',
+			"url"   : 'index.html'
 		},
 	
 		{
-			"title": 'nuestro plan',
-			"url": 'plan.html'
+			"title" : 'nuestro plan',
+			"url"   : 'plan.html'
 		},
 	
 		{
@@ -43,6 +43,89 @@ const menu = {
 			"url": 'noticias.html'
 		}	
 	]
+};const proposals = {
+	categories: [
+		{
+			title: "reforma democratica",
+			id: "rd"
+		},
+		
+		{
+			title: "reforma educativa ",
+			id: "re"
+		},
+		
+		{
+			title: "reforma economica",
+			id: "rec"
+		},
+		
+		{
+			title: "reforma anticrimen",
+			id: "ra"
+		},		
+	]
+};const subProposals = {
+	"rd" : [
+		{
+			"title" : "Voto Por Puntos",
+			"content-id" : "11"
+		},
+		{
+			"title" : "Elecciones Legislativas Cada Dos Años",
+			"content-id" : "12"
+		},
+		{
+			"title" : "Legislatura Cuidadana Tiempo Parcial",
+			"content-id" : "13"
+		},
+		{
+			"title" : "Más legisladores",
+			"content-id" : "14"
+		},
+		{
+			"title" : "Consolidación de Municipios",
+			"content-id" : "15"
+		},
+		
+	],
+	
+	"re" : [
+		{
+			"title" : "Usar Vales Educativos para Privatizar la Educación",
+			"content-id" : "21"
+		}	
+	],
+	
+	"rec" : [ 
+		{
+			"title" : "Ayudar al que Trabaja",
+			"content-id" : "31"
+		},
+		{
+			"title" : "Ayudas de Renta, Salud y Comida por Vales",
+			"content-id" : "32"
+		},
+		{
+			"title" : "Bajar los Impuestos",
+			"content-id" : "33"
+		},
+		{
+			"title" : "Sustituir Salario Mínimo por Vales",
+			"content-id" : "34"
+		},
+	],
+	
+	"ra" : [
+		{
+			"title" : "Mano Dura al Crimen Violento",
+			"content-id" : "41"
+		},
+		{
+			"title" : "Liga Atlética Policiaca",
+			"content-id" : "42"
+		},
+	],
 };const footer = {
 	copyright : "Copyright Raul Lopez, M.D, todos los derechos reservados. 2020"
 };$(document).ready(function(){
@@ -63,6 +146,22 @@ const menu = {
 			$(".menu-item").removeClass('showMenuItems');
 			menuIsShowing = 0;
 		}
+	});
+});$(document).ready(function() {
+	let template = $("#proposals").html();
+	var output = Mustache.render(template, proposals);
+	$("#proposals").html(output);
+	
+	
+	$(".propuesta").click(function() {
+		var propuesta = $(this);
+		$(".propuesta").css("display", "none");
+		let id = propuesta.attr("id");
+		let parent = propuesta.text();
+		let data = { "subProposal" : subProposals[id] };
+		let output = Mustache.render(template, data);
+		console.log(output);
+		$("#sub-proposals").html(output);		
 	});
 });$(document).ready(function() {
 	footerTemplate = $("footer").html();

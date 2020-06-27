@@ -18,7 +18,7 @@
 		</div>
 		<div class="menu-items">
 			{{#menuItems}}
-			<div class="menu-item">
+			<div id="{{id}}" class="menu-item">
 				<a href="{{url}}">{{title}}</a>
 			</div>
 			{{/menuItems}}
@@ -30,17 +30,17 @@
 			<img src="./assets/images/logo.png" alt="title"/>
 		</div>
 		<div class="options gr-long-height">
-			<a class="option hover" href="plan.html">
+			<a id="propuestas" class="option hover" href="plan.html">
 				<h3> Propuestas </h3>
 			</a>
-			<a class="option hover" href="pronto.html">
+			<a id="candidatos" class="option hover" href="pronto.html">
 				<h3> Candidatos </h3>
 			</a>
-			<a class="option hover" href="pronto.html">
+			<a id="donaciones" class="option hover" href="pronto.html">
 				<h3> Donaciones </h3>
 			</a>		
 		</div>
-	</div>
+	</div>	
 	<div class="video gr-long-width">
 		<iframe  
 			width="100%" 
@@ -48,6 +48,9 @@
 			src="https://www.youtube.com/embed/aKLJG28Clc0" 
 			allowfullscreen>
 		</iframe>
+	</div>
+	<div class="mobile-logo mobile">
+		<img src="./assets/images/logo-mobile.png" alt="title"/>
 	</div>	
   </div>
   <div class="summary">
@@ -69,7 +72,7 @@
 					<br><br>
 					<b>
 						<em>
-						<a class="summary-link"
+						<a id="plan-link" class="summary-link"
 						   href="./plan.html">Necesitamos valores, no colores >> </a>
 						</em>
 					</b>
@@ -118,7 +121,7 @@
 					<b>
 						<em>
 							<a class="summary-link" 
-							   href="./estadidad.html">	
+							   href="./essay.html">	
 							   Lee el articulo completo >></a> 
 						</em>
 					</b>
