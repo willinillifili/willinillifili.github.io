@@ -1,50 +1,18 @@
 $(document).ready(function(){
-  //menu item hover
+  const isMobile = $("#device-check").css("display") == "block";
 
-	//sticky navbar
-	var bannerPos = $(".banner").offset().top;
+  //sticky navbar
+  var bannerPos = $(".mp-banner").offset().top;
   $(document).scroll(function() {
     if ($(this).scrollTop() >= bannerPos - 75) {
-      $(".top-bar").addClass("fill-navbar");
+      $(".navbar").addClass("fill-navbar");
     }
     else {
-      $(".top-bar").removeClass("fill-navbar");
+      $(".navbar").removeClass("fill-navbar");
     }
   });
 
-	if ($(".toggle").css("display") != "none") {
-      cat = $(".category");
-      cat.scrollLeft(0);
-      cat.next().height(.1);
-      cat.next().width(.1);
-      cat.prev().width(30);
-      cat.prev().height(30);
-      cat.next().css("display", "flex");
-  }
-
-	//stop event bubbling on searchbar clicke
-	$("input, button").click(function(e) {
-		e.stopPropagation();
-	});
-
-  window.onbeforeunload = function(e) {
-		//i.e. we are on mobile. weak condition but ill think of something else later.
-    if ($(".toggle").css("display") != "none")
-    {
-      /*cat = $(".category");
-      cat.scrollLeft(0);
-      cat.next().height(.1);
-      cat.next().width(.1);
-      cat.prev().width(30);
-      cat.prev().height(30);
-      cat.next().css("display", "flex");*/
-    }
-  }
-
-  $(".subcategory").click(function(e){
-    e.stopPropagation();
-  })
-
+  //menu item hover
   $(".nav-item").hover(
     function(){
       $(this).children(".dropdown").css("display", "flex");
@@ -62,21 +30,18 @@ $(document).ready(function(){
     if (show === "") {
       menu.css("display", "flex");
       menu.attr("class", "nav-items");
-      menu.removeClass("fadeOut");
-      menu.addClass("fadeIn");
+      //menu.addClass("mobile-menu");
     }
     else {
-      menu.removeClass("fadeIn");
-      menu.addClass("fadeOut");
       menu.css("display", "none");
       menu.attr("class", "");
     }
   })
 
   //menu item navigate to corresponding tile
-  $(".dd-main, .main-category").click(function(){
+  $(".main-category").click(function(){
     var text = $(this).text().trim();
-    let pos = $(".cat-title:contains("+text+")").offset().top;
+    var pos = $(".cat-title:contains("+text+")").offset().top;
     $("html, body").animate({
       scrollTop: pos
     });
@@ -92,23 +57,12 @@ $(document).ready(function(){
     countriesDropdown.addClass("dropdown
   });*/
 
-  //desktop countries dropdown menu
   $(".country").hover(function(e){
-    e.stopPropagation();
     $(".countries-dropdown").removeClass("pullup-fx");
     $(".countries-dropdown").addClass("dropdown-fx")
   }, function() {
     $(".countries-dropdown").removeClass("dropdown-fx");
     $(".countries-dropdown").addClass("pullup-fx");
-  });
-
-  //categories dropdown menu
-  $(".tb-categories").hover(function(e){
-    $(".categories-dropdown").removeClass("pullup-fx");
-    $(".categories-dropdown").addClass("dropdown-fx")
-  }, function() {
-    $(".categories-dropdown").removeClass("dropdown-fx");
-    $(".categories-dropdown").addClass("pullup-fx");
   });
 
   //countries dropdown for mobile
@@ -128,265 +82,146 @@ $(document).ready(function(){
   });
 
   //menus hide by clicking anything on the srcreen
-  $(document).click(function(e){
+  $(document).click(function(){
     $(".nav-items").hide();
     $(".countries-dropdown").addClass("pullup-fx");
     $(".countries-dropdown").removeClass("dropdown-fx");
     $("#nav-items").removeClass("nav-items");
   });
 
-  //we construct this dictionary of countries and country codes
-  //it will function as a 'local DB' from which we can extract data to adjust
-  //the urls on our page.
-  const countries = [
-    {
-      name: "argentina",
-      code: "AR"
-    },
-    {
-      name: "bolivia",
-      code: "BO"
-    },
-    {
-      name: "california",
-      code: "CA",
-      state: true
-    },
-    {
-      name: "chile",
-      code: "CH"
-    },
-    {
-      name: "colombia",
-      code: "CO"
-    },
-    {
-      name: "costa_rica",
-      code: "CR"
-    },
-    {
-      name: "cuba",
-      code: "CU"
-    },
-    {
-      name: "ecuador",
-      code: "EC"
-    },
-    {
-      name: "el_salvador",
-      code: "EL"
-    },
-    {
-      name: "espana",
-      code: "ES"
-    },
-    {
-      name: "florida",
-      code: "FL",
-      state: true
-    },
-    {
-      name: "guatemala",
-      code: "GU"
-    },
-    {
-      name: "honduras",
-      code: "HO"
-    },
-    {
-      name: "illinois",
-      code: "IL",
-      state: true
-    },
-    {
-      name: "mexico",
-      code: "MX"
-    },
-    {
-      name: "nicaragua",
-      code: "NI"
-    },
-    {
-      name: "panama",
-      code: "PN"
-    },
-    {
-      name: "paraguay",
-      code: "PG"
-    },
-    {
-      name: "peru",
-      code: "PE"
-    },
-    {
-      name: "puerto_rico",
-      code: "PR"
-    },
-    {
-      name: "republica_dominicana",
-      code: "RD"
-    },
-    {
-      name: "texas",
-      code: "TX"
-    },
-    {
-      name: "uruguay",
-      code: "UR"
-    },
-    {
-      name: "venezuela",
-      code: "VE"
-    },
-  ];
+  //expand/collapse categories
+  /*$(".category-dropdown-arrow").click(function() {
+    var categories = $(this).next();
+    if ()
+  });*/
 
-  //set previously clicked country if returning from another page
-  //and adjust queries accordingly
-  if (sessionStorage.getItem("country")) {
-    let name  = sessionStorage.getItem("country");
-    let flag = sessionStorage.getItem("flag");
-    $(".country, .mobile-country").children("span").text(name);
-    $(".country, .mobile-country").children(".flag").children("img")
-	.attr("src", flag);
-    c = getCountryFromDB(name, countries);
-    adjustQueriesToCountry(c);
+  //get categories and corresponding quantites from div#data.
+  //we assume data in div#data is formatted as
+  //'category1,quantity1,category2,quantity2...'.
+  //Further, we assume there are no blank spaces between commas.
+  //we'll modify this later so that data can be written to div#data with spaces
+  //between commas
+  var parsedCategoriesData = [];
+  const data = $("#data").text();
+  parsedCategoriesData = data.replace(/\n/g, '').split(',');
+
+  //format parsedCategoriesData as an array of values of the form [category, #],
+  //store resulting array in categories
+  var categories = [];
+  for (let i = 0; i < parsedCategoriesData.length; i++) {
+    category = parsedCategoriesData[i];
+    quantity = parsedCategoriesData[i+1];
+    var temp = [];
+    temp.push(category);
+    temp.push(quantity);
+    categories.push(temp);
+    i++; //skip to start of next "category, quantity" pair
   }
 
-  //constructs countries menu
-  for (country of countries) {
-    title = country.name;
-    //url = "'https://www.clasificadoselectronicos.com/"+country+".htm'";
-    if (title.indexOf("_") > -1) { //check if contains underscore
-      title = title.replace("_", " ");
+  //render. Place in alpabetical order
+  currentLetter = 'a';
+  query = "https://megapaginas.com/cgi-bin/mega.cgi?n=PR&c="
+  for (cat of categories) {
+    let firstLetter = cat[0][0];
+    let category = cat[0];
+    let quantity = cat[1];
+    if (firstLetter > currentLetter) {
+      //insert new Letter Separator
+      $("<div class='directory-item letter-index flex-row'>"+
+                firstLetter +
+                '<span class="category-dropdown-arrow">' +
+                  '<img alt="dd-arrow" src="./assets/icons/dd-arrow.png"/>' +
+                '</span>' +
+              '</div>').insertBefore("#marker");
+      //then insert new category container. This could be inside previous
+      //jquery function. I find it to be more readable like this.
+      $('<div id="cat-container-'+firstLetter+'"'+
+      'class="categories-container"></div>').insertBefore("#marker")
+      currentLetter = firstLetter;
     }
-    countryItem = '<div id="'+country.code+'"class="flex-row dd-country">'+
-        '<div class="flag">'+
-          '<img alt="flag" src="./assets/flags/'+country.name+'.gif"></img></div>' +
-          '<span>'+title+'</span>' +
-          '</div>';
-      if (country.state) $(countryItem).insertAfter(".united-states");
-      $(countryItem).insertBefore(".countries-marker");
+    $("<div class='directory-item flex-column category-item'>"+
+    "<a href='"+ query + category +"'>"+category+" ("+quantity+")"+
+    "</a></div>").appendTo("#cat-container-" + currentLetter);
+  }
+
+  //click handler for category expansion
+  $(".letter-index").click(function() {
+    var categoriesContainer = $(this).next();
+    var arrow = $(this).children(".category-dropdown-arrow");
+    var items = categoriesContainer.children(".category-item");
+    var directoryItemHeight = items.outerHeight();
+    const expanded = items.hasClass("show-items");
+    const categoriesAreExpanded = categoriesContainer.css("display") == "flex";
+    if (isMobile) {
+
+      if (!categoriesAreExpanded) {
+        arrow.addClass("rotate");
+        categoriesContainer.css("display", "flex");
+        toggle = 1;
+      }
+
+      else {
+        arrow.removeClass("rotate");
+        categoriesContainer.css("display", "none");
+        toggle = 0;
+      }
+
     }
 
-	/* adjust page to country in url */
-	
-	let URL = window.location.href;
-	if (URL.indexOf("?") > -1) {
-		let COUNTRY_CODE = URL.match("n=[A-Z][A-Z]")[0].substring(2);
-		let COUNTRY = getCountryByCode(COUNTRY_CODE, countries).name;
-		let FLAG = "./assets/flags/"+COUNTRY+".gif";
-		if (COUNTRY) {
-			changeCountry(COUNTRY, FLAG, countries);
-		}
-	}
-	
-    //handle change country: updates hyperlinks and displayed country info
-    $(".dd-country").click(function(e) {
-      $(".countries-dropdown").removeClass("dropdown-fx");
-      $(".countries-dropdown").addClass("pullup-fx");
-	  chosenCountry = $(this);
-      chosenCountryName = chosenCountry.children("span").text();
-      chosenCountryCopy = chosenCountryName //saves name before underscore reinsert
-      chosenCountryFlag = chosenCountry
-      .children("div")
-      .children("img")
-      .attr("src");
-	  let code = chosenCountry.attr("id");
-	  
-	  /* get current country code from url */
-	  let URL = window.location.href;
-	  if (URL.indexOf("?") > -1) {
-		let COUNTRY_CODE = URL.match("n=[A-Z][A-Z]")[0].substring(2);
-		if (COUNTRY_CODE) { 
-			let newURL = URL.replace(COUNTRY_CODE, code);  
-			window.location.href = newURL; 
-		}
-	  }
-      sessionStorage.setItem("country", chosenCountryName); //cache
-      sessionStorage.setItem("flag", chosenCountryFlag); //cache
-      //change topbar country info
-      topbar = $(".country");
-      topbar.children(".flag").children("img").attr("src", chosenCountryFlag);
-      topbar.children("span").text(chosenCountryName);
-      //same but for mobile. this is redundant, should be improved
-      topbar = $(".mobile-country");
-      topbar.children(".flag").children("img").attr("src", chosenCountryFlag);
-      topbar.children("span").text(chosenCountryName);
-      //get country data from DB, where our dictionary named 'countries'
-      //acts as DB
-      country = getCountryFromDB(chosenCountryName, countries);
-      //adjust all queries to chosen country
-      adjustQueriesToCountry(country);
-      //now notify the user that country changed
-      snack = $(".countries-snackbar");
-      snack.children("span").text(chosenCountryCopy);
-      snack.parent().css("display", "flex");
-      snack.parent().hide();
-      snack.parent().fadeIn();
-      setTimeout(function(){snack.parent().fadeOut()}, 1500);
-    });
+    else {
+    	if (items.length > 1 && !isMobile) {
+        renderHeight = calculateContainerHeight(categoriesContainer) / 2;
+        renderWidth = categoriesContainer.width() / 2;
 
-  //main page categories scroll
-  var animation;
-  $(".arrow").click(function(e){
-    e.stopPropagation();
-    var carousel;
-    var arrow = $(this); //clicked arrow
-    if (arrow.css("width") === "30px") return; //disable for mobile
-    var classes = arrow.attr("class")//will be used to identify arrow
-    var otherArrow = arrow.siblings(".arrow"); //complementary arrow
-    arrow.addClass("implode");
-    otherArrow.removeClass("implode");/*gotta remove implode class because
-    it impedes displaying other element*/
-    otherArrow.css("display", "flex");
-    if (classes.includes("right")) {
-      var carousel = $(this).next().children("div");//select carousel
-      animation = "scroll-right";
-      if (carousel.attr('id') === "bienesraices") {
-        animation = "scroll-right-bienesraices";
+    	  //if there are an odd number of categories we add extra unit of height
+        //to avoid default third column from flex-wrap
+
+    	  if (items.length % 2 == 1) {
+            renderHeight = renderHeight + directoryItemHeight;
+          }
       }
-      if (carousel.attr('id') === "negocios") {
-        animation = "scroll-right-negocios";
+
+    	if (items.length == 1 && !isMobile) {
+    		renderHeight = directoryItemHeight;
+    	}
+
+    	if (!expanded) {
+        arrow.addClass("rotate");
+    	  categoriesContainer.css("height", ""+renderHeight+"");
+        $(".category-item").css("width", ""+renderWidth+"");
+    	  categoriesContainer.addClass("show-categories");
+    	  items.addClass("show-items");
       }
+
+    	else if (expanded){
+    		arrow.removeClass("rotate");
+    	  categoriesContainer.css("height", "0px");
+    		items.removeClass("show-items");
+    		//categoriesContainer.removeClass("show-categories");
+    	}
+
+      // We want categories to be displayed as two-column tables.
+    	// strategy is to set categoriesContainer height to half of
+    	// auto height and let flex wrap do the rest.
     }
-    if (classes.includes("left")){
-      var carousel = $(this).prev().children("div");//select carousel
-      animation = "scroll-left";
-      if (carousel.attr('id') === "bienesraices") {
-        animation = "scroll-left-bienesraices";
-      }
-      if (carousel.attr('id') === "negocios") {
-        animation = "scroll-left-negocios";
-      }
-     }
-     carousel.attr("class", "cat-center flex-row");//clean out previous effect
-     carousel.addClass(animation);//adds animation class
-  })
-
-  //handle arrow shrink/grow according to scroll position
-  //initialize
-
-  $(".category").scroll(function() {
-    width = this.scrollWidth; //doesn't take into account margins and padding
-    outer = Math.floor($(this).outerWidth(true));//floor it to get an integer for trueWidth
-    trueScrollWidth = width - outer;
-    progress = this.scrollLeft/trueScrollWidth;
-    leftArrow = $(this).next();
-    rightArrow = $(this).prev();
-    scaleDown(rightArrow, progress);
-    scaleUp(leftArrow, progress);
-    sessionStorage.setItem("scrollPos", this.scrollLeft);
   });
 
-  //searchbar focus reaction
-  //cta button reaction
-  $(".post button, .searchbar").hover(function(){
-    $(this).addClass("lightup");
-  }, function(){
-    $(this).removeClass("lightup");
-  });
+  //serve yellowpages ads
+  const ads = [
+    "elpocillo3.jpg",
+    "aguadillapet.jpg",
+    "anascoautopaint.jpg",
+    "pmextreme.jpg",
+    "solano.jpg"];
 
-  //yellow pages render directory
+
+  for (ad of ads) {
+    var width = Math.floor((Math.random() * 50) + 10);
+    width = width - width % 10;
+    $('<div class="premium-ad" style="width:'+width+'%;">'+
+            '<img alt="premium" src="./assets/ads/'+ad+'"/>' +
+          '</div>').insertBefore("#premium-ads-insert");
+  }
 
   //yellowpages render results
   const results = [
@@ -553,102 +388,13 @@ $(document).ready(function(){
         }
 });
 
-//HELPER FUNCTIONS
-//fetches country from local "DB" (which is the 'countries' array)
-function getCountryFromDB( countryName, DB ) {
-  if (countryName.indexOf(" ") > -1) {
-    countryName = countryName.replace(" ", "_");
-  }
-  //now get country from countries array (i.e. local DB)
-  matching = DB.filter( obj => {
-    return obj.name === countryName;
-  });
-  return matching[0];
-}
 
-function getCountryByCode( countryCode, DB ) {
-  if (countryCode.indexOf(" ") > -1) {
-    countryCode = countryCode.replace(" ", "_");
-  }
-  //now get country from countries array (i.e. local DB)
-  matching = DB.filter( obj => {
-    return obj.code === countryCode;
-  });
-  return matching[0];
-}
+/* helpers */
 
-//scales the size of am element, assuming the scale
-//factor is between one and zero
-function scaleDown(domElem, scaleFactor) {
-  if (scaleFactor >= 1) return; //we do not want to give the arrows zero width
-  scale = 1 - scaleFactor;
-  domElem.width(30*scale);
-  domElem.height(30*scale);
-}
+// replicates behavior of css height : auto
 
-//change all queries based on country
-function adjustQueriesToCountry( country ) {
-  //change search query
-  searchbarCountryField = $(".searchbar")
-  .children("form")
-  .children('input[name="country"]');
-  searchbarCountryField.attr("value", country.code);
-  //change 'publish ad' button's hyperlink
-  $("#publish-ad").attr("onclick",
-  "window.location.href =" +
-  "'https://www.clasificadoselectronicos.com/cgi-bin/formanunciox.cgi?n="+
-  country.code+"';")
-  //now change queries from categories
-  allTileCategories = $(".subcategory");
-  allMenuCategories = $(".dd-category");
-  //first the tile categories
-  for (tileCat of allTileCategories) {
-    query = tileCat.attributes['onclick']['value'];//get current query
-    currentParameter = query.match("n=[A-Z][A-Z]");//get current param
-    if (currentParameter) { //if it exists replace it
-      newParameter = "n="+country.code;
-      query = query.replace(currentParameter, newParameter);
-      $(tileCat).attr("onclick", query); //place in new query
-    }
-  }
-  //now the menu categories. Code is almost identical
-  //if possible this loop's body should be inside previous loop.
-  for (menuCat of allMenuCategories) {
-    //get current query
-    query = menuCat['children'][0]['attributes']['href']['value'];
-    currentParameter = query.match("n=[A-Z][A-Z]");//get current param
-    if (currentParameter) { //if it exists replace it
-      newParameter = "n="+country.code;
-      query = query.replace(currentParameter, newParameter);
-      $(menuCat).children("a").attr("href", query); //place in new query
-    }
-  }
+function calculateContainerHeight(container) {
+	var numberOfChildren = container.children().length;
+	var heightOfChildren = container.children().outerHeight();
+	return numberOfChildren * heightOfChildren;
 }
-
-function scaleUp(domElem, scaleFactor) {
-  scaleFactor = scaleFactor + 0.00001; //avoid 0;
-  domElem.width(30*scaleFactor);
-  domElem.height(30*scaleFactor);
-}
-
-/* Handles country change */
-function changeCountry(name, flag, DB) {
-      chosenCountryName = name;
-      chosenCountryCopy = name //saves name before underscore reinsert
-      chosenCountryFlag = flag;
-      sessionStorage.setItem("country", chosenCountryName); //cache
-      sessionStorage.setItem("flag", chosenCountryFlag); //cache
-      //change topbar country info
-      topbar = $(".country");
-      topbar.children(".flag").children("img").attr("src", chosenCountryFlag);
-      topbar.children("span").text(chosenCountryName);
-      //same but for mobile. this is redundant, should be improved
-      topbar = $(".mobile-country");
-      topbar.children(".flag").children("img").attr("src", chosenCountryFlag);
-      topbar.children("span").text(chosenCountryName);
-      //get country data from DB, where our dictionary named 'countries'
-      //acts as DB
-      country = getCountryFromDB(chosenCountryName, DB);
-      //adjust all queries to chosen country
-      adjustQueriesToCountry(country);
-	}
