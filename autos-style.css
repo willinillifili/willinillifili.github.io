@@ -1,0 +1,271 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.grid-container {
+  display: grid;
+  //background: #F2F5F5;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 32px;
+  //grid-gap: 5px;
+  height: 100%;
+  width: 100%;
+}
+
+.grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 32px;
+    background-image: linear-gradient(45deg, rgba(0,187,170,0.8) 0%, rgba(91,0,81,0.8) 100%);
+    grid-column: 1 / 4;
+    grid-row: span 2;
+}
+
+.categories {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 64px;
+  position: absolute;
+  top: 0;
+  color: #1C2B29;
+  left: -50%;
+  font-family: roboto;
+  z-index: 40;
+  background: #F7F9F9;
+  transition: left 0.2s;
+  overflow-y: scroll;
+}
+
+.category-item {
+  text-transform: capitalize;
+  position: relative;
+  display: flex;
+  padding: 30px 0px;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  height: auto;
+}
+
+.category {
+  margin-left: 25px;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.category:after {
+  position: absolute;
+  right: 30px;
+  content: "»";
+  font-weight: bold;
+  font-size: 15px;
+  transform: rotate(90deg);
+}
+
+.subcategories {
+  display: none;
+}
+
+.subcategory {
+  margin-left: 50px;
+}
+
+.showMenu {
+  left: 0;
+}
+
+.showSubcategories {
+  height: auto;
+  visibility: visible;
+}
+
+.menu-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-row: span 2;
+}
+
+.logo {
+  width: 100px;
+  grid-column: 3;
+}
+
+.menu .logo img {
+  width: 100%;
+  height: 100%;
+}
+
+.snackbar {
+  position: relative;
+  z-index: 80;
+  grid-column: 1;
+  color: white;
+  font-weight: bold;
+  font-size: 35px;
+}
+
+.country {
+  grid-column: 5;
+}
+
+.country img {
+  width: 25%;
+  height: 25%;
+  filter: opacity(70%);
+}
+
+.country:after {
+  content: "▼";
+  display: block;
+  color: white;
+  font-size: 8px;
+  padding-left: 10px;
+}
+
+
+.breadcrumbs {
+    color: rgba(0, 0, 0, 0.31);
+    font-family: Montserrat;
+    font-weight: 600;
+    grid-column: 1 / 4;
+    grid-row: 3 / span 1;
+    background: #F2F5F5;
+    border-bottom: 1px solid rgba(196, 196, 196, 0.84);
+}
+
+.bc-category {
+  font-size: 18px;
+}
+
+.bc-category:after {
+  content : "|";
+  margin: 0px 10px;
+}
+
+.bc-country {
+  font-size: 15px;
+}
+
+
+.table {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column: 1 / 4;
+  grid-auto-rows: 32px;
+}
+
+.table-row {
+  display: grid;
+  background: #F7F9F9;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column: 1 / 4;
+  grid-row: span 2;
+  height: 100%;
+}
+
+.table-row:nth-child(2n + 1) {
+  background: rgba(0, 187, 170, 0.15);
+}
+
+.table-cell {
+  font-family: roboto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: span 1;
+  height: 100%;
+  color: #1C2B29;
+}
+
+.table .logo img {
+  max-width: 30px;
+  max-height: 30px;
+}
+
+.brand {
+  color: rgba(0, 0, 0, 0.39);
+  font-weight: 30;
+}
+
+.brand a{
+  text-decoration: none;
+  color: #1C2B29;
+  text-transform: capitalize;
+  font-family: Montserrat;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.dropdown-arrow {
+  width: 30px;
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.2), -2px -2px 8px rgba(255, 255, 255, 0.7);
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(90deg);
+  border-radius: 100px;
+}
+
+.dropdown-arrow span {
+  display: flex;
+  padding-bottom: 1px;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50%;
+  font-weight: bold;
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+@media only screen and (min-width : 1000px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: minmax(50px, auto);
+    grid-gap: 10px;
+    height: 100%;
+    width: 100%;
+  }
+
+  .grid-center {
+    grid-column: 3 / 11;
+  }
+
+  .menu {
+    grid-column: 1 / 13;
+    grid-row: 1 / 3;
+  }
+
+  .breadcrumbs {
+    grid-column: 1 / 13;
+    grid-row: 3;
+  }
+
+  .table {
+    grid-row: span 2;
+  }
+
+}

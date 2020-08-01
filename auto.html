@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>
+    Autos
+  </title>
+  <meta charset="UTF-8">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/6228ba2463.js" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="autos-style.css">
+  <script src="assets/js/script-auto.js"></script>
+</head>
+<body>
+  <div class="content grid-container">
+<div id="menu" class="grid-item menu">
+  <div class="snackbar menu-section">
+    ≡
+    </div>
+    <div class="logo menu-section">
+      <img alt="logo" src="./assets/ClasitronicosLogo3.png"/>
+      </div>
+      <div class="country menu-section">
+        <img alt="current country flag" src="./assets/flags/puerto_rico.gif"/>
+        </div>
+        <div class="categories">
+          {{#category}}
+          <div class="category-item">
+            <div class="category">{{title}}</div>
+            <div class="subcategories">
+              {{#subcategories}}
+              <div class="subcategory category-item">
+                {{title}}
+              </div>
+              {{/subcategories}}
+              </div>
+            </div>
+          {{/category}}
+          </div>
+  </div>
+<div class="grid-item breadcrumbs">
+  <span class="bc-category">Autos</span>
+  <span class="bc-country">Puerto Rico</span>
+  </div>
+<div id="autos" class="grid-item grid-center table">
+  {{#autos}}
+  <div class="table-row">
+    <div class="logo table-cell">
+      <img alt="{{logo}}" src="./assets/car-logos/{{logo}}"/>
+    </div>
+    <div class="brand table-cell">
+      <a href="{{url}}">{{brand}}</a>&nbsp&nbsp{{total}}
+    </div>
+    <div class="models table-cell">
+      <div class="dropdown-arrow">
+          <span>»</span>
+        </div>
+    </div>
+  </div>
+  {{/autos}}
+</div>
+  </div>
+</body>
+<footer>
+  </footer>
