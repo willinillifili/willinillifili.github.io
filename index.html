@@ -18,24 +18,47 @@
 <body>
   <div class="content grid-container">
 <div id="menu" class="grid-item menu">
-  <div class="snackbar menu-section">
+  <div class="snackbar menu-section pointer mobile-only">
     ≡
     </div>
-    <div class="logo menu-section">
-      <img alt="logo" src="./assets/ClasitronicosLogo3.png"/>
+    <a href="./index.html" class="logo menu-section pointer">
+      <img alt="logo" src="./assets/ClasitronicosLogo3-azul.png"/>
+      </a>
+      <div class="search menu-section pointer desktop-only">
+        <form
+        action="https://www.clasificadoselectronicos.com/cgi-bin/getadx.cgi"
+        method="post"
+        class="centralize-row">
+        <input type="text" placeholder="que (y donde).." name="keyword">
+        <input type="hidden" name="country" size="12" value="PR">
+        <button type="submit">
+          <span>
+            <i class="fa fa-search fa-sm"></i>
+            <span>
+        </button>
       </div>
-      <div class="country menu-section">
+      <div class="country menu-section mobile-only">
         <img alt="current country flag" src="./assets/flags/puerto_rico.gif"/>
         </div>
+        <div class="items menu-section desktop-only">
+          {{#item}}
+            <a href="{{url}}" class="item {{type}}">
+              {{title}}
+              </a>
+          {{/item}}
+          <div class="item desktop-only flag">
+            <img alt="current country flag" src="./assets/flags/puerto_rico.gif"/>
+            </div>
+          </div>
         <div class="categories">
           {{#category}}
           <div class="category-item">
-            <div class="category">{{title}}</div>
+            <div class="category pointer">{{title}}</div>
             <div class="subcategories">
               {{#subcategories}}
-              <div class="subcategory category-item">
+              <a href="{{url}}" class="subcategory category-item pointer">
                 {{title}}
-              </div>
+              </a>
               {{/subcategories}}
               </div>
             </div>
@@ -43,8 +66,9 @@
           </div>
   </div>
 <div class="grid-item breadcrumbs">
-  <span class="bc-category">Autos</span>
-  <span class="bc-country">Puerto Rico</span>
+  <a href="#" class="bc-category">Autos</a>
+  <a href="https://www.clasificadoselectronicos.com/mundo.htm"
+  class="bc-country pointer">Puerto Rico</a>
   </div>
 <div id="autos" class="grid-item grid-center table">
   {{#autos}}
@@ -55,13 +79,33 @@
     <div class="brand table-cell">
       <a href="{{url}}">{{brand}}</a>&nbsp&nbsp{{total}}
     </div>
-    <div class="models table-cell">
-      <div class="dropdown-arrow">
+    <div class="arrow table-cell">
+      <div class="dropdown-arrow pointer">
           <span>»</span>
         </div>
     </div>
   </div>
+  <div class="models-wrapper">
+    <div class="models">
+      {{#models}}
+        <a href="#" class="model pointer">
+          <span class="name">{{name}}</span>
+          &nbsp&nbsp
+          <span class="total">{{total}}</span>
+          </a>
+      {{/models}}
+      </div>
+  </div>
   {{/autos}}
+  <div style="display: none;" id="autos-data">
+    <!--   $ : Denota el comienzo de una marca de carro nueva.
+           * : Denota el comienzo de la lista de modelos
+               que corresponden a la marca. -->
+    $,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,
+    *,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,
+    *,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,
+    *,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,
+  </div>
 </div>
   </div>
 </body>
