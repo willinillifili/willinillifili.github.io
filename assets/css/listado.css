@@ -40,7 +40,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 15px;
+  font-size: 13px;
 }
 
 .menu {
@@ -148,7 +148,6 @@ a {
 .country img {
   width: 25%;
   height: 25%;
-  filter: opacity(70%);
 }
 
 .breadcrumbs {
@@ -172,12 +171,141 @@ a {
 }
 
 .bc-country {
+  text-transform: capitalize;
   font-size: 15px;
   color: rgba(0,0,0,0.5);
   transition: color 0.2s;
   border-bottom: 2px solid var(--lightblue);
 }
 
+.search {
+  //grid-column: 5;
+  display: flex;
+  height: 25px;
+  flex-direction: row;
+  color: rgba(0, 0, 0, 0.39);
+  padding: 2px 5px;
+  border: 1px solid rgba(0,0,0,0.3);
+  border-radius: 10px;
+  margin: 10px;
+  width: 30%;
+}
+
+form {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+input {
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  opacity: 50%;
+  width: 100%;
+}
+
+input:focus {
+  outline: none;
+  width: 80%;
+}
+
+button {
+  color: rgba(0,0,0,0.5);
+  border: none;
+  background: transparent;
+}
+
+label {
+  font-size: 11px;
+  color: black;
+}
+
+#listing-breadcrumbs {
+  height: 50px;
+  justify-content: space-between;
+  background: white;
+}
+
+.listado {
+  grid-column: 1 / 4;
+  font-family: Montserrat;
+  background: white;
+}
+
+.ad-listing {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.ad-listing:first-child {
+  padding-top: 40px;
+}
+
+.ad-listing .image {
+  width: 33%;
+  background: #BFE3F2;
+}
+
+.ad-listing .info {
+  width: 66%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 20px;
+  font-size: 11px;
+}
+
+.info .price {
+  font-size: 18px;
+}
+
+.ad-listing .image, .ad-listing .info {
+  outline-bottom: 1px solid #8E8D8D;
+}
+
+.separator {
+  background: lightgrey;
+  height: 1px;
+  margin: 0px 20px;
+}
+
+.listing-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2%;
+}
+
+.title, .keywords a{
+    color: #4A9193;
+}
+
+.keywords {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.keyword {
+  margin-right: 10px;
+}
+
+.price {
+  font-size: 22px;
+}
+
+.province { text-transform: capitalize;}
+
+.title { font-weight: bold;}
+
+.province, .phone, .views {
+  color: #8E8D8D;
+}
+
+.filters {
+  grid-row: 4;
+  margin: 10px;
+}
 
 .table {
   display: grid;
@@ -267,11 +395,10 @@ a {
 
 .model {
   text-transform: capitalize;
-  padding-left: 40%;
   font-family: roboto;
   height: 64px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   background-color: transparent;
   transition: background-color 0.2s;
@@ -328,7 +455,7 @@ a {
   }
 
   .country {
-    grid-column: 10;
+    grid-column: 6;
   }
 
   .menu .logo {
@@ -351,6 +478,7 @@ a {
     padding: 2px 5px;
     border: 1px solid rgba(0,0,0,0.3);
     border-radius: 10px;
+    width: 80%;
   }
 
   form {
@@ -401,9 +529,9 @@ a {
   }
 
   .menu .items .item.flag {
-      height: 13px;
+      height: 16px;
       width: 30px;
-      display: none;
+      //display: none;
   }
 
   .onboarding {
@@ -421,7 +549,7 @@ a {
 
   .country {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     height: 300%;
   }
 
@@ -493,10 +621,24 @@ a {
     grid-column: 4 / 10;
     grid-row: 2 / 3;
     height: 50px;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 0px 10px;
     background: var(--lightgrey);
     //background: radial-gradient(circle, rgba(242,245,245,0.5) 0%,
     //rgba(242,245,245,0.1) 100%);
+  }
+
+  .filters {
+    display: flex;
+    flex-direction: row;
+  }
+
+  label {
+    margin: 0px 10px;
+  }
+
+  input {
+    margin: 0px 10px;
   }
 
   .bc-country {
@@ -512,6 +654,17 @@ a {
   .bc-country:hover {
     font-weight: bold;
     color: var(--primary);
+  }
+
+  .listado {
+    grid-row: 3;
+    grid-column: 4 / 10;
+  }
+
+  .listing-row:last-child {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
   }
 
   .table {
@@ -544,6 +697,15 @@ a {
   .mobile-only {
     display: none;
   }
+
+  .ad-listing:first-child {
+    padding-top: 20px;
+  }
+
+  .province, .title, .keyword, .vendor {
+    font-size: 15px;
+  }
+
 }
 
 @media only screen and (max-width : 1500px) {
