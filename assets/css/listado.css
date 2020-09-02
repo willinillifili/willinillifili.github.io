@@ -30,7 +30,7 @@ a {
   display: grid;
   //background: #F2F5F5;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 32px;
+  grid-auto-rows: 23px;
   //grid-gap: 5px;
   height: 100%;
   width: 100%;
@@ -46,10 +46,10 @@ a {
 .menu {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-auto-rows: 32px;
+    grid-auto-rows: 34px;
     background-image: linear-gradient(45deg, rgba(0,187,170,0.8) 0%, rgba(91,0,81,0.8) 100%);
     grid-column: 1 / 4;
-    grid-row: span 2;
+    grid-row: 1 / span 3;
 }
 
 .categories {
@@ -128,7 +128,7 @@ a {
 }
 
 .menu .logo img {
-  width: 100%;
+  width: 110%;
   height: 100%;
 }
 
@@ -145,9 +145,23 @@ a {
   grid-column: 5;
 }
 
+.country.menu-section {
+  position: relative;
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+}
+
 .country img {
-  width: 25%;
-  height: 25%;
+  width: 75%;
+  height: 75%;
 }
 
 .breadcrumbs {
@@ -155,9 +169,8 @@ a {
     font-family: Montserrat;
     font-weight: 600;
     grid-column: 1 / 4;
-    grid-row: 3 / span 1;
-    background: #F2F5F5;
-    border-bottom: 1px solid rgba(196, 196, 196, 0.84);
+    grid-row: 4 / span 2;
+    background: white;
 }
 
 .bc-category {
@@ -172,10 +185,18 @@ a {
 
 .bc-country {
   text-transform: capitalize;
-  font-size: 15px;
+  font-size: 14px;
   color: rgba(0,0,0,0.5);
   transition: color 0.2s;
   border-bottom: 2px solid var(--lightblue);
+}
+
+.bc-province {
+  color: rgba(0,0,0,0.4);
+}
+
+.bc-category, .bc-country, .bc-province {
+    font-weight: 200;
 }
 
 .search {
@@ -199,7 +220,7 @@ form {
 input {
   border: none;
   background: transparent;
-  font-size: 15px;
+  font-size: 11px;
   opacity: 50%;
   width: 100%;
 }
@@ -218,32 +239,52 @@ button {
 label {
   font-size: 11px;
   color: black;
+  margin: 0 15px;
+}
+
+label:after {
+  display: inline-block;
+  content: "⯆";
+}
+
+select {
+  opacity: 0%;
+  width: 0px;
 }
 
 #listing-breadcrumbs {
+  display: flex;
   height: 50px;
-  justify-content: space-between;
-  background: white;
+  grid-row : 6 / span 2;
+  grid-column: 1 / 4;
+  justify-content: center;
+  align-items: center;
+  background: #E7F8F6;
+  font-family: "Montserrat";
 }
+
+.filters input { width: 50px;}
 
 .listado {
   grid-column: 1 / 4;
+  grid-row: 9;
   font-family: Montserrat;
   background: white;
 }
 
+.separator:first-child {
+  margin-top: 16px;
+}
+
+
 .ad-listing {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
-}
-
-.ad-listing:first-child {
-  padding-top: 40px;
+  padding: 20px 10px;
 }
 
 .ad-listing .image {
-  width: 33%;
+  width: 50%;
   background: #BFE3F2;
 }
 
@@ -268,7 +309,7 @@ label {
 .separator {
   background: lightgrey;
   height: 1px;
-  margin: 0px 20px;
+  margin: 0px 10px;
 }
 
 .listing-row {
@@ -290,21 +331,12 @@ label {
   margin-right: 10px;
 }
 
-.price {
-  font-size: 22px;
-}
-
 .province { text-transform: capitalize;}
 
 .title { font-weight: bold;}
 
 .province, .phone, .views {
   color: #8E8D8D;
-}
-
-.filters {
-  grid-row: 4;
-  margin: 10px;
 }
 
 .table {
@@ -426,6 +458,11 @@ label {
     display: block;
   }
 
+  .ad-listing .image {
+    width: 33%;
+    background: #BFE3F2;
+  }
+
   .grid-container {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -443,7 +480,7 @@ label {
 
   .menu {
     grid-template-columns: repeat(12, 1fr);
-    background: var(--lightgrey);
+    background: white;
     grid-column: 1 / 13;
     grid-template-rows: repeat(3, 20px);
     grid-gap: 10px;
@@ -489,7 +526,7 @@ label {
   input {
     border: none;
     background: transparent;
-    font-size: 15px;
+    font-size: 11px;
     opacity: 50%;
     width: 100%;
   }
@@ -514,7 +551,7 @@ label {
     font-family: Roboto;
     font-style: normal;
     font-weight: 100;
-    font-size: 17px;
+    font-size: 14px;
     color: grey;
     opacity: 75%;
     text-transform: capitalize;
@@ -621,11 +658,17 @@ label {
     grid-column: 4 / 10;
     grid-row: 2 / 3;
     height: 50px;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0px 10px;
-    background: var(--lightgrey);
+    background: white;
     //background: radial-gradient(circle, rgba(242,245,245,0.5) 0%,
     //rgba(242,245,245,0.1) 100%);
+    border-bottom: 1px solid rgba(196, 196, 196, 0.84);
+  }
+
+  #listing-breadcrumbs {
+    grid-row: 3;
+    grid-column: 4 / 10;
   }
 
   .filters {
@@ -637,13 +680,9 @@ label {
     margin: 0px 10px;
   }
 
-  input {
-    margin: 0px 10px;
-  }
-
   .bc-country {
     font-size: 15px;
-    font-weight: 500;
+    font-weight: normal;
   }
 
   .bc-category {
@@ -657,7 +696,7 @@ label {
   }
 
   .listado {
-    grid-row: 3;
+    grid-row: 4;
     grid-column: 4 / 10;
   }
 
@@ -678,6 +717,10 @@ label {
 
   .table-row .brand a{
     font-size: 15px;
+  }
+
+  .info .price {
+    font-size: 22px;
   }
 
   .table .logo img {
@@ -702,9 +745,27 @@ label {
     padding-top: 20px;
   }
 
+  .ad-listing {
+    padding: 20px;
+  }
+
+  .separator {
+    margin: 0px 20px;
+  }
+
+  .separator:first-child {
+    display: none; 
+  }
+
+  .phone, .views {
+    font-size: 15px;
+  }
+
   .province, .title, .keyword, .vendor {
     font-size: 15px;
   }
+
+  .circle { background: transparent; }
 
 }
 

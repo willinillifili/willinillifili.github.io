@@ -165,293 +165,193 @@ $(document).ready(function(){const menu = {
 
     ]
 };
-const auto = [
-  {
-    url    : "https://clasitronicos.com/cgi-bin/getadx.cgi?n=PR&c=autos&k=Acura",
-    logo   : "acura.png",
-    brand  : "acura",
-    total  : "52",
-    models : [
-      {
-        name : "beetle",
-        total : "3",
-      },
-      {
-        name : "ilx",
-        total : "6",
-      },
-      {
-        name : "mdx",
-        total : "13",
-      },
-      {
-        name : "rdx",
-        total : "13",
-      },
-      {
-        name : "rl",
-        total : "3",
-      },
-      {
-        name : "tlx",
-        total : "3",
-      },
-      {
-        name : "tsx",
-        total : "8",
-      },
-    ]
-  },
-  {
-    url    : "https://clasitronicos.com/cgi-bin/getadx.cgi?n=PR&c=autos&k=Audi",
-    logo   : "audi.png",
-    brand  : "audi",
-    total  : "24",
-    models : [
-      {
-        name : "a4",
-        total : "3",
-      },
-      {
-        name : "a4",
-        total : "3",
-      },
-      {
-        name : "a4",
-        total : "3",
-      },
-      {
-        name : "a4",
-        total : "3",
-      },
-      {
-        name : "a4",
-        total : "3",
-      },
-      {
-        name : "a4",
-        total : "3",
-      },
-      {
-        name : "a4",
-        total : "3",
-      },
-      {
-        name : "a4",
-        total : "3",
-      },
-      {
-        name : "a4",
-        total : "3",
-      },
-      {
-        name : "a4",
-        total : "3",
-      },
-    ]
-  },
-  {
-    url    : "https://clasitronicos.com/cgi-bin/getadx.cgi?n=PR&c=autos&k=BMW",
-    logo   : "bmw.png",
-    brand  : "bmw",
-    total  : "99",
-    models : [
-      {
-        name : "1-series",
-        total : "1",
-      },
-    ]
-  },
-  {
-    url    : "https://clasitronicos.com/cgi-bin/getadx.cgi?n=PR&c=autos&k=Blue%20Bird",
-    logo   : "bluebird.png",
-    brand  : "blue bird",
-    total  : "1",
-    models : [
-      {
-        name : "",
-        total : "",
-      },
-    ]
-  },
-  {
-    url    : "https://clasitronicos.com/cgi-bin/getadx.cgi?n=PR&c=autos&k=Buick",
-    logo   : "buick.png",
-    brand  : "buick",
-    total  : "19",
-    models : [
-      {
-        name : "cascada",
-        total : "1",
-      },
-    ]
-  },
-  {
-    url    : "https://clasitronicos.com/cgi-bin/getadx.cgi?n=PR&c=autos&k=Cadillac",
-    logo   : "cadillac.png",
-    brand  : "cadillac",
-    total  : "25",
-    models : [
-      {
-        name : "catera",
-        total : "1",
-      },
-    ]
-  },
-  {
-    url    : "https://clasitronicos.com/cgi-bin/getadx.cgi?n=PR&c=autos&k=Chevrolet",
-    logo   : "chevrolet.png",
-    brand  : "chevrolet",
-    total  : "407",
-    models : [
-      {
-        name : "advance design",
-        total : "1",
-      },
-    ]
-  },
-  {
-    url    : "https://clasitronicos.com/cgi-bin/getadx.cgi?n=PR&c=autos&k=Chrysler",
-    logo   : "chrysler.png",
-    brand  : "chrysler",
-    total  : "70",
-    models : [
-      {
-        name : "300",
-        total : "4",
-      },
-    ]
-  },
-  {
-    url    : "https://clasitronicos.com/cgi-bin/getadx.cgi?n=PR&c=autos&k=Dodge",
-    logo   : "dodge.png",
-    brand  : "dodge",
-    total  : "316",
-    models : [
-      {
-        name : "1500",
-        total : "6",
-      },
-    ]
-  },
-  {
-    url    : "https://clasitronicos.com/cgi-bin/getadx.cgi?n=PR&c=autos&k=Ferrari",
-    logo   : "ferrari.png",
-    brand  : "ferrari",
-    total  : "6",
-    models : [
-      {
-        name : "458",
-        total : "1",
-      },
-    ]
-  },
-  {
-    url    : "https://clasitronicos.com/cgi-bin/getadx.cgi?n=PR&c=autos&k=Fiat",
-    logo   : "fiat.png",
-    brand  : "fiat",
-    total  : "28",
-    models : [
-      {
-        name : "500",
-        total : "1",
-      },
-    ]
-  },
-  {
-    url    : "https://clasitronicos.com/cgi-bin/getadx.cgi?n=PR&c=autos&k=Freightliner",
-    logo   : "ford.png",
-    brand  : "ford",
-    total  : "1671",
-    models : [
-      {
-        name : "c-max hybrid",
-        total : "1",
-      },
-    ]
-  },
-  {
-    url    : "https://clasitronicos.com/cgi-bin/getadx.cgi?n=PR&c=autos&k=Freightliner",
-    logo   : "freightliner.png",
-    brand  : "freightliner",
-    total  : "2",
-    models : [
-      {
-        name : "m2 106",
-        total : "2",
-      },
-    ]
-  },
-  {
-    url    : "https://clasitronicos.com/cgi-bin/getadx.cgi?n=PR&c=autos&k=GMC",
-    logo   : "gmc.png",
-    brand  : "GMC",
-    total  : "62",
-    models : [
-      {
-        name : "acadia",
-        total : "4",
-      },
-    ]
-  },
-  {
-    url    : "https://clasitronicos.com/cgi-bin/getadx.cgi?n=PR&c=autos&k=Genesis",
-    logo   : "genesis.png",
-    brand  : "genesis",
-    total  : "3",
-    models : [
-      {
-        name : "g80",
-        total : "3",
-      },
-    ]
-  },
-  {
-    url    : "https://clasitronicos.com/cgi-bin/getadx.cgi?n=PR&c=autos&k=Harley-Davidson",
-    logo   : "harley-davidson.png",
-    brand  : "harley-davidson",
-    total  : "1",
-    models : [
-      {
-        name : "flstf",
-        total : "",
-      },
-    ]
-  },
-  {
-    url    : "https://clasitronicos.com/cgi-bin/getadx.cgi?n=PR&c=autos&k=Hino",
-    logo   : "hino.png",
-    brand  : "hino",
-    total  : "11",
-    models : [
-      {
-        name : "268",
-        total : "1",
-      },
-    ]
-  },
-  {
-    url    : "https://clasitronicos.com/cgi-bin/getadx.cgi?n=PR&c=autos&k=Honda",
-    logo   : "honda.png",
-    brand  : "honda",
-    total  : "318",
-    models : [
-      {
-        name : "acccord",
-        total : "72",
-      },
-    ]
-  },
-];
+const searchbar = `<div class="search menu-section pointer search-mobile mobile-only">
+  <form
+  action="https://www.clasitronicos.com/cgi-bin/getadx.cgi"
+  method="post"
+  class="centralize-row">
+  <input type="text" placeholder="que (y donde).." name="keyword">
+  <input type="hidden" name="country" size="12" value="PR">
+  <button type="submit">
+    <span>
+      <i class="fa fa-search fa-sm"></i>
+      <span>
+  </button>
+</div>`
+const listing = {
+  ads : [
+    {
+      province : "bayamon",
+      price : "170,000",
+      title : "2020 Toyota Camry XSE Auto (Natl)",
+      keywords : [
+        {
+          keyword : "toyota",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Toyota&c=dealers",
+        },
+        {
+          keyword : "camry",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Camry&c=dealers",
+        },
+      ],
+      teaser : "Esto es un resumen de la descripcion del ...",
+      views : "15",
+      vendor: "All Brand Auto",
+      phone : "(787) 946-7575",
+      image : "./assets/corolla.jpg",
+    },
+    {
+      province : "bayamon",
+      price : "170,000",
+      title : "2020 Toyota Camry XSE Auto (Natl)",
+      keywords : [
+        {
+          keyword : "toyota",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Toyota&c=dealers",
+        },
+        {
+          keyword : "camry",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Camry&c=dealers",
+        },
+      ],
+      teaser : "Esto es un resumen de la descripcion del ...",
+      views : "15",
+      vendor: "All Brand Auto",
+      phone : "(787) 946-7575",
+      image : "./assets/corolla.jpg",
+    },
+    {
+      province : "bayamon",
+      price : "170,000",
+      title : "2020 Toyota Camry XSE Auto (Natl)",
+      keywords : [
+        {
+          keyword : "toyota",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Toyota&c=dealers",
+        },
+        {
+          keyword : "camry",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Camry&c=dealers",
+        },
+      ],
+      teaser : "Esto es un resumen de la descripcion del ...",
+      views : "15",
+      vendor: "All Brand Auto",
+      phone : "(787) 946-7575",
+      image : "./assets/corolla.jpg",
+    },
+    {
+      province : "bayamon",
+      price : "170,000",
+      title : "2020 Toyota Camry XSE Auto (Natl)",
+      keywords : [
+        {
+          keyword : "toyota",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Toyota&c=dealers",
+        },
+        {
+          keyword : "camry",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Camry&c=dealers",
+        },
+      ],
+      teaser : "Esto es un resumen de la descripcion del ...",
+      views : "15",
+      vendor: "All Brand Auto",
+      phone : "(787) 946-7575",
+      image : "./assets/corolla.jpg",
+    },
+    {
+      province : "bayamon",
+      price : "170,000",
+      title : "2020 Toyota Camry XSE Auto (Natl)",
+      keywords : [
+        {
+          keyword : "toyota",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Toyota&c=dealers",
+        },
+        {
+          keyword : "camry",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Camry&c=dealers",
+        },
+      ],
+      teaser : "Esto es un resumen de la descripcion del ...",
+      views : "15",
+      vendor: "All Brand Auto",
+      phone : "(787) 946-7575",
+      image : "./assets/corolla.jpg",
+    },
+    {
+      province : "bayamon",
+      price : "170,000",
+      title : "2020 Toyota Camry XSE Auto (Natl)",
+      keywords : [
+        {
+          keyword : "toyota",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Toyota&c=dealers",
+        },
+        {
+          keyword : "camry",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Camry&c=dealers",
+        },
+      ],
+      teaser : "Esto es un resumen de la descripcion del ...",
+      views : "15",
+      vendor: "All Brand Auto",
+      phone : "(787) 946-7575",
+      image : "./assets/corolla.jpg",
+    },
+    {
+      province : "bayamon",
+      price : "170,000",
+      title : "2020 Toyota Camry XSE Auto (Natl)",
+      keywords : [
+        {
+          keyword : "toyota",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Toyota&c=dealers",
+        },
+        {
+          keyword : "camry",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Camry&c=dealers",
+        },
+      ],
+      teaser : "Esto es un resumen de la descripcion del ...",
+      views : "15",
+      vendor: "All Brand Auto",
+      phone : "(787) 946-7575",
+      image : "./assets/corolla.jpg",
+    },
+    {
+      province : "bayamon",
+      price : "170,000",
+      title : "2020 Toyota Camry XSE Auto (Natl)",
+      keywords : [
+        {
+          keyword : "toyota",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Toyota&c=dealers",
+        },
+        {
+          keyword : "camry",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Camry&c=dealers",
+        },
+      ],
+      teaser : "Esto es un resumen de la descripcion del ...",
+      views : "15",
+      vendor: "All Brand Auto",
+      phone : "(787) 946-7575",
+      image : "./assets/corolla.jpg",
+    }
+  ],
+  filters: ["Año   ▼  ", "Color ▼",  "Ordenar Por ▼ "]
+};
 
   template = $('#menu').html();
 	output = Mustache.render(template, menu);
 	$('#menu').html(output);
 
-  if (isMobile()) {
-
-    $(".menu > .logo").children("img").attr("src", "./assets/ClasitronicosLogo3.png");
-  }
+      if (isMobile()) {
+        $(".menu > .logo").children("img").attr("src",
+        "https://clasitronicos.com/assets/ClasitronicosLogo3.png");
+      }
 
   let menuIsShowing = { state : 0 };
   let snackbarColor = { state : 0 };
@@ -483,7 +383,6 @@ const auto = [
   $("html, body").click(function() {
     let isMobile = $(".items").css("display") === "none";
     let subcategories = $(this).children(".subcategories");
-    console.log(isMobile);
     if (isMobile) {
       toggle(subIsShowing, subcategories, "", "slideUp", "slideDown");
       return;
@@ -519,7 +418,10 @@ function isMobile() {
 
   let rawAutoData = $("#autos-data").text();
   let autos = parseAutoData(rawAutoData);
-  let data = { autos : autos};
+  let data = {
+      autos : autos,
+      country : $("#pais").text()
+  };
 
   template = $('#autos').html();
 	output = Mustache.render(template, data);
@@ -532,6 +434,19 @@ function isMobile() {
   })
 
   /* HELPER FUNCTIONS */
+
+  /*
+    pre: @rawData is a string conforming to the following pattern:
+    post: returns a list of objects that conform to the following spec:
+    {
+      url    : string,
+      logo   : string,
+      total  : string,
+      brand  : string,
+      models : object array : { name : string, total : string }
+    }
+
+  */
 
   function parseAutoData(rawData){
     rawData = rawData.replace(/\s/g, '');
@@ -549,7 +464,7 @@ function isMobile() {
     autoData.forEach((item, i) => {
       let brandData = item[0].split(",");
       let modelData = item[1].split(",");
-      modelData.splice(modelData.length - 1, 1);
+      modelData.splice(modelData.length - 1, 1);// last element is empty string
       let modelObjects = [];
       for (let i = 1; i <= modelData.length - 1; i++) {
         modelObjects.push({
@@ -559,8 +474,8 @@ function isMobile() {
         i++;
       }
       autoObjects.push({
-        url    : "https://clasitronicos.com/cgi-bin/getadx.cgi?n=PR&c=autos&k=" + brandData[0],
-        logo   : /*brandData[0].toLowerCase() +*/ "acura.png",
+        url    : brandData[0],
+        logo   : brandData[0].toLowerCase() + ".png",
         brand   : brandData[0],
         total  : brandData[1],
         models : modelObjects
@@ -568,5 +483,11 @@ function isMobile() {
     });
 
     return autoObjects;
+  }
+
+  function getCountryFromURL() {
+    let URL = window.location.href;
+    if (URL.indexOf("?") > -1) return URL.match("n=[A-Z][A-Z]")[0].substring(2);
+    return "PR";
   }
 });
