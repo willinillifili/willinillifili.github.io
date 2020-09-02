@@ -142,8 +142,8 @@ a {
 }
 
 .teaser {
-  font-size: 11px;
-  color: #D4D4D4;
+  font-size: 11.5px;
+  color: rgba(0,0,0,0.3);
 }
 
 .country {
@@ -290,7 +290,7 @@ select {
 
 .ad-listing .image {
   width: 50%;
-  background: #BFE3F2;
+  background: #E7F8F6;
 }
 
 .ad-listing .info {
@@ -305,6 +305,10 @@ select {
 
 .info .price {
   font-size: 20px;
+}
+
+.province {
+  font-size: 16px;
 }
 
 .ad-listing .image, .ad-listing .info {
@@ -471,7 +475,7 @@ select {
 
   .ad-listing .image {
     width: 33%;
-    background: #BFE3F2;
+    background: #E7F8F6;
   }
 
   .grid-container {
