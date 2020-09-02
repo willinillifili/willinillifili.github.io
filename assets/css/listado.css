@@ -295,11 +295,11 @@ select {
   flex-direction: column;
   justify-content: flex-start;
   margin-left: 20px;
-  font-size: 11px;
+  font-size: 14px;
 }
 
 .info .price {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .ad-listing .image, .ad-listing .info {
