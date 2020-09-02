@@ -141,6 +141,11 @@ a {
   font-size: 35px;
 }
 
+.teaser {
+  font-size: 11px;
+  color: #D4D4D4;
+}
+
 .country {
   grid-column: 5;
 }
@@ -339,6 +344,10 @@ select {
 
 .province, .phone, .views {
   color: #8E8D8D;
+}
+
+.views {
+  color: #D4D4D4;
 }
 
 .table {
