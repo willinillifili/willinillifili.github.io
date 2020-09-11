@@ -38,10 +38,13 @@
         </button>
       </div>
       <div class="country menu-section mobile-only">
-        <div class="circle">
+        <!--div class="circle">
           <img alt="current country flag" src="https://clasitronicos.com/assets/flags/puerto_rico.gif"/>
-        </div>
-        </div>
+        </div-->
+        <span id="search-icon-mobile" style="color: white;">
+          <i class="fa fa-search fa-lg"></i>
+        </span>
+      </div>
         <div class="items menu-section desktop-only">
           {{#item}}
             <a href="{{url}}" class="item {{type}}">
@@ -50,7 +53,7 @@
           {{/item}}
           <div class="item desktop-only flag">
               <img alt="current country flag" src="https://clasitronicos.com/assets/flags/puerto_rico.gif"/>
-            </div>          
+            </div>
           </div>
         <div class="categories">
           {{#category}}
@@ -105,6 +108,22 @@
     </div>
   </div>
 {{/ads}}
+</div>
+<div id="popup-searchbar">
+  <div class="search pointer popup-search mobile-only">
+    <form action="https://www.clasitronicos.com/cgi-bin/getadx.cgi"
+          method="post"
+          class="centralize-row">
+      <input type="text" placeholder="que (y donde).." name="keyword">
+      <input type="hidden" name="country" size="12" value="PR">
+      <button type="submit">
+        <span>
+          <i class="fa fa-search fa-lg"></i>
+          </span>
+      </button>
+    </form>
+  </div>
+  <span id="return">Regresar</span>
 </div>
 <div class="grid-item breadcrumbs">
   <a href="#" class="bc-category">Autos</a>
