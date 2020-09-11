@@ -169,6 +169,31 @@ a {
   height: 75%;
 }
 
+#popup-searchbar {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  left: -2000px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: left 0.5s;
+}
+
+#return {
+  color: white;
+  font-family: 'Montserrat';
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.showSearch {
+  left: 0 !important;
+}
+
 .breadcrumbs {
     color: rgba(0, 0, 0, 0.31);
     font-family: Montserrat;
@@ -215,6 +240,17 @@ a {
   border-radius: 10px;
   margin: 10px;
   width: 30%;
+}
+
+.popup-search {
+  height: 50px;
+  width: 75%;
+  background: white;
+}
+
+.popup-search input{
+  font-size: 15px;
+
 }
 
 form {
