@@ -24,7 +24,11 @@
     <a href="https://clasitronicos.com/index.html" class="logo menu-section pointer">
       <img alt="logo" src="https://clasitronicos.com/assets/ClasitronicosLogo3-azul.png"/>
       </a>
-      <div class="search menu-section pointer desktop-only">
+      <a href="https://www.clasitronicos.com/cgi-bin/formanunciox.cgi?n=PR"
+         class="desktop-only-flex publicar">
+         PUBLICAR GRATIS
+      </a>
+      <!--div class="search menu-section pointer desktop-only">
         <form
         action="https://www.clasitronicos.com/cgi-bin/getadx.cgi"
         method="post"
@@ -36,12 +40,12 @@
             <i class="fa fa-search fa-sm"></i>
             <span>
         </button>
-      </div>
+      </div-->
       <div class="country menu-section mobile-only">
         <!--div class="circle">
           <img alt="current country flag" src="https://clasitronicos.com/assets/flags/puerto_rico.gif"/>
         </div-->
-        <span id="search-icon-mobile" style="color: white;">
+        <span class="search-icon-mobile" style="color: white;" class="pointer">
           <i class="fa fa-search fa-lg"></i>
         </span>
       </div>
@@ -51,9 +55,9 @@
               {{title}}
               </a>
           {{/item}}
-          <div class="item desktop-only flag">
-              <img alt="current country flag" src="https://clasitronicos.com/assets/flags/puerto_rico.gif"/>
-            </div>
+          <span class="search-icon-mobile" class="item" style="color: var(--darkgrey);">
+            <i class="fa fa-search fa-sm"></i>
+          </span>
           </div>
         <div class="categories">
           {{#category}}
@@ -123,7 +127,6 @@
       </button>
     </form>
   </div>
-  <span id="return">Regresar</span>
 </div>
 <div class="grid-item breadcrumbs">
   <a href="#" class="bc-category">Autos</a>
@@ -131,7 +134,10 @@
   class="bc-country pointer">Puerto Rico, </a>
   <a href="https://www.clasitronicos.com/mundo.htm"
   class="bc-country pointer bc-province">&nbsp Caguas</a>
-  </div>
+  <div class="flag bc-flag">
+      <img alt="current country flag" src="https://clasitronicos.com/assets/flags/puerto_rico.gif"/>
+    </div>
+</div>
     <div id="listing-breadcrumbs" class="filters">
       <form action="https://www.clasitronicos.com/cgi-bin/getadx.cgi"
           method="post">
@@ -147,7 +153,7 @@
             <option value="{{color}}">{{color}}</option>
             {{/colors}}
           </select>
-          <input class="desktop-only" type="button" value="Buscar">
+          <input class="desktop-only buscar" type="button" value="Buscar">
       </form>
     </div>
   </div>

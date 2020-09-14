@@ -444,25 +444,39 @@ function isMobile() {
 	output = Mustache.render(template, popup_searchbar);
 	$('#popup-searchbar').html(output);*/
 
-
-  $("html, body").click(function(){
-    $("#popup-searchbar").removeClass("showSearch");
-    searchbarShowing = 0;
-  });
-
   // handles toggling of searchbar in mobile
   let searchbarShowing = 0;
-  $("#search-icon-mobile").click( function(e) {
+  $("#search-icon-mobile, .search-icon-mobile").click( function(e) {
     e.stopPropagation();
     if (!searchbarShowing) {
+      shiftEverythingDown();
       $("#popup-searchbar").addClass("showSearch");
       searchbarShowing = 1;
     }
+
+    else {
+      shiftEverythingUp();
+      $("#popup-searchbar").removeClass("showSearch");
+      searchbarShowing = 0;
+    }
+
   });
 
   $("input, button").click(function(e) {
     e.stopPropagation();
   });
+
+  function shiftEverythingDown() {
+    $(".breadcrumbs").css("grid-row", "9 / span 2");
+    $(".filters").css("grid-row", "11 / span 2");
+    $(".listado").css("grid-row", "13 / span 2");
+  }
+
+  function shiftEverythingUp() {
+    $(".breadcrumbs").css("grid-row", "4 / span 2");
+    $(".filters").css("grid-row", "6 / span 2");
+    $(".listado").css("grid-row", "9 / span 2");
+  }
 
  template = $('#listado').html();
 	output = Mustache.render(template, listing);

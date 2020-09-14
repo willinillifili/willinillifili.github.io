@@ -170,17 +170,16 @@ a {
 }
 
 #popup-searchbar {
-  position: absolute;
   width: 100%;
   height: 100%;
-  z-index: 1000;
-  background: rgba(0,0,0,0.5);
-  display: flex;
-  left: -2000px;
+  //background: rgba(0,0,0,0.5);
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: left 0.5s;
+  grid-row: 4 / span 5;
+  grid-column: 1 / 5;
+  //transition: left 0.5s;
 }
 
 #return {
@@ -191,16 +190,18 @@ a {
 }
 
 .showSearch {
-  left: 0 !important;
+  display: flex !important;
 }
 
 .breadcrumbs {
+    position: relative;
     color: rgba(0, 0, 0, 0.31);
     font-family: Montserrat;
     font-weight: 600;
     grid-column: 1 / 4;
     grid-row: 4 / span 2;
     background: white;
+    transition: grid-row 0.2s;
 }
 
 .bc-category {
@@ -229,6 +230,14 @@ a {
     font-weight: 200;
 }
 
+.bc-flag {
+  width: 19px;
+  height: 100%;
+  position: absolute;
+  right: 22px;
+  opacity: 100%;
+}
+
 .search {
   //grid-column: 5;
   display: flex;
@@ -244,7 +253,7 @@ a {
 
 .popup-search {
   height: 50px;
-  width: 75%;
+  width: 85%;
   background: white;
 }
 
@@ -256,6 +265,7 @@ a {
 form {
   display: flex;
   flex-direction: row-reverse;
+  padding: 10px;
 }
 
 input {
@@ -264,6 +274,7 @@ input {
   font-size: 11px;
   opacity: 50%;
   width: 100%;
+  padding: 10px;
 }
 
 input:focus {
@@ -308,7 +319,7 @@ select {
 
 .listado {
   grid-column: 1 / 4;
-  grid-row: 9;
+  grid-row: 8;
   font-family: Montserrat;
   background: white;
 }
@@ -352,7 +363,7 @@ select {
 }
 
 .separator {
-  background: lightgrey;
+  background: rgba(0,0,0,0.05);
   height: 1px;
   margin: 0px 10px;
 }
@@ -497,9 +508,10 @@ select {
   color: rgba(0,0,0,0.5);
 }
 
-.desktop-only {
+.desktop-only, .desktop-only-flex {
   display: none;
 }
+
 
 @media only screen and (min-width : 1300px) {
   .mobile-only {
@@ -508,6 +520,10 @@ select {
 
   .desktop-only {
     display: block;
+  }
+
+  .desktop-only-flex {
+    display: flex;
   }
 
   .ad-listing .image {
@@ -604,11 +620,32 @@ select {
     font-family: Roboto;
     font-style: normal;
     font-weight: 100;
-    font-size: 14px;
-    color: grey;
+    font-size: 15px;
+    color: var(--darkgrey);
     opacity: 75%;
     text-transform: capitalize;
     transition: border-bottom 0.5s;
+  }
+
+  .publicar {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto;
+    padding: 5px;
+    width: 10em;
+    height: 2em;
+    color: white;
+    background: #ff4466;
+    grid-column: 5;
+    grid-row: 2;
+    transition: opacity 0.1s;
+    border-radius: 5px;
+  }
+
+  .publicar:hover {
+    opacity: 80%;
   }
 
   .item:hover {
@@ -722,6 +759,14 @@ select {
     border-bottom: 1px solid rgba(196, 196, 196, 0.84);
   }
 
+  .bc-flag {
+    width: 74px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    opacity: 33%;
+  }
+
   #listing-breadcrumbs {
     grid-row: 3;
     min-width: 946px;
@@ -759,9 +804,12 @@ select {
   }
 
   .listing-row:last-child {
-    position: absolute;
     width: 100%;
     bottom: 0;
+  }
+
+  .listing-row {
+    margin-bottom: 1%;
   }
 
   .table {
@@ -804,6 +852,7 @@ select {
   }
 
   .ad-listing {
+    height: 150px;
     padding: 20px;
   }
 
@@ -824,6 +873,10 @@ select {
   }
 
   .circle { background: transparent; }
+
+  .buscar {
+    padding: 0px;
+  }
 
 }
 
