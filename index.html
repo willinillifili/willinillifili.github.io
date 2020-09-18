@@ -45,7 +45,7 @@
         <!--div class="circle">
           <img alt="current country flag" src="https://clasitronicos.com/assets/flags/puerto_rico.gif"/>
         </div-->
-        <span class="search-icon-mobile" style="color: white;" class="pointer">
+        <span class="search-icon-mobile pointer" style="color: white;">
           <i class="fa fa-search fa-lg"></i>
         </span>
       </div>
@@ -60,6 +60,10 @@
           </span>
           </div>
         <div class="categories">
+          <a href="https://www.clasitronicos.com/cgi-bin/formanunciox.cgi?n=PR"
+             class="publicar mobile-only">
+             PUBLICAR GRATIS
+          </a>
           {{#category}}
           <div class="category-item">
             <div class="category pointer">{{title}}</div>
@@ -74,9 +78,23 @@
           {{/category}}
           </div>
   </div>
-  <div id="listado" class="listado">
+  <div id="listado" class="listado center">
+    <div class="ad-listing paid-ads">
+      <span>Anuncios Pagados</span>
+      <div class="paid-ads-images">
+        <a href="https://www.clasitronicos.com/cgi-bin/fotos.cgi?id=PR136834&db=4"
+           class="image">
+            <img src="https://www.clasificadoselectronicos.com/puertorico/clientes/litosx.jpg"/>
+        </a>
+        <a href="https://www.clasitronicos.com/cgi-bin/fotos.cgi?id=PR136834&db=4"
+              class="image">
+              <img src="https://www.clasificadoselectronicos.com/puertorico/clientes/prlawx.jpg"/>
+        </a>
+      </div>
+    </div>
+    <a name="newad"></a>
     {{#ads}}
-    <div class="separator"></div> 
+    <div class="separator"></div>
     <div
     class="ad-listing">
       <a href="https://www.clasitronicos.com/cgi-bin/fotos.cgi?id=PR136834&db=4"
@@ -106,15 +124,18 @@
         <div class="views">
           <span style="color:black">
             {{views}}
-          </span> vistas</div>
-        <div class="phone">{{phone}}</div>
+          </span> vistas
+        </div>
+        <div class="phone">
+          {{phone}}
+        </div>
       </div>
     </div>
   </div>
 {{/ads}}
 </div>
-<div id="popup-searchbar">
-  <div class="search pointer popup-search mobile-only">
+<div id="popup-searchbar" class="center">
+  <div class="search pointer popup-search">
     <form action="https://www.clasitronicos.com/cgi-bin/getadx.cgi"
           method="post"
           class="centralize-row">
@@ -128,7 +149,7 @@
     </form>
   </div>
 </div>
-<div class="grid-item breadcrumbs">
+<div class="grid-item breadcrumbs center">
   <a href="#" class="bc-category">Autos</a>
   <a href="https://www.clasitronicos.com/mundo.htm"
   class="bc-country pointer">Puerto Rico, </a>
@@ -138,7 +159,7 @@
       <img alt="current country flag" src="https://clasitronicos.com/assets/flags/puerto_rico.gif"/>
     </div>
 </div>
-    <div id="listing-breadcrumbs" class="filters">
+    <div id="listing-breadcrumbs" class="filters center">
       <form action="https://www.clasitronicos.com/cgi-bin/getadx.cgi"
           method="post">
           <label for="anio"> Año </label>

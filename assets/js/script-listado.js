@@ -444,6 +444,12 @@ function isMobile() {
 	output = Mustache.render(template, popup_searchbar);
 	$('#popup-searchbar').html(output);*/
 
+  let screenSize = { isMobile : false };
+  screenSize.isMobile = window.innerWidth < 1000 ? true : false;
+  window.addEventListener("resize", () => {
+    screenSize.isMobile = window.innerWidth < 1000 ? true : false;
+  })
+
   // handles toggling of searchbar in mobile
   let searchbarShowing = 0;
   $("#search-icon-mobile, .search-icon-mobile").click( function(e) {
@@ -467,15 +473,31 @@ function isMobile() {
   });
 
   function shiftEverythingDown() {
-    $(".breadcrumbs").css("grid-row", "9 / span 2");
-    $(".filters").css("grid-row", "11 / span 2");
-    $(".listado").css("grid-row", "13 / span 2");
+    if (screenSize.isMobile) {
+      $(".breadcrumbs").css("grid-row", "8 / span 2");
+      $(".filters").css("grid-row", "10 / span 2");
+      $(".listado").css("grid-row", "12 / span 2");
+    }
+
+    else {
+      $(".breadcrumbs").css("grid-row", "5 / 6");
+      $(".filters").css("grid-row", "6");
+      $(".listado").css("grid-row", "7");
+    }
   }
 
   function shiftEverythingUp() {
-    $(".breadcrumbs").css("grid-row", "4 / span 2");
-    $(".filters").css("grid-row", "6 / span 2");
-    $(".listado").css("grid-row", "9 / span 2");
+    if (screenSize.isMobile) {
+      $(".breadcrumbs").css("grid-row", "4 / span 2");
+      $(".filters").css("grid-row", "6 / span 2");
+      $(".listado").css("grid-row", "9 / span 2");
+    }
+
+    else {
+      $(".breadcrumbs").css("grid-row", "2 / 3");
+      $(".filters").css("grid-row", "3");
+      $(".listado").css("grid-row", "4");
+    }
   }
 
  template = $('#listado').html();
