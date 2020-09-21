@@ -26,12 +26,6 @@ a {
   cursor: pointer;
 }
 
-@media only screen and (max-width : 1500px) {
-  .center {
-    grid-column: 3 / 11;
-  }
-}
-
 .grid-container {
   display: grid;
   //background: #F2F5F5;
@@ -285,9 +279,14 @@ a {
 
 }
 
+label {
+  display: flex;
+  align-items: center;
+}
+
 form {
   display: flex;
-  flex-direction: row-reverse;
+  //flex-direction: row-reverse;
   padding: 10px;
   justify-content: center;
   width: 100%;
@@ -317,17 +316,35 @@ button {
 label {
   font-size: 11px;
   color: black;
-  margin: 0 15px;
+  margin: 0px 5px 0px 15px;
 }
 
 label:after {
   display: inline-block;
-  content: "⯆";
+  //content: "⯆";
 }
 
 select {
-  opacity: 0%;
-  width: 0px;
+  opacity: 80%;
+  width: 60px;
+}
+
+.buscar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  background: var(--darkgrey);
+  margin-left: 15px;
+  color: white;
+  width: 1em;
+  height: 20px;
+  font-size: 75%;
+  border-radius: 2px;
+}
+
+input.buscar:focus {
+  width: 50px;
 }
 
 #listing-breadcrumbs {
@@ -346,18 +363,22 @@ select {
   grid-column: 1 / 4;
   grid-row: 8;
   font-family: Montserrat;
-  background: white;
 }
 
 .separator:first-child {
   margin-top: 16px;
 }
 
-
 .ad-listing {
   display: flex;
   justify-content: space-between;
   padding: 20px 10px;
+  background: white;
+  margin-top: 10px;
+}
+
+.paid-ads {
+  margin: 0px;
 }
 
 .ad-listing .image {
@@ -834,6 +855,10 @@ select {
     grid-row: 3;
   }
 
+  .buscar {
+
+  }
+
   .filters form {
     justify-content: center;
   }
@@ -920,6 +945,7 @@ select {
   }
 
   .separator {
+    display: none;
     margin: 0px 20px;
   }
 
@@ -951,8 +977,24 @@ select {
   }
 
   .center {
+    grid-column: 3 / 11;
+  }
+
+}
+
+@media only screen and (min-width : 1200px) {
+  .center {
     grid-column: 4 / 10;
   }
 
+  .country {
+    grid-column: 6;
+  }
 
+  .menu .logo {
+    grid-column: 4 / span 1;
+    grid-row: 2;
+    width: 80%;
+    justify-content: flex-start;
+  }  
 }

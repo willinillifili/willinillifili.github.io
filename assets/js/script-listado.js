@@ -435,10 +435,39 @@ function toggleSnackbarColor(initialToggleState) {
 function isMobile() {
   return isMobile = $(".items").css("display") === "none";
 }
+  let year = parsedFilterData()[0];
+  let color = parsedFilterData()[1];
 
- template = $('#listing-breadcrumbs').html();
-	output = Mustache.render(template, listing_breadcrumbs);
+  let years = [];
+  let colors = [];
+
+  year.forEach((item, i) => {
+    years.push({ year : item });
+  });
+
+  color.forEach((item, i) => {
+    colors.push({ color : item });
+  });
+
+  data = { years : years, colors : colors };
+
+  template = $('#listing-breadcrumbs').html();
+	output = Mustache.render(template, data);
 	$('#listing-breadcrumbs').html(output);
+
+  function parsedFilterData() {
+    let parsedData = [];
+    rawData = $("#filter-data").text().trim();
+    rawDataSplit = rawData.split("#");
+    parsedData[0] = rawDataSplit[0].split(",");
+    parsedData[1] = rawDataSplit[1].split(",");
+
+    // splitting by comma leaves blank strings
+    parsedData[0].pop();
+    parsedData[1].shift();
+
+    return parsedData;
+  }
 
  /*template = $('#popup-searchbar').html();
 	output = Mustache.render(template, popup_searchbar);

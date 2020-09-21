@@ -94,7 +94,6 @@
     </div>
     <a name="newad"></a>
     {{#ads}}
-    <div class="separator"></div>
     <div
     class="ad-listing">
       <a href="https://www.clasitronicos.com/cgi-bin/fotos.cgi?id=PR136834&db=4"
@@ -162,6 +161,9 @@
     <div id="listing-breadcrumbs" class="filters center">
       <form action="https://www.clasitronicos.com/cgi-bin/getadx.cgi"
           method="post">
+          <input type="hidden" name="category" size="12" value="autos">
+          <input type="hidden" name="keyword" size="12" value="mdx">
+          <input type="hidden" name="country" size="12" value="PR">
           <label for="anio"> Año </label>
           <select name="anio">
             {{#years}}
@@ -174,8 +176,11 @@
             <option value="{{color}}">{{color}}</option>
             {{/colors}}
           </select>
-          <input class="desktop-only buscar" type="button" value="Buscar">
+          <input class="buscar pointer" type="submit" value="Buscar">
       </form>
+      <div id="filter-data" style="display: none;">
+        1997,1998,2001,2012,2018,#,Black,Blanco,Rojo
+      </div>
     </div>
   </div>
 </body>
