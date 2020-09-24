@@ -529,8 +529,43 @@ function isMobile() {
     }
   }
 
+ paid_ads = parsePaidAds()
+ data = { ads : listing.ads, paid_ads : paid_ads};
  template = $('#listado').html();
-	output = Mustache.render(template, listing);
- console.log(output);
+	output = Mustache.render(template, data);
 	$('#listado').html(output);
+
+  cyclePaidAds();
+
+/* HELPER FUNCTIONS */
+
+function parsePaidAds() {
+  let rawData = $("#paid-ads-data").text();
+  let splitData = rawData.split(",");
+  // we intend to divide the list into objects of url source/destination pairs
+  let paidAdsTuples = [];
+  for (let i = 0; i < splitData.length; i+=2) {
+    paidAdsTuples.push({
+      source : splitData[i].trim(),
+      destination :  splitData[i + 1].trim()
+    });
+  }
+  return paidAdsTuples;
+}
+
+function cyclePaidAds() {
+  let paidAds = $(".paid-ad");
+  let start = 0;
+  paidAds[start].style.display = "block";
+  paidAds[start + 1].style.display = "block";
+  setInterval(function(){
+    if (start >= paidAds.length) {
+      start = 0;
+    }
+    $(".paid-ad").css("display", "none");
+    paidAds[start].style.display = "block";
+    paidAds[start + 1].style.display = "block";
+    start += 2;
+  }, 5000);
+}
 });

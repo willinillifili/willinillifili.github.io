@@ -82,14 +82,25 @@
     <div class="ad-listing paid-ads">
       <span>Anuncios Pagados</span>
       <div class="paid-ads-images">
-        <a href="https://www.clasitronicos.com/cgi-bin/fotos.cgi?id=PR136834&db=4"
-           class="image">
-            <img src="https://www.clasificadoselectronicos.com/puertorico/clientes/litosx.jpg"/>
+        {{#paid_ads}}
+        <a href="{{ destination }}" class="image paid-ad" style="display:none;">
+            <img alt="paid advertisement" src="{{ source }}"/>
         </a>
-        <a href="https://www.clasitronicos.com/cgi-bin/fotos.cgi?id=PR136834&db=4"
-              class="image">
-              <img src="https://www.clasificadoselectronicos.com/puertorico/clientes/prlawx.jpg"/>
-        </a>
+        {{/paid_ads}}
+      </div>
+      <div style="display: none;" id="paid-ads-data">
+        https://www.clasificadoselectronicos.com/puertorico/clientes/litosx.jpg,
+        https://www.infopaginas.com/b/aguadilla/centro-oftalmologico-y-ptica-dr-raul-lopez-verge,
+        https://www.clasificadoselectronicos.com/puertorico/clientes/prlawx.jpg,
+        https://www.infopaginas.com/b/aguadilla/centro-oftalmologico-y-ptica-dr-raul-lopez-verge,
+        https://www.clasificadoselectronicos.com/puertorico/clientes/drfmorales.jpg,
+        https://www.infopaginas.com/b/aguadilla/centro-oftalmologico-y-ptica-dr-raul-lopez-verge,
+        https://www.clasificadoselectronicos.com/puertorico/clientes/lopez.jpg,
+        https://www.infopaginas.com/b/aguadilla/centro-oftalmologico-y-ptica-dr-raul-lopez-verge,
+        https://www.clasificadoselectronicos.com/puertorico/clientes/solano.jpg,
+        https://www.infopaginas.com/b/aguadilla/centro-oftalmologico-y-ptica-dr-raul-lopez-verge,
+        https://www.clasificadoselectronicos.com/puertorico/clientes/pmextreme.jpg,
+        https://www.infopaginas.com/b/aguadilla/centro-oftalmologico-y-ptica-dr-raul-lopez-verge        
       </div>
     </div>
     <a name="newad"></a>
