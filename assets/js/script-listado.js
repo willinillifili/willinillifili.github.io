@@ -523,9 +523,9 @@ function isMobile() {
     }
 
     else {
-      $(".breadcrumbs").css("grid-row", "2 / 3");
-      $(".filters").css("grid-row", "3");
-      $(".listado").css("grid-row", "4");
+      $(".breadcrumbs").css("grid-row", "3 / 4");
+      $(".filters").css("grid-row", "4");
+      $(".listado").css("grid-row", "5");
     }
   }
 
