@@ -439,7 +439,7 @@ input.buscar:focus {
   margin-bottom: 2%;
 }
 
-.title, .keywords a{
+.title, .keywords a {
     color: #4A9193;
 }
 
@@ -456,7 +456,9 @@ input.buscar:focus {
   text-transform: capitalize;
 }
 
-.title { font-weight: bold;}
+.title { font-weight: bold;
+  font-size: 12px;
+}
 
 .province, .phone, .views {
   color: #8E8D8D;
