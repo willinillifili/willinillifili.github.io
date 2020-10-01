@@ -413,6 +413,8 @@ input.buscar:focus {
   justify-content: flex-start;
   margin-left: 20px;
   font-size: 15px;
+  padding: 10px;
+  background: rgba(0,0,0,0.1);
 }
 
 .info .price {
