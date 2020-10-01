@@ -126,7 +126,9 @@
         <div class="teaser">{{teaser}}</div><!-- resumen de la descripcion del anuncio -->
         </div>
       <div class="listing-row keywords">
+        {{#keywords}}
         <a href={{url}} class="keyword">{{keyword}}</a>
+        {{/keywords}}
       </div>
       <div class="listing-row">
         <div class="vendor">{{vendor}}</div><!-- vendedor (dealer, corredor, etc.) -->
