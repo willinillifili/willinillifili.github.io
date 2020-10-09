@@ -204,6 +204,48 @@ const listing = {
       province : "bayamon",
       price : "170,000",
       title : "2020 Toyota Camry XSE Auto (Natl)",
+      type : "premium",
+      keywords : [
+        {
+          keyword : "toyota",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Toyota&c=dealers",
+        },
+        {
+          keyword : "camry",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Camry&c=dealers",
+        },
+      ],
+      teaser : "Esto es un resumen de la descripcion del ...",
+      views : "15",
+      vendor: "All Brand Auto",
+      phone : "(787) 946-7575",
+      image : "./assets/corolla.jpg",
+    },
+    {
+      province : "bayamon",
+      price : "170,000",
+      title : "2020 Toyota Camry XSE Auto (Natl)",
+      keywords : [
+        {
+          keyword : "toyota",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Toyota&c=dealers",
+        },
+        {
+          keyword : "camry",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Camry&c=dealers",
+        },
+      ],
+      teaser : "Esto es un resumen de la descripcion del ...",
+      views : "15",
+      vendor: "All Brand Auto",
+      phone : "(787) 946-7575",
+      image : "./assets/corolla.jpg",
+    },
+    {
+      province : "bayamon",
+      price : "170,000",
+      title : "2020 Toyota Camry XSE Auto (Natl)",
+      type : "premium",
       keywords : [
         {
           keyword : "toyota",
@@ -264,46 +306,7 @@ const listing = {
       province : "bayamon",
       price : "170,000",
       title : "2020 Toyota Camry XSE Auto (Natl)",
-      keywords : [
-        {
-          keyword : "toyota",
-          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Toyota&c=dealers",
-        },
-        {
-          keyword : "camry",
-          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Camry&c=dealers",
-        },
-      ],
-      teaser : "Esto es un resumen de la descripcion del ...",
-      views : "15",
-      vendor: "All Brand Auto",
-      phone : "(787) 946-7575",
-      image : "./assets/corolla.jpg",
-    },
-    {
-      province : "bayamon",
-      price : "170,000",
-      title : "2020 Toyota Camry XSE Auto (Natl)",
-      keywords : [
-        {
-          keyword : "toyota",
-          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Toyota&c=dealers",
-        },
-        {
-          keyword : "camry",
-          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Camry&c=dealers",
-        },
-      ],
-      teaser : "Esto es un resumen de la descripcion del ...",
-      views : "15",
-      vendor: "All Brand Auto",
-      phone : "(787) 946-7575",
-      image : "./assets/corolla.jpg",
-    },
-    {
-      province : "bayamon",
-      price : "170,000",
-      title : "2020 Toyota Camry XSE Auto (Natl)",
+      type : "premium",
       keywords : [
         {
           keyword : "toyota",

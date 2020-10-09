@@ -109,21 +109,26 @@
     </div>
     <a name="newad"></a>
     {{#ads}}
-    <div class="ad-listing"><!-- Aqui comienza el anuncio -->
+    <div class="ad-listing {{type}}"><!-- Aqui comienza el anuncio -->
+      {{#type}}
+      <div class="premium-label">
+        Premium
+      </div>
+      {{/type}}
       <a href="https://www.clasitronicos.com/cgi-bin/fotos.cgi?id=PR136834&db=4"
          class="image ad-image">
          <img src="https://assets.dealerappcenter.com/dealergroups/88/vehicles/25500/FMR8n1.jpg" alt="" />
       </a>
       <div class="info">
       <div class="listing-row">
-        <div class="province">{{province}}</div>
+        <a href="{{url}}" class="province">{{province}}</a>
         <div class="price">${{price}}</div>
       </div>
       <div class="listing-row">
-        <div class="title">{{title}}</div><!-- titulo del anuncio -->
+        <a href="{{url}}" class="title">{{title}}</a><!-- titulo del anuncio -->
       </div>
       <div class="listing-row">
-        <div class="teaser">{{teaser}}</div><!-- resumen de la descripcion del anuncio -->
+        <a href="{{title}}" class="teaser">{{teaser}}</a><!-- resumen de la descripcion del anuncio -->
         </div>
       <div class="listing-row keywords">
         {{#keywords}}
@@ -131,7 +136,10 @@
         {{/keywords}}
       </div>
       <div class="listing-row">
-        <div class="vendor">{{vendor}}</div><!-- vendedor (dealer, corredor, etc.) -->
+        <a
+        style="color:black;"
+        href="{{title}}"
+        class="vendor">{{vendor}}</a><!-- vendedor (dealer, corredor, etc.) -->
       </div>
       <div class="listing-row">
         <div class="views"><!-- numero de visitas al anuncio -->
