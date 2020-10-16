@@ -499,10 +499,23 @@ ai-flex-start {
   z-index: -1;
   height: 100%;
   width: 100%;
-  background-image: url("./assets/tile-2.png"),
-  linear-gradient(140deg, rgba(0,187,170,1) 0%, rgba(91,0,81,1),
-  rgba(91,0,81,1), rgba(0,187,170,1));
+  background-image: linear-gradient(140deg, rgba(0,187,170,0.9) 0%, rgba(91,0,81,0.9));
   //background-repeat: no-repeat;
+}
+
+.layer::after {
+  background-image: url("./assets/tile-2.png");
+  position: fixed;
+  display: block;
+  content: "";
+  filter: brightness(400%) opacity(150%) saturate(200%);
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
 }
 
 .border {
@@ -734,6 +747,7 @@ tight-contain {
 .logo {
   width: 100%;
   height: 60%;
+  margin-top: 10px;
 }
 
 .logo img {
@@ -992,9 +1006,8 @@ footer div, p {
 
 @media only screen and (min-width : 900px) {
   .layer {
-    background-image: url("./assets/tile-2.png"),
-    linear-gradient(140deg, rgba(0,187,170,1), rgba(91,0,81,1), rgba(91,0,81,1),
-    rgba(0,187,170,1));
+    //background-image: url("./assets/tile-2.png"),
+    linear-gradient(140deg, rgba(0,187,170,0.9), rgba(91,0,81,0.9));
   }
 
   .main {
@@ -1229,6 +1242,7 @@ footer div, p {
 
   .logo {
     height: 100%;
+    margin: 0px;
   }
 
   .post {
@@ -1477,7 +1491,7 @@ footer div, p {
     align-items: center;
     height: 75px;
     justify-content: center;
-    background: rgba(255,255,255, 0.6);
+    background: rgba(255,255,255, 0.9);
     //border-radius: 0px 0px 0px 50px;
     width: 100%;
   }
