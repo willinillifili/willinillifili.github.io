@@ -539,8 +539,13 @@ function isMobile() {
 	$('#listado').html(output);
 
   cyclePaidAds();
+  attachPremiumLabels();
 
 /* HELPER FUNCTIONS */
+
+function attachPremiumLabels() {
+  $(".premium").children(".premium-label").css("display", "flex");
+}
 
 function parsePaidAds() {
   let rawData = $("#paid-ads-data").text();

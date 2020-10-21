@@ -30,6 +30,17 @@ a:hover {
   cursor: pointer;
 }
 
+footer {
+  min-height: 100px;
+  margin-top: 10px;
+  padding: 10px;
+  background: white;
+  border-top: 1px solid var(--primary);
+  font-family: 'Montserrat';
+  display: flex;
+  justify-content: center;
+}
+
 .grid-container {
   display: grid;
   //background: #F2F5F5;
@@ -632,6 +643,21 @@ input.buscar:focus {
     background: none;
   }
 
+  body::after {
+    background-image: url("https://clasitronicos.com/assets/tile-2.png");
+    position: fixed;
+    display: block;
+    content: "";
+    filter: brightness(400%) opacity(150%) saturate(200%);
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+  }
+
   .mobile-only {
       display: none;
   }
@@ -649,6 +675,11 @@ input.buscar:focus {
     background: #E7F8F6;
   }
 
+  body {
+    background: linear-gradient(298.6deg, rgba(91, 0, 81, 0.75) 0%,
+    rgba(0, 187, 170, 0.65) 100%);
+  }
+
   .grid-container {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -656,8 +687,6 @@ input.buscar:focus {
     grid-gap: 10px;
     height: 100%;
     width: 100%;
-    background: linear-gradient(298.6deg, rgba(91, 0, 81, 0.75) 0%,
-    rgba(0, 187, 170, 0.65) 100%);
   }
 
   .grid-center {
@@ -672,6 +701,7 @@ input.buscar:focus {
     grid-template-rows: repeat(3, 20px);
     grid-gap: 10px;
     grid-row: 1 / span 2;
+    box-shadow: 2px 2px 150px var(--darkgrey);
   }
 
   .menu-section {
@@ -685,13 +715,12 @@ input.buscar:focus {
   .menu .logo {
     grid-column: 3 / span 1;
     grid-row: 2;
-    width: 80%;
+    width: 100%;
     justify-content: center;
-    background: var(--primary);
   }
 
   .menu .logo img {
-    width: 122px;
+    width: 175px;
   }
 
   .menu .search {
@@ -906,10 +935,6 @@ input.buscar:focus {
     grid-row: 4;
   }
 
-  .buscar {
-
-  }
-
   .filters form {
     justify-content: center;
   }
@@ -987,13 +1012,19 @@ input.buscar:focus {
     display: none;
   }
 
-  .ad-listing:first-child {
-    padding-top: 20px;
+  .ads {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   .ad-listing {
-    height: 150px;
-    padding: 20px;
+    width: 47%;
+    height: 200px;
+  }
+
+  .paid-ads {
+      width: 100%;
   }
 
   .separator {
