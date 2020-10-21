@@ -373,8 +373,9 @@ input.buscar:focus {
   grid-row : 6 / span 2;
   justify-content: center;
   align-items: center;
-  background: #E7F8F6;
+  background: var(--primary);
   font-family: "Montserrat";
+  color: white !important;
 }
 
 .filters input { width: 50px;}
