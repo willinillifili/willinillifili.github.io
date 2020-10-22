@@ -22,9 +22,9 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+/*a:hover {
   border-bottom: 1px solid var(--primary);
-}
+}*/
 
 .pointer {
   cursor: pointer;
@@ -176,6 +176,7 @@ footer {
 
 .paid-ad {
   width: 100% !important;
+  box-shadow: 2px 2px 5px var(--darkgrey);
 }
 
 .teaser {
@@ -334,7 +335,7 @@ button {
 }
 
 label {
-  font-size: 11px;
+  font-size: 15px;
   color: black;
   margin: 0px 5px 0px 15px;
 }
@@ -358,9 +359,10 @@ select {
   margin-left: 15px;
   color: white;
   width: 1em;
-  height: 20px;
-  font-size: 75%;
+  font-size: 15px;
+  font-family: "Montserrat";
   border-radius: 2px;
+  box-shadow: 0px 3px 10px var(--darkgrey);
 }
 
 input.buscar:focus {
@@ -377,7 +379,7 @@ input.buscar:focus {
   font-family: "Montserrat";
 }
 
-.filters input { width: 50px;}
+.filters input { width: 60px;}
 
 .listado {
   grid-column: 1 / 4;
@@ -417,6 +419,7 @@ input.buscar:focus {
   margin: 0;
   padding: 10px 0px;
   height: auto !important;
+  max-height: 400px;
 }
 
 .paid-ad:nth-child(2n + 1) {
@@ -542,7 +545,7 @@ input.buscar:focus {
 }
 
 .paid-ads span {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 11px;
   color: rgba(0,0,0,0.5);
 }
@@ -637,6 +640,24 @@ input.buscar:focus {
 
 @media only screen and (min-width : 1100px) {
 
+  .change-columns {
+    position: fixed;
+    left: 0;
+    top: 200px;
+    z-index: 3;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    padding: 10px;
+    background: #ff4466;
+    margin-left: 5px;
+  }
+
+  .change-columns button {
+    background: white;
+    border-radius: 10px;
+    color: black;
+  }
+
   body {
     height: 100%;
     width: 100%;
@@ -720,7 +741,7 @@ input.buscar:focus {
   }
 
   .menu .logo img {
-    width: 175px;
+    width: 100%;
   }
 
   .menu .search {
@@ -781,9 +802,9 @@ input.buscar:focus {
   }
 
   .menu .items .item {
-    font-family: Roboto;
+    font-family: "Montserrat";
     font-style: normal;
-    font-weight: 100;
+    font-weight: bold;
     font-size: 15px;
     color: var(--darkgrey);
     opacity: 75%;
@@ -977,6 +998,12 @@ input.buscar:focus {
     margin-bottom: 1%;
   }
 
+  .make-columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
   .table {
     grid-auto-rows: minmax(0px, auto);
     grid-row: span 2;
@@ -1019,8 +1046,27 @@ input.buscar:focus {
   }
 
   .ad-listing {
-    width: 47%;
-    height: 200px;
+    display: flex;
+    flex-direction: column;
+    width: 47.25%;
+    height: auto !important;
+  }
+
+  .ad-listing-3 {
+    width: 30.5%;
+  }
+
+  .ad-listing-4 {
+    width: 22.7%;
+  }
+
+  .ad-listing .info {
+    width: 100%;
+    margin: 0px;
+    height: 100%;
+    padding: 0px;
+    margin-top: 10px;
+    background: transparent;
   }
 
   .paid-ads {
@@ -1034,6 +1080,10 @@ input.buscar:focus {
 
   .separator:first-child {
     display: none;
+  }
+
+  .ad-image {
+    width: 100% !important;
   }
 
   .phone, .views {
@@ -1077,7 +1127,7 @@ input.buscar:focus {
   .menu .logo {
     grid-column: 4 / span 1;
     grid-row: 2;
-    width: 80%;
+    width: 100%;
     border-radius: 5px;
     padding: 5px;
     justify-content: center;

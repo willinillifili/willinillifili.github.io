@@ -78,6 +78,11 @@
           {{/category}}
           </div>
   </div>
+  <aside class="change-columns desktop-only">
+    <button type="button" class="dos">2 columnas</button>
+    <button type="button" class="tres">3 columnas</button>
+    <button type="button" class="cuatro">4 columnas</button>
+  </aside>
   <div id="listado" class="listado center">
     <div class="ad-listing paid-ads">
       <span>Anuncios Pagados</span>
@@ -111,11 +116,9 @@
     <div class="ads">
     {{#ads}}
       <div class="ad-listing {{type}}"><!-- Aqui comienza el anuncio -->
-        {{#type}}
         <div class="premium-label" style="display:none;">
           Premium
         </div>
-        {{/type}}
         <a href="https://www.clasitronicos.com/cgi-bin/fotos.cgi?id=PR136834&db=4"
            class="image ad-image">
            <img src="https://assets.dealerappcenter.com/dealergroups/88/vehicles/25500/FMR8n1.jpg" alt="" />
