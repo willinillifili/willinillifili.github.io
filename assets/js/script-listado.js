@@ -844,7 +844,6 @@ function isMobile() {
 
   $(window).on("resize", function() {
     handleAdWidth();
-    cyclePaidAds();
   });
 
 /* HELPER FUNCTIONS */
@@ -909,7 +908,7 @@ function cyclePaidAds() {
     paidAds[start + 1].style.display = "block";
     if (!isMobile) paidAds[start + 2].style.display = "block";
     start += 3;
-  }, 7000);
+  }, 12000);
 }
 
   $('button[type="button"]').click(function(){
