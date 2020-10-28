@@ -176,7 +176,6 @@ footer {
 
 .paid-ad {
   width: 100% !important;
-  box-shadow: 2px 2px 5px var(--darkgrey);
 }
 
 .teaser {
@@ -446,7 +445,7 @@ input.buscar:focus {
   margin-left: 10px;
   font-size: 15px;
   padding: 10px;
-  background: rgba(0,0,0,0.05);
+  //background: rgba(0,0,0,0.05);
 }
 
 .info .price {
@@ -638,7 +637,11 @@ input.buscar:focus {
   font-size: 13px !important;
 }
 
-@media only screen and (min-width : 1100px) {
+@media only screen and (min-width : 800px) {
+
+  .paid-ad {
+    width: 33% !important;
+  }
 
   .change-columns {
     position: fixed;
@@ -1048,17 +1051,17 @@ input.buscar:focus {
   .ad-listing {
     display: flex;
     flex-direction: column;
-    width: 47.25%;
+    width: 45.25%;
     height: auto !important;
   }
 
-  .ad-listing-3 {
+/*  .ad-listing-3 {
     width: 30.5%;
   }
 
   .ad-listing-4 {
     width: 22.7%;
-  }
+  }*/
 
   .ad-listing .info {
     width: 100%;
@@ -1098,6 +1101,7 @@ input.buscar:focus {
 
   .paid-ads-images {
     height: 80%;
+    width: 100%;
     justify-content: center;
   }
 
@@ -1115,17 +1119,14 @@ input.buscar:focus {
 
 }
 
-@media only screen and (min-width : 1660px) {
-  .center {
-    grid-column: 4 / 10;
-  }
+@media only screen and (min-width : 1360px) {
 
   .country {
     grid-column: 6;
   }
 
   .menu .logo {
-    grid-column: 4 / span 1;
+    grid-column: 3 / span 1;
     grid-row: 2;
     width: 100%;
     border-radius: 5px;
@@ -1133,7 +1134,12 @@ input.buscar:focus {
     justify-content: center;
   }
 
-  .publicar { grid-column : 5; }
+  .publicar { grid-column : 4; }
 
-  .menu .items { grid-column : 7 / 10; }
+  .menu .items { grid-column : 7 / 11; }
+
+
+  .ad-listing-width {
+      width: 30.5%;
+  }
 }

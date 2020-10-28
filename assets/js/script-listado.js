@@ -838,11 +838,36 @@ function isMobile() {
 	output = Mustache.render(template, data);
 	$('#listado').html(output);
 
+  handleAdWidth();
   cyclePaidAds();
   attachPremiumLabels();
 
+  $(window).on("resize", function() {
+    handleAdWidth();
+    cyclePaidAds();
+  });
 
 /* HELPER FUNCTIONS */
+
+function handleAdWidth() {
+  if (window.innerWidth > 1360) {
+    setAdWidth(3);
+  } if (window.innerWidth <= 1360 && window.innerWidth > 800) {
+    setAdWidth(2);
+  } else if (window.innerWidth <= 800) {
+    $(".ad-listing").css("width", "auto");
+    $(".ad-listing").css("height", "auto");
+  }
+}
+
+function setAdWidth(tiles) {
+  let padding = 0;
+  if (tiles == 2) padding = 27;
+  if (tiles == 3) padding = 28;
+  let adsContainerWidth = $(".ads").innerWidth();
+  let adWidth = (adsContainerWidth / tiles) - padding;
+  $(".not-featured").css("width", String(adWidth));
+}
 
 /* @cols is a string */
 function changeColumns(cols) {
@@ -874,6 +899,7 @@ function cyclePaidAds() {
   let start = 0;
   paidAds[start].style.display = "block";
   paidAds[start + 1].style.display = "block";
+  if (!isMobile) paidAds[start + 2].style.display = "block";
   setInterval(function(){
     if (start >= paidAds.length) {
       start = 0;
@@ -881,10 +907,10 @@ function cyclePaidAds() {
     $(".paid-ad").css("display", "none");
     paidAds[start].style.display = "block";
     paidAds[start + 1].style.display = "block";
-    start += 2;
+    if (!isMobile) paidAds[start + 2].style.display = "block";
+    start += 3;
   }, 7000);
 }
-
 
   $('button[type="button"]').click(function(){
     let classname = $(this).attr("class");
