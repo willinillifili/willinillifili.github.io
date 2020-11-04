@@ -831,48 +831,82 @@ function isMobile() {
       $(".listado").css("grid-row", "5");
     }
   }
-
  paid_ads = parsePaidAds()
  data = { ads : listing.ads, paid_ads : paid_ads};
  template = $('#listado').html();
 	output = Mustache.render(template, data);
 	$('#listado').html(output);
 
+  // keep track of ad list state
+ const adList = {
+   columns : 3,
+   selected : 3,
+   paidAds : {
+     length : $(".paid-ad").length,
+     list : $(".paid-ad"),
+     cyclePosition : 0,
+     intervalId :0
+   }
+ }
+
+ const paidAds = adList.paidAds;
   handleAdWidth();
-  cyclePaidAds();
   attachPremiumLabels();
+  cyclePaidAds(adList.selected, 0, paidAds.length, paidAds.list);
 
   $(window).on("resize", function() {
     handleAdWidth();
+    cyclePaidAds(adList.columns, 0, paidAds.length, paidAds.list);
   });
+
+  // handles the column changer
+  $(".col-changer").on("click", function(e){
+      $(".col-changer").removeClass("selected");
+      $(this).addClass("selected");
+      switch(e.target.id) {
+        case "tres":
+          setAdWidth(3);
+          setPaidAdWidth(3);
+          adList.selected = 3;
+        break;
+        case "cuatro":
+          setAdWidth(4)
+          setPaidAdWidth(4);
+          adList.selected = 4;
+        break;
+      }
+      cyclePaidAds(adList.selected, 0, paidAds.length, paidAds.list);
+  });
+
 
 /* HELPER FUNCTIONS */
 
 function handleAdWidth() {
-  if (window.innerWidth > 1360) {
-    setAdWidth(3);
-  } if (window.innerWidth <= 1360 && window.innerWidth > 800) {
+  if (window.innerWidth > 1300) {
+    adList.columns = adList.selected;
+    setAdWidth(adList.selected);
+    setPaidAdWidth(adList.selected);
+  } if (window.innerWidth <= 1300 && window.innerWidth > 850) {
     setAdWidth(2);
-  } else if (window.innerWidth <= 800) {
+    setPaidAdWidth(2);
+    adList.columns = 2;
+  } else if (window.innerWidth <= 850) {
     $(".ad-listing").css("width", "auto");
     $(".ad-listing").css("height", "auto");
+    setPaidAdWidth(2);
+    adList.columns = 2;
   }
 }
 
 function setAdWidth(tiles) {
+  adList.columns = tiles;
   let padding = 0;
   if (tiles == 2) padding = 27;
   if (tiles == 3) padding = 28;
+  if (tiles == 4) padding = 29;
   let adsContainerWidth = $(".ads").innerWidth();
   let adWidth = (adsContainerWidth / tiles) - padding;
   $(".not-featured").css("width", String(adWidth));
-}
-
-/* @cols is a string */
-function changeColumns(cols) {
-  if (cols != "2" && cols != "3" && cols != "4") return;
-  $(".ads").addClass("make-columns");
-  $(".ad-listing").addClass("ad-listing-" + cols);
 }
 
 function attachPremiumLabels() {
@@ -893,42 +927,26 @@ function parsePaidAds() {
   return paidAdsTuples;
 }
 
-function cyclePaidAds() {
+function setPaidAdWidth(ads) {
   let paidAds = $(".paid-ad");
-  let start = 0;
-  paidAds[start].style.display = "block";
-  paidAds[start + 1].style.display = "block";
-  if (!isMobile) paidAds[start + 2].style.display = "block";
-  setInterval(function(){
-    if (start >= paidAds.length) {
-      start = 0;
-    }
-    $(".paid-ad").css("display", "none");
-    paidAds[start].style.display = "block";
-    paidAds[start + 1].style.display = "block";
-    if (!isMobile) paidAds[start + 2].style.display = "block";
-    start += 3;
-  }, 12000);
+  ads = ads > paidAds.length ? paidAds.length : ads;
+  paidAds.css("display", "none");
+  for (let i = 0; i < ads; i++) {
+    paidAds[i].style.display = "block";
+  }
 }
 
-  $('button[type="button"]').click(function(){
-    let classname = $(this).attr("class");
-    switch(classname) {
-      case "dos":
-        $(".center").css("grid-column", "4 / 10");
-        $(".ad-listing").removeClass("ad-listing-3 ad-listing-4");
-      break;
-
-      case "tres":
-        $(".center").css("grid-column", "4 / 10");
-        $(".ad-listing").removeClass("ad-listing-4");
-        changeColumns("3");
-      break;
-
-      case "cuatro":
-        $(".center").css("grid-column", "3 / 11");
-        changeColumns("4");
-      break;
+function cyclePaidAds(ads, cyclePosition, length, adList) {
+  console.log(paidAds.intervalId);
+  clearInterval(paidAds.intervalId);
+  paidAds.intervalId = setInterval(function(){
+    console.log("cycle: ");
+    adList.css("display", "none");
+    for (let i = 0; i < ads; i++) {
+      console.log(cyclePosition % length + " " + cyclePosition);
+      adList[cyclePosition % length].style.display = "block";
+      cyclePosition++;
     }
-  });
+  }, 6000);
+}
 });

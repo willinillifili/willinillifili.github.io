@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
 :root {
   --primary: #00BBAA;
   --darkgrey: #1C2B29;
@@ -40,6 +42,12 @@ footer {
   display: flex;
   justify-content: center;
 }
+
+.change-columns {
+  display: none;
+}
+
+
 
 .grid-container {
   display: grid;
@@ -637,10 +645,19 @@ input.buscar:focus {
   font-size: 13px !important;
 }
 
-@media only screen and (min-width : 800px) {
+.selected {
+  border: 3px solid var(--primary);
+}
+
+@media only screen and (min-width : 850px) {
 
   .paid-ad {
     width: 33% !important;
+    max-height: 192.3px !important;
+  }
+
+  .paid-ads {
+    max-height: 236.31px !important;
   }
 
   .change-columns {
@@ -659,6 +676,10 @@ input.buscar:focus {
     background: white;
     border-radius: 10px;
     color: black;
+  }
+
+  .change-columns  button:first-child {
+    margin-right: 10px;
   }
 
   body {
@@ -702,6 +723,10 @@ input.buscar:focus {
   body {
     background: linear-gradient(140deg, rgba(0,187,170,0.9) 0%,
     rgba(91,0,81,0.9));
+  }
+
+  .menu .items .item {
+    font-size: 14px;
   }
 
   .grid-container {
@@ -805,10 +830,10 @@ input.buscar:focus {
   }
 
   .menu .items .item {
-    font-family: "Montserrat";
+    font-family: "Montserrat", sans-serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 1vw;
     color: var(--darkgrey);
     opacity: 75%;
     text-transform: capitalize;
@@ -1046,6 +1071,7 @@ input.buscar:focus {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    transition: height 0.25s;
   }
 
   .ad-listing {
@@ -1119,7 +1145,7 @@ input.buscar:focus {
 
 }
 
-@media only screen and (min-width : 1360px) {
+@media only screen and (min-width : 1300px) {
 
   .country {
     grid-column: 6;
@@ -1138,8 +1164,11 @@ input.buscar:focus {
 
   .menu .items { grid-column : 7 / 11; }
 
-
   .ad-listing-width {
-      width: 30.5%;
+      width: 15.5%;
+  }
+
+  .change-columns {
+    display: flex;
   }
 }
