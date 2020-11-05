@@ -937,13 +937,10 @@ function setPaidAdWidth(ads) {
 }
 
 function cyclePaidAds(ads, cyclePosition, length, adList) {
-  console.log(paidAds.intervalId);
   clearInterval(paidAds.intervalId);
   paidAds.intervalId = setInterval(function(){
-    console.log("cycle: ");
     adList.css("display", "none");
     for (let i = 0; i < ads; i++) {
-      console.log(cyclePosition % length + " " + cyclePosition);
       adList[cyclePosition % length].style.display = "block";
       cyclePosition++;
     }
