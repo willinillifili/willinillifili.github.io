@@ -946,4 +946,6 @@ function cyclePaidAds(ads, cyclePosition, length, adList) {
     }
   }, 6000);
 }
+
+(adsbygoogle = window.adsbygoogle || []).push({});
 });
