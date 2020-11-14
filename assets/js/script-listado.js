@@ -738,38 +738,80 @@ function toggleSnackbarColor(initialToggleState) {
 function isMobile() {
   return isMobile = $(".items").css("display") === "none";
 }
-  let year = parsedFilterData()[0];
-  let color = parsedFilterData()[1];
+  const filterData = parsedFilterData()
 
-  let years = [];
-  let colors = [];
+  const hasFilters = filterData.hasData;
 
-  year.forEach((item, i) => {
-    years.push({ year : item });
-  });
+  data = {
+    parentCategories : filterData.parentCategories,
+    filters : filterData.filters,
+    hasFilters : hasFilters
+  };
 
-  color.forEach((item, i) => {
-    colors.push({ color : item });
-  });
-
-  data = { years : years, colors : colors };
-
-  template = $('#listing-breadcrumbs').html();
+  template = $('#listing-breadcrumbs-container').html();
 	output = Mustache.render(template, data);
-	$('#listing-breadcrumbs').html(output);
+	$('#listing-breadcrumbs-container').html(output);
 
   function parsedFilterData() {
-    let parsedData = [];
+    const filterData = [];
+    filterData.hasData = true;
+    filterData.parentCategories = [];
+    filterData.filters = [];
+    const parsedData = [];
     rawData = $("#filter-data").text().trim();
-    rawDataSplit = rawData.split("#");
-    parsedData[0] = rawDataSplit[0].split(",");
-    parsedData[1] = rawDataSplit[1].split(",");
+    if (!rawData) {
+      filterData.hasData = false;
+      return filterData;
+    }
 
-    // splitting by comma leaves blank strings
-    parsedData[0].pop();
-    parsedData[1].shift();
+    /* splitting by ',#,' and then by ',' will yield arrays where:
 
-    return parsedData;
+      - the first array contains the parent categories. Ex:
+        the user has just selected "camry". Then the first array
+        is ['autos', 'toyota']
+
+      - the following arrays contain the data for the types of filters. The
+        first element will be a string with the type name. The following elements
+        will be the type values. They should be extracted in pairs of
+        '... value, quantity, ...' Ex:
+        The user has selected "camry". Then one of the following arrays is
+        ['anio','1999','1','2003','2','2005','7'...]
+    */
+
+    rawDataSplit = rawData.split(",#,");
+    const result = [] // we will use this to store the arrays resulting from
+    // splitting the elements of @rawDataSplit by ','
+    rawDataSplit.forEach((elem) => {
+      result.push(elem.split(','));
+    });
+
+    const parentCategories = result.shift();
+
+    // remember to fix this asap
+    $(".bc-category").text(parentCategories[1]);
+
+    parentCategories.forEach( category => {
+      filterData.parentCategories.push({
+        parentCategory : category
+      });
+    });
+
+    result.forEach( result => {
+      let filter = {}
+      filter.name = result.shift();
+      filter.values = [];
+      for (let i = 0; i < result.length - 1; i++) {
+        filter.values.push({
+          value : result[i],
+          quantity : result[i+1]
+        });
+        i++;
+      }
+
+      filterData.filters.push(filter);
+    });
+    console.log(filterData);
+    return filterData;
   }
 
  /*template = $('#popup-searchbar').html();
@@ -832,7 +874,13 @@ function isMobile() {
     }
   }
  paid_ads = parsePaidAds()
- data = { ads : listing.ads, paid_ads : paid_ads};
+ const hasPaidAds = paid_ads.length > 1;
+ data = {
+   ads : listing.ads,
+   paid_ads : paid_ads,
+   paidAdsSection : hasPaidAds
+ };
+
  template = $('#listado').html();
 	output = Mustache.render(template, data);
 	$('#listado').html(output);
@@ -852,7 +900,7 @@ function isMobile() {
  const paidAds = adList.paidAds;
   handleAdWidth();
   attachPremiumLabels();
-  cyclePaidAds(adList.selected, 0, paidAds.length, paidAds.list);
+  if (paidAds.length > 1) cyclePaidAds(adList.selected, 0, paidAds.length, paidAds.list);
 
   $(window).on("resize", function() {
     handleAdWidth();
@@ -877,7 +925,6 @@ function isMobile() {
       }
       cyclePaidAds(adList.selected, 0, paidAds.length, paidAds.list);
   });
-
 
 /* HELPER FUNCTIONS */
 
@@ -915,6 +962,7 @@ function attachPremiumLabels() {
 
 function parsePaidAds() {
   let rawData = $("#paid-ads-data").text();
+  if (!rawData.trim()) return [];
   let splitData = rawData.split(",");
   // we intend to divide the list into objects of url source/destination pairs
   let paidAdsTuples = [];
@@ -946,5 +994,4 @@ function cyclePaidAds(ads, cyclePosition, length, adList) {
     }
   }, 6000);
 }
-(adsbygoogle = window.adsbygoogle || []).push({});
 });

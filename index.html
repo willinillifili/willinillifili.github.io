@@ -83,6 +83,7 @@
     <button id="cuatro" type="button" class="col-changer">4 columnas</button>
   </aside>
   <div id="listado" class="listado center">
+    {{#paidAdsSection}}
     <div class="ad-listing paid-ads">
       <span>Anuncios Pagados</span>
       <div class="paid-ads-images">
@@ -95,8 +96,7 @@
       <div style="display: none;" id="paid-ads-data">
         <!--
           Aqui van los urls de los anuncios pagados. El formato es
-          "source_url_1,destination_url_1,source_url_2,destination_url_2 ..."
-         -->
+          source_url_1,destination_url_1,source_url_2,destination_url_2 ...-->
         https://www.clasificadoselectronicos.com/puertorico/clientes/litosx.jpg,
         https://www.infopaginas.com/b/aguadilla/centro-oftalmologico-y-ptica-dr-raul-lopez-verge,
         https://www.clasificadoselectronicos.com/puertorico/clientes/prlawx.jpg,
@@ -111,20 +111,9 @@
         https://www.infopaginas.com/b/aguadilla/centro-oftalmologico-y-ptica-dr-raul-lopez-verge
       </div>
     </div>
+    {{/paidAdsSection}}
     <a name="newad"></a>
     <div class="ads">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
-      </script>
-      <!-- test -->
-      <ins class="ad-listing not-featured ad-listing-width adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-2253729023180335"
-           data-ad-slot="1895036027"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-     <!--script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
-    </script-->
     {{#ads}}
       <div class="ad-listing {{type}} not-featured ad-listing-width"><!-- Aqui comienza el anuncio -->
         <div class="premium-label" style="display:none;">
@@ -132,7 +121,8 @@
         </div>
         <a href="https://www.clasitronicos.com/cgi-bin/fotos.cgi?id=PR136834&db=4"
            class="image ad-image">
-           <img src="https://assets.dealerappcenter.com/dealergroups/88/vehicles/25500/FMR8n1.jpg" alt="" />
+           <img class="front" src="https://www.clasificadoselectronicos.com/fotos20e/PR98537886serviciosb.jpg" alt=""/>
+           <img class="background-blur" src="https://www.clasificadoselectronicos.com/fotos20e/PR98537886serviciosb.jpg" alt=""/>
         </a>
         <div class="info">
         <div class="listing-row">
@@ -187,7 +177,8 @@
   </div>
 </div>
 <div class="grid-item breadcrumbs center">
-  <a href="#" class="bc-category">Autos</a>
+  <a href="#" style="text-transform:capitalize;" class="bc-category">Autos</a>
+  <span style="font-size:18px;" class="separator-vertical">|</span>
   <a href="https://www.clasitronicos.com/mundo.htm"
   class="bc-country pointer">Puerto Rico, </a>
   <a href="https://www.clasitronicos.com/mundo.htm"
@@ -196,29 +187,41 @@
       <img alt="current country flag" src="https://clasitronicos.com/assets/flags/puerto_rico.gif"/>
     </div>
 </div>
-    <div id="listing-breadcrumbs" class="filters center">
+    <div id="listing-breadcrumbs-container" class="center">
+    {{#hasFilters}}
+    <div id="listing-breadcrumbs" class="filters">
       <form action="https://www.clasitronicos.com/cgi-bin/getadx.cgi"
           method="post">
-          <input type="hidden" name="category" size="12" value="autos">
-          <input type="hidden" name="keyword" size="12" value="mdx">
+          {{#parentCategories}}
+          <input type="hidden"
+                 name="category"
+                 size="12"
+                 value="{{parentCategory}}">
+          {{/parentCategories}}
           <input type="hidden" name="country" size="12" value="PR">
-          <label for="anio"> Año </label>
-          <select name="anio">
-            {{#years}}
-            <option value="{{year}}">{{year}}</option>
-            {{/years}}
+          {{#filters}}
+          <label for="{{name}}">{{name}}</label>
+          <select name="{{name}}">
+            <option value>{{name}}</option> <!-- default or "null" value -->
+            {{#values}}
+            <option value="{{value}}">
+              {{value}}
+              <span class="option-quantity">({{quantity}})<span>
+            </option>
+            {{/values}}
           </select>
-          <label for="color"> Color </label>
-          <select name="color">
-            {{#colors}}
-            <option value="{{color}}">{{color}}</option>
-            {{/colors}}
-          </select>
+          {{/filters}}
           <input class="buscar pointer" type="submit" value="Buscar">
       </form>
       <div id="filter-data" style="display: none;">
-        1997,1998,2001,2012,2018,#,Black,Blanco,Rojo
+        <!-- la lista empieza con las categorias anteriores
+          luego # y las listas de los valores en forma de
+          'nombreDelFiltro1,valor,cantidad,valor,cantidad,...,#,nombreDelFiltro,valor1,cantidad1,valor2,cantidad2...'
+          -->
+        autos,camry,#,Año,1997,1,1998,3,2001,5,2012,7,2018,300,#,Color,Black,200,Blanco,500,Rojo,2000
       </div>
+    </div>
+    {{/hasFilters}}
     </div>
   </div>
 </body>
