@@ -194,14 +194,14 @@
           method="post">
           {{#parentCategories}}
           <input type="hidden"
-                 name="category"
+                 name="{{name}}"
                  size="12"
-                 value="{{parentCategory}}">
+                 value="{{value}}">
           {{/parentCategories}}
           <input type="hidden" name="country" size="12" value="PR">
           {{#filters}}
-          <label for="{{name}}">{{name}}</label>
-          <select name="{{name}}">
+          <label for="{{selectionName}}">{{name}}</label>
+          <select name="{{selectionName}}">
             <option value>{{name}}</option> <!-- default or "null" value -->
             {{#values}}
             <option value="{{value}}">
@@ -214,11 +214,12 @@
           <input class="buscar pointer" type="submit" value="Buscar">
       </form>
       <div id="filter-data" style="display: none;">
-        <!-- la lista empieza con las categorias anteriores
+        <!-- la lista empieza con la categoria seguida por el keyword
           luego # y las listas de los valores en forma de
-          'nombreDelFiltro1,valor,cantidad,valor,cantidad,...,#,nombreDelFiltro,valor1,cantidad1,valor2,cantidad2...'
+          'nombreDeSeleccion1,nombreDelFiltro1,valor,cantidad,valor,cantidad,...,
+          #,nombreDeSeleccion1,nombreDelFiltro,valor1,cantidad1,valor2,cantidad2...'
           -->
-        autos,camry,#,Año,1997,1,1998,3,2001,5,2012,7,2018,300,#,Color,Black,200,Blanco,500,Rojo,2000
+        autos,camry,#,year,Año,1997,1,1998,3,2001,5,2012,7,2018,300,#,color,Color,Black,200,Blanco,500,Rojo,2000
       </div>
     </div>
     {{/hasFilters}}

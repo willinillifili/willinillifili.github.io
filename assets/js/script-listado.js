@@ -790,14 +790,20 @@ function isMobile() {
     // remember to fix this asap
     $(".bc-category").text(parentCategories[1]);
 
-    parentCategories.forEach( category => {
-      filterData.parentCategories.push({
-        parentCategory : category
-      });
-    });
+    filterData.parentCategories = [
+      {
+        value : parentCategories[0],
+        name : 'category'
+      },
+      {
+        value : parentCategories[1],
+        name : 'keyword'
+      },
+    ];
 
     result.forEach( result => {
       let filter = {}
+      filter.selectionName = result.shift();
       filter.name = result.shift();
       filter.values = [];
       for (let i = 0; i < result.length - 1; i++) {
@@ -898,17 +904,18 @@ function isMobile() {
  }
 
  const paidAds = adList.paidAds;
-  handleAdWidth();
-  attachPremiumLabels();
-  if (paidAds.length > 1) cyclePaidAds(adList.selected, 0, paidAds.length, paidAds.list);
+ handleAdWidth();
+ attachPremiumLabels();
 
-  $(window).on("resize", function() {
-    handleAdWidth();
-    cyclePaidAds(adList.columns, 0, paidAds.length, paidAds.list);
-  });
+ if (paidAds.length > 1) cyclePaidAds(adList.selected, 0, paidAds.length, paidAds.list);
 
-  // handles the column changer
-  $(".col-changer").on("click", function(e){
+ $(window).on("resize", function() {
+   handleAdWidth();
+   cyclePaidAds(adList.columns, 0, paidAds.length, paidAds.list);
+ });
+
+ // handles the column changer
+ $(".col-changer").on("click", function(e){
       $(".col-changer").removeClass("selected");
       $(this).addClass("selected");
       switch(e.target.id) {
@@ -924,7 +931,7 @@ function isMobile() {
         break;
       }
       cyclePaidAds(adList.selected, 0, paidAds.length, paidAds.list);
-  });
+});
 
 /* HELPER FUNCTIONS */
 
@@ -933,27 +940,46 @@ function handleAdWidth() {
     adList.columns = adList.selected;
     setAdWidth(adList.selected);
     setPaidAdWidth(adList.selected);
-  } if (window.innerWidth <= 1300 && window.innerWidth > 850) {
+    setImageDimensions();
+  } if (window.innerWidth <= 1000 && window.innerWidth > 700) {
     setAdWidth(2);
     setPaidAdWidth(2);
+    setImageDimensions();
     adList.columns = 2;
-  } else if (window.innerWidth <= 850) {
+  } else if (window.innerWidth <= 700) {
     $(".ad-listing").css("width", "auto");
     $(".ad-listing").css("height", "auto");
     setPaidAdWidth(2);
+    $('.center').css("grid-column", "1 / 5");
     adList.columns = 2;
   }
 }
 
 function setAdWidth(tiles) {
+  // this should be dryer
+  $('.center').css("grid-column", "4 / 10");
   adList.columns = tiles;
   let padding = 0;
-  if (tiles == 2) padding = 27;
+  if (tiles == 2) {
+    $('.center').css("grid-column", "3 / 11");
+    padding = 27;
+  }
   if (tiles == 3) padding = 28;
-  if (tiles == 4) padding = 29;
+  if (tiles == 4) {
+    $('.center').css("grid-column", "3 / 11");
+    padding = 29;
+  }
   let adsContainerWidth = $(".ads").innerWidth();
   let adWidth = (adsContainerWidth / tiles) - padding;
+  let adHeight = adWidth * 1.15;
   $(".not-featured").css("width", String(adWidth));
+  $(".not-featured").css("height", String(adHeight) + "px");
+}
+
+function setImageDimensions() {
+  let imageWidth = $('.ad-image').innerWidth();
+  let imageHeight = imageWidth / 1.6;
+  $('.ad-image').css("height", String(imageHeight) + "px");
 }
 
 function attachPremiumLabels() {
