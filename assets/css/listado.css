@@ -219,6 +219,11 @@ footer {
   color: rgba(0,0,0,0.3);
 }
 
+.teaser-wrapper, .title-wrapper {
+  flex-wrap: nowrap;
+  min-width: 270px;
+}
+
 .country {
   grid-column: 5;
 }
@@ -872,7 +877,7 @@ select, option {
     font-family: "Montserrat", sans-serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 1vw;
+    font-size: max(0.8vw, 12px);
     color: var(--darkgrey);
     opacity: 75%;
     text-transform: capitalize;
@@ -1085,7 +1090,7 @@ select, option {
   }
 
   .info .price {
-    font-size: max(1.2vw, 17px);
+    font-size: max(1.2vw, 16px);
   }
 
   .table .logo img {
@@ -1121,7 +1126,7 @@ select, option {
   .ad-listing {
     display: flex;
     flex-direction: column;
-    width: 45.25%;
+    overflow: hidden;
     //height: auto !important;
   }
 
@@ -1161,14 +1166,14 @@ select, option {
   }
 
   .phone, .views {
-    font-size: 0.7vw;
+    font-size: max(0.7vw, 12px);
   }
 
   .province, .title, .keyword, .vendor {
-    font-size: max(0.8vw, 13px);
+    font-size: max(0.8vw, 90%);
   }
 
-  .teaser { font-size: 0.6vw; }
+  .teaser { font-size: max(0.6vw, 12px); }
 
 
   .circle { background: transparent; }
@@ -1188,12 +1193,12 @@ select, option {
   }
 
   .center {
-    grid-column: 4 / 10;
+    grid-column: 3 / 11;
   }
 
 }
 
-@media only screen and (min-width : 1000px) {
+@media only screen and (min-width : 900px) {
 
   .country {
     grid-column: 6;

@@ -905,12 +905,14 @@ function isMobile() {
 
  const paidAds = adList.paidAds;
  handleAdWidth();
+ setMenuWidth()
  attachPremiumLabels();
 
  if (paidAds.length > 1) cyclePaidAds(adList.selected, 0, paidAds.length, paidAds.list);
 
  $(window).on("resize", function() {
    handleAdWidth();
+   setMenuWidth();
    cyclePaidAds(adList.columns, 0, paidAds.length, paidAds.list);
  });
 
@@ -920,60 +922,93 @@ function isMobile() {
       $(this).addClass("selected");
       switch(e.target.id) {
         case "tres":
-          setAdWidth(3);
-          setPaidAdWidth(3);
           adList.selected = 3;
         break;
         case "cuatro":
-          setAdWidth(4)
-          setPaidAdWidth(4);
           adList.selected = 4;
         break;
       }
+      handleAdWidth();
+      setMenuWidth();
       cyclePaidAds(adList.selected, 0, paidAds.length, paidAds.list);
 });
 
 /* HELPER FUNCTIONS */
 
 function handleAdWidth() {
-  if (window.innerWidth > 1300) {
-    adList.columns = adList.selected;
+  adList.columns = adList.selected;
+  let columns = adList.selected;
+  if (window.innerWidth > 900) {
+      if (columns === 3) {
+        if (window.innerWidth < 1250) {
+          $('.center').css("grid-column", "2 / 12");
+        }else if (window.innerWidth > 1600) {
+          $('.center').css("grid-column", "4 / 10");
+        }else {
+          $('.center').css("grid-column", "3 / 11");
+        }
+      } else if (columns === 4)  {
+        if (window.innerWidth > 1430) {
+          $('.center').css("grid-column", "3 / 11");
+        }else if (window.innerWidth <= 1430 && window.innerWidth > 1279) {
+          $('.center').css("grid-column", "2 / 12");
+        }else if (window.innerWidth <= 1279) {
+          $('.center').css({
+            "grid-column" : "1 / 13",
+            "margin" : "0px 10px",
+          });
+        }
+    }
     setAdWidth(adList.selected);
     setPaidAdWidth(adList.selected);
     setImageDimensions();
-  } if (window.innerWidth <= 1000 && window.innerWidth > 700) {
+    console.log(adList.selected);
+  } if (window.innerWidth <= 900 && window.innerWidth > 700) {
+    $('.center').css("grid-column", "3 / 11");
     setAdWidth(2);
     setPaidAdWidth(2);
     setImageDimensions();
     adList.columns = 2;
   } else if (window.innerWidth <= 700) {
+    $('.center').css('grid-column', '1 / 4');
     $(".ad-listing").css("width", "auto");
     $(".ad-listing").css("height", "auto");
     setPaidAdWidth(2);
-    $('.center').css("grid-column", "1 / 5");
     adList.columns = 2;
   }
 }
 
 function setAdWidth(tiles) {
   // this should be dryer
-  $('.center').css("grid-column", "4 / 10");
   adList.columns = tiles;
   let padding = 0;
   if (tiles == 2) {
-    $('.center').css("grid-column", "3 / 11");
     padding = 27;
   }
   if (tiles == 3) padding = 28;
   if (tiles == 4) {
-    $('.center').css("grid-column", "3 / 11");
     padding = 29;
   }
   let adsContainerWidth = $(".ads").innerWidth();
   let adWidth = (adsContainerWidth / tiles) - padding;
   let adHeight = adWidth * 1.15;
-  $(".not-featured").css("width", String(adWidth));
+
+  $(".not-featured").css("width", String(adWidth) + "px");
   $(".not-featured").css("height", String(adHeight) + "px");
+}
+
+// **this should later be specified in css. remember to fix**
+function setMenuWidth() {
+  if (window.innerWidth > 700) {
+    let menuStart = 0;
+    let center = $('.center').css('grid-column').split('/');
+    center[0] = center[0].replace(" ","");
+    center[1] = center[1].replace(" ","");
+    $('.logo').css("grid-column", center[0] + ' / span 1');
+    console.log();
+    $('.publicar').css("grid-column", String(Number(center[0]) + 1) + ' / span 1');
+    $('.items').css("grid-column", String(Number(center[0]) + 3) + ' / ' + center[1]);
+  }
 }
 
 function setImageDimensions() {
