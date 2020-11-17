@@ -36,6 +36,7 @@ a {
   overflow: hidden;
   position: relative;
   max-height: 181.55px;
+  min-width: 50%;
 }
 
 .front {

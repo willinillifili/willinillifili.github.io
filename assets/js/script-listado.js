@@ -964,7 +964,7 @@ function handleAdWidth() {
     setImageDimensions();
     console.log(adList.selected);
   } if (window.innerWidth <= 900 && window.innerWidth > 700) {
-    $('.center').css("grid-column", "3 / 11");
+    $('.center').css("grid-column", "2 / 12");
     setAdWidth(2);
     setPaidAdWidth(2);
     setImageDimensions();
