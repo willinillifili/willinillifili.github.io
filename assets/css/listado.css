@@ -552,7 +552,7 @@ select, option {
 }
 
 .views {
-  color: #bb9977;
+  color: rgba(0,0,0,0.6);
   font-size: 11px;
 }
 
@@ -1169,6 +1169,11 @@ select, option {
 
   .phone, .views {
     font-size: max(0.7vw, 12px);
+  }
+
+  .id {
+    font-size: max(0.5vw, 11px);
+    color: #bb9977;
   }
 
   .title, .keyword, .vendor {
