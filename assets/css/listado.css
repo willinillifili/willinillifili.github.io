@@ -552,8 +552,12 @@ select, option {
 }
 
 .views {
-  color: rgba(0,0,0,0.6);
+  color: rgba(0,0,0,0.5);
   font-size: 11px;
+}
+
+.id {
+  color: #bb9977;
 }
 
 .table {
