@@ -486,7 +486,7 @@ select, option {
 }
 
 .ad-listing .info {
-  width: 40%;
+  width: 50%;
   display: flex;
   position: relative;
   flex-direction: column;
@@ -567,10 +567,11 @@ select, option {
 
 .title-wrapper {
     flex-wrap: wrap;
+    min-width: unset;
 }
 
 .province {
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .table {
