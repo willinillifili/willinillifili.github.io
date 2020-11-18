@@ -132,16 +132,16 @@
         <div class="listing-row title-wrapper">
           <a href="{{url}}" class="title">{{title}}</a><!-- titulo del anuncio -->
         </div>
-        <div class="listing-row keywords">
-          {{#keywords}}
-          <a href={{url}} class="keyword">{{keyword}}</a>
-          {{/keywords}}
-        </div>
         <div class="listing-row">
           <a
           style="color:black;"
           href="{{title}}"
           class="vendor">{{vendor}}</a><!-- vendedor (dealer, corredor, etc.) -->
+        </div>
+        <div class="listing-row keywords">
+          {{#keywords}}
+          <a href={{url}} class="keyword">{{keyword}}</a>
+          {{/keywords}}
         </div>
         <div class="listing-row">
           <div class="phone">
@@ -150,7 +150,7 @@
         </div>
         <div class="listing-row">
           <div class="views"><!-- numero de visitas al anuncio -->
-            <span style="color:black">
+            <span>
               {{views}}
             </span> vistas
           </div>

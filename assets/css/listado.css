@@ -506,6 +506,7 @@ select, option {
 .province {
   font-size: 14px;
   font-weight: bold;
+  color: #bb9977 !important;
 }
 
 .ad-listing .image, .ad-listing .info {
@@ -551,8 +552,8 @@ select, option {
 }
 
 .views {
-  color: rgba(0,0,0,0.3);
-  font-size: 12px;
+  color: #bb9977;
+  font-size: 11px;
 }
 
 .table {
