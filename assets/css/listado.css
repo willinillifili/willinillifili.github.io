@@ -486,7 +486,7 @@ select, option {
 }
 
 .ad-listing .info {
-  width: 66%;
+  width: 40%;
   display: flex;
   position: relative;
   flex-direction: column;
@@ -561,9 +561,14 @@ select, option {
   color: #bb9977;
 }
 
-.title, .vendor, .keywords, .phone, .views {
+.vendor, .keywords, .phone, .views {
   font-size: 15.5px
 }
+
+.title-wrapper {
+    flex-wrap: wrap;
+}
+
 .province {
   font-size: 17px;
 }
