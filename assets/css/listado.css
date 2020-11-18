@@ -557,6 +557,7 @@ select, option {
 }
 
 .id {
+  font-size: max(0.4vw, 10px);
   color: #bb9977;
 }
 
@@ -1173,11 +1174,6 @@ select, option {
 
   .phone, .views {
     font-size: max(0.7vw, 12px);
-  }
-
-  .id {
-    font-size: max(0.5vw, 11px);
-    color: #bb9977;
   }
 
   .title, .keyword, .vendor {
