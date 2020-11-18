@@ -1171,8 +1171,13 @@ select, option {
     font-size: max(0.7vw, 12px);
   }
 
-  .province, .title, .keyword, .vendor {
+  .title, .keyword, .vendor {
     font-size: max(0.8vw, 90%);
+  }
+
+  .province {
+    font-weight: normal;
+    font-size: max(0.92vw, 95%);
   }
 
   .teaser { font-size: max(0.6vw, 12px); }
