@@ -561,6 +561,13 @@ select, option {
   color: #bb9977;
 }
 
+.title, .vendor, .keywords, .phone, .views {
+  font-size: 15.5px
+}
+.province {
+  font-size: 17px;
+}
+
 .table {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
