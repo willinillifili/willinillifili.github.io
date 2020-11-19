@@ -671,18 +671,18 @@ const listing = {
 	output = Mustache.render(template, menu);
 	$('#menu').html(output);
 
-      if (isMobile()) {
-        $(".menu > .logo").children("img").attr("src",
-        "https://clasitronicos.com/assets/ClasitronicosLogo3.png");
-      }
-
   let menuIsShowing = { state : 0 };
-  let snackbarColor = { state : 0 };
-  $(".snackbar").click( function(e){
+
+  $(".snackbar, .dropdown").click(function(e){
+    e.preventDefault();
     e.stopPropagation();
-    toggleSnackbarColor(snackbarColor);
-    toggle(menuIsShowing, ".categories", "showMenu", "removeClass",
+    toggle(menuIsShowing, ".categories", "showMenu showMenuDsktp", "removeClass",
                "addClass");
+    if(window.innerWidth < 700) {
+      let menuShowing = $('.categories').hasClass('showMenu');
+      menuShowing ? $('.snackbar').addClass('black') :
+      $('.snackbar').removeClass('black');
+    }
   });
 
   let subIsShowing = { state : 0 };
@@ -691,7 +691,7 @@ const listing = {
     toggle(subIsShowing, subcategories, "", "slideUp", "slideDown");
   })
 
-  let dropDownShowing = { state : 0 };
+  /*let dropDownShowing = { state : 0 };
   $(".dropdown").click(function(e) {
     let isMobile = $(".items").css("display") === "none";
     if (isMobile) return;
@@ -701,7 +701,7 @@ const listing = {
     $(".categories").css("display", "none")
     : $(".categories").css("display", "grid");
     dropDownShowing.state = !dropDownShowing.state;
-  });
+  });*/
 
   $("html, body").click(function() {
     let isMobile = $(".items").css("display") === "none";
@@ -962,7 +962,6 @@ function handleAdWidth() {
     setAdWidth(adList.selected);
     setPaidAdWidth(adList.selected);
     setImageDimensions();
-    console.log(adList.selected);
   } if (window.innerWidth <= 900 && window.innerWidth > 700) {
     $('.center').css("grid-column", "2 / 12");
     setAdWidth(2);
@@ -1002,12 +1001,18 @@ function setMenuWidth() {
   if (window.innerWidth > 700) {
     let menuStart = 0;
     let center = $('.center').css('grid-column').split('/');
-    center[0] = center[0].replace(" ","");
-    center[1] = center[1].replace(" ","");
+    center[0] = center[0].replace(" ", "");
+    center[1] = center[1].replace(" ", "");
     $('.logo').css("grid-column", center[0] + ' / span 1');
-    console.log();
     $('.publicar').css("grid-column", String(Number(center[0]) + 1) + ' / span 1');
     $('.items').css("grid-column", String(Number(center[0]) + 3) + ' / ' + center[1]);
+    $('.snackbar').css("grid-column", String(Number(center[1]) - 1));
+    if (window.innerWidth < 950) {
+        $('.items').css("grid-column", String(Number(center[1]) - 2));
+    }
+  }else {
+    $('.logo').css("grid-column", "3");
+    $('.snackbar').css("grid-column", "1");
   }
 }
 
