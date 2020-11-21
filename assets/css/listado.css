@@ -510,7 +510,7 @@ select, option {
 }
 
 .info .price {
-  font-size: 18px;
+  font-size: 13px;
   font-weight: 400;
   color: var(--darkgrey);
 }
@@ -555,8 +555,9 @@ select, option {
   text-transform: capitalize;
 }
 
-.title { font-weight: bold;
-  font-size: 12px;
+.title {
+  font-weight: bold;
+  font-size: 10px;
 }
 
 .province, .phone, .views {
@@ -574,7 +575,7 @@ select, option {
 }
 
 .vendor, .keywords, .phone, .views {
-  font-size: 11px
+  font-size: 10px
 }
 
 .title-wrapper {
@@ -583,7 +584,7 @@ select, option {
 }
 
 .province, .price {
-  font-size: 12px;
+  font-size: 9px;
 }
 
 .table {
