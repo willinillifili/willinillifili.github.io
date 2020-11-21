@@ -970,7 +970,7 @@ function handleAdWidth() {
     adList.columns = 2;
   } else if (window.innerWidth <= 700) {
     $('.center').css('grid-column', '1 / 4');
-    $(".ad-listing").css("width", "auto");
+    $(".ad-listing").css("width", "100%");
     $(".ad-listing").css("height", "auto");
     setPaidAdWidth(2);
     adList.columns = 2;
