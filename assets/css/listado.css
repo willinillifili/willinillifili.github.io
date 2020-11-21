@@ -170,6 +170,14 @@ footer {
   transform: rotate(90deg);
 }
 
+.no-arrow {
+  color: var(--primary);
+}
+
+.no-arrow:after {
+  content: "";
+}
+
 .subcategories {
   display: none;
 }
@@ -508,7 +516,7 @@ select, option {
 }
 
 .province {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: normal;
   color: #bb9977 !important;
 }
@@ -566,7 +574,7 @@ select, option {
 }
 
 .vendor, .keywords, .phone, .views {
-  font-size: 15.5px
+  font-size: 11px
 }
 
 .title-wrapper {
@@ -574,8 +582,8 @@ select, option {
     min-width: unset;
 }
 
-.province {
-  font-size: 15px;
+.province, .price {
+  font-size: 12px;
 }
 
 .table {
