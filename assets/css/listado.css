@@ -36,7 +36,7 @@ a {
   overflow: hidden;
   position: relative;
   max-height: 140.55px;
-  min-width: 46%;
+  min-width: 47%;
 }
 
 .front {
@@ -458,21 +458,22 @@ select, option {
   position: relative;
   display: flex;
   justify-content: space-between;
-  padding: 10px 10px;
+  padding: 10px 0px;
   background: white;
-  height: 190.13px;
+  //min-height: 120px;
   margin-top: 10px;
 }
 
 .premium-label {
   color: white;
+  z-index: 2;
   font-weight: bold;
   font-size: 10px;
   padding: 2px;
   background: #ff6984;
   border-radius: 5px;
   position: absolute;
-  top: 13px;
+  top: 8px;
 }
 
 .paid-ads {
@@ -494,6 +495,7 @@ select, option {
 
 .ad-listing .image {
   width: 25%;
+  margin-left: 10px;
   background: #E7F8F6;
 }
 
@@ -731,7 +733,22 @@ select, option {
   color: var(--darkgrey) !important;
 }
 
+.tablet-only {
+  display: none;
+}
+
 @media only screen and (min-width : 700px) {
+
+  .tablet-only {
+    display: flex;
+  }
+
+  .tablet-onboarding {
+    width: 100%;
+    justify-content: center;
+    height: 50px;
+    align-items: center;
+  }
 
   .snackbar {
     color: var(--darkgrey);
@@ -739,6 +756,11 @@ select, option {
 
   .categories {
     flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .category-item {
+    width: 25%;
   }
 
   .paid-ad {
@@ -807,6 +829,7 @@ select, option {
 
   .ad-listing .image {
     width: 75%;
+    margin-left: 0px;
     background: #E7F8F6;
   }
 
@@ -1176,6 +1199,10 @@ select, option {
     //height: auto !important;
   }
 
+  .ad-listing.not-featured {
+    padding: 10px 10px;
+  }
+
 /*  .ad-listing-3 {
     width: 30.5%;
   }
@@ -1256,6 +1283,14 @@ select, option {
 
 //.search-icon-mobile { display : block !important; }
 
+.tablet-category {
+  border-bottom: 0px;
+  font-weight: bold;
+  font-family: 'Montserrat';
+  color: var(--primary);
+}
+
+
 @media only screen and (min-width : 900px) {
 
   .country {
@@ -1290,4 +1325,5 @@ select, option {
   .menu .items .item { display : flex; }
   .snackbar {display: none;}
   .showMenuDsktp { display : grid; }
+  .tablet-only { display: none; }
 }

@@ -662,10 +662,15 @@ const listing = {
       vendor: "All Brand Auto",
       phone : "(787) 946-7575",
       image : "./assets/corolla.jpg",
-    }    
+    }
   ],
   filters: ["Año   ▼  ", "Color ▼",  "Ordenar Por ▼ "]
 };
+const googleAdResponsive = `<div class="ad-listing not-featured ad-listing-width googleAd">
+                            </div>`;
+
+const googleAdInline = `<div class="ad-listing not-featured ad-listing-width googleAd">
+                        </div>`;
 
   template = $('#menu').html();
 	output = Mustache.render(template, menu);
@@ -904,11 +909,12 @@ function isMobile() {
  }
 
  const paidAds = adList.paidAds;
+ placeGoogleAds(4);
  handleAdWidth();
  setMenuWidth()
  attachPremiumLabels();
 
- if (paidAds.length > 1) cyclePaidAds(adList.selected, 0, paidAds.length, paidAds.list);
+ if (paidAds.length > 1) cyclePaidAds(adList.columns, 0, paidAds.length, paidAds.list);
 
  $(window).on("resize", function() {
    handleAdWidth();
@@ -972,6 +978,7 @@ function handleAdWidth() {
     $('.center').css('grid-column', '1 / 4');
     $(".ad-listing").css("width", "100%");
     $(".ad-listing").css("height", "auto");
+    $(".ad-listing").css("min-height", "120px");
     setPaidAdWidth(2);
     adList.columns = 2;
   }
@@ -1000,9 +1007,9 @@ function setAdWidth(tiles) {
 function setMenuWidth() {
   if (window.innerWidth > 700) {
     let menuStart = 0;
-    let center = $('.center').css('grid-column').split('/');
-    center[0] = center[0].replace(" ", "");
-    center[1] = center[1].replace(" ", "");
+    let center = document
+                 .querySelector('.center')
+                 .style.gridColumn.split(' / ');
     $('.logo').css("grid-column", center[0] + ' / span 1');
     $('.publicar').css("grid-column", String(Number(center[0]) + 1) + ' / span 1');
     $('.items').css("grid-column", String(Number(center[0]) + 3) + ' / ' + center[1]);
@@ -1059,5 +1066,20 @@ function cyclePaidAds(ads, cyclePosition, length, adList) {
       cyclePosition++;
     }
   }, 6000);
+}
+
+/* @frequency is an integer representing how many normal ads
+to count before placing the next google ad. */
+
+function placeGoogleAds(frequency) {
+  let ads = $('.not-featured');
+  let googleAd = window.innerWidth > 700 ? googleAdResponsive : googleAdInline;
+  // first ad should always be google ad
+  $('.ads').prepend(googleAd);
+  for (let i = 0; i < ads.length; i++) {
+    if ((i + 1) % frequency === 0) {
+      ads.eq(i).after(googleAd);
+    }
+  }
 }
 });
