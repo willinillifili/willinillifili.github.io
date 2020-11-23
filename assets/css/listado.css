@@ -35,7 +35,7 @@ a {
 .ad-image {
   overflow: hidden;
   position: relative;
-  max-height: 181.55px;
+  max-height: 161.55px;
   min-width: 50%;
 }
 
@@ -493,7 +493,7 @@ select, option {
 }
 
 .ad-listing .image {
-  width: 73%;
+  width: 45%;
   background: #E7F8F6;
 }
 
