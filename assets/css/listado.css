@@ -570,7 +570,7 @@ select, option {
 }
 
 .id {
-  font-size: max(0.4vw, 10px);
+  font-size: max(0.4vw, 9px);
   color: #bb9977;
 }
 
@@ -584,7 +584,7 @@ select, option {
 }
 
 .province, .price {
-  font-size: 10.5px;
+  font-size: 11px;
 }
 
 .table {
