@@ -76,8 +76,6 @@ footer {
   display: none;
 }
 
-
-
 .grid-container {
   display: grid;
   //background: #F2F5F5;
@@ -466,7 +464,7 @@ select, option {
 
 .premium-label {
   color: white;
-  z-index: 2;
+  z-index: 5;
   font-weight: bold;
   font-size: 10px;
   padding: 2px;
@@ -743,6 +741,10 @@ select, option {
     display: flex;
   }
 
+  .center {
+    padding: 0px 10px;
+  }
+
   .tablet-onboarding {
     width: 100%;
     justify-content: center;
@@ -776,7 +778,7 @@ select, option {
     position: fixed;
     left: 0;
     top: 200px;
-    z-index: 3;
+    z-index: 1000;
     border-radius: 10px;
     box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
     padding: 10px;
@@ -1296,6 +1298,8 @@ select, option {
   .country {
     grid-column: 6;
   }
+
+  .center { padding: 0px;}
 
   .menu .logo {
     grid-column: 3 / span 1;

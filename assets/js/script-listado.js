@@ -666,11 +666,32 @@ const listing = {
   ],
   filters: ["Año   ▼  ", "Color ▼",  "Ordenar Por ▼ "]
 };
-const googleAdResponsive = `<div class="ad-listing not-featured ad-listing-width googleAd">
+const googleAdResponsive =`<div class="ad-listing not-featured ad-listing-width googleAd">
+                              <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                              <!-- VariableGoogle -->
+                              <ins class="adsbygoogle"
+                              style="display:block"
+                              data-ad-client="ca-pub-5552515189039838"
+                              data-ad-slot="1633405477"
+                              data-ad-format=""
+                              data-full-width-responsive="true"></ins>
+                              <script>
+                              (adsbygoogle = window.adsbygoogle || []).push({});
+                              </script>
                             </div>`;
 
 const googleAdInline = `<div class="ad-listing not-featured ad-listing-width googleAd">
-                        </div>`;
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-d6-2+7t-22+mj"
+     data-ad-client="ca-pub-5552515189039838"
+     data-ad-slot="9204863727"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>`;
 
   template = $('#menu').html();
 	output = Mustache.render(template, menu);
@@ -911,7 +932,7 @@ function isMobile() {
  const paidAds = adList.paidAds;
  placeGoogleAds(4);
  handleAdWidth();
- setMenuWidth()
+ setMenuWidth();
  attachPremiumLabels();
 
  if (paidAds.length > 1) cyclePaidAds(adList.columns, 0, paidAds.length, paidAds.list);
@@ -969,11 +990,11 @@ function handleAdWidth() {
     setPaidAdWidth(adList.selected);
     setImageDimensions();
   } if (window.innerWidth <= 900 && window.innerWidth > 700) {
-    $('.center').css("grid-column", "2 / 12");
-    setAdWidth(2);
-    setPaidAdWidth(2);
+    $('.center').css("grid-column", "1 / 13");
+    setAdWidth(3);
+    setPaidAdWidth(3);
     setImageDimensions();
-    adList.columns = 2;
+    adList.columns = 3;
   } else if (window.innerWidth <= 700) {
     $('.center').css('grid-column', '1 / 4');
     $(".ad-listing").css("width", "100%");
