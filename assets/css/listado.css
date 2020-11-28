@@ -741,8 +741,12 @@ select, option {
     display: flex;
   }
 
-  .center {
+  .center, .menu {
     padding: 0px 10px;
+  }
+
+  .breadcrumbs {
+    margin: 0px 10px;
   }
 
   .tablet-onboarding {
@@ -1299,7 +1303,11 @@ select, option {
     grid-column: 6;
   }
 
-  .center { padding: 0px;}
+  .center, .menu { padding: 0px;}
+
+  .breadcrumbs {
+    margin: 0px;
+  }
 
   .menu .logo {
     grid-column: 3 / span 1;
