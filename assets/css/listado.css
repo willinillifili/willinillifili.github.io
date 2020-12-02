@@ -759,6 +759,7 @@ select, option {
 
   .aviso {
       font-size: 12px !important;
+      font-weight: normal !important;
   }
 
   .center, .menu {
