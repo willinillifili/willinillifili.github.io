@@ -226,8 +226,8 @@ footer {
 }
 
 .teaser {
-  font-size: 11.5px;
-  color: rgba(0,0,0,0.3);
+  font-size: 9px;
+  color: rgba(0,0,0,0.5);
 }
 
 .teaser-wrapper, .title-wrapper {
@@ -605,6 +605,10 @@ select, option {
   font-size: 10px
 }
 
+.vendor {
+  font-size: 12px;
+}
+
 .title-wrapper {
     flex-wrap: wrap;
     min-width: unset;
@@ -763,6 +767,10 @@ select, option {
 }
 
 @media only screen and (min-width : 700px) {
+
+  .teaser {
+    font-size: 11.5px;
+  }
 
   .tablet-only {
     display: flex;
