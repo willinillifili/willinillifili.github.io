@@ -164,12 +164,17 @@
           href="{{title}}"
           class="vendor">{{vendor}}</a><!-- vendedor (dealer, corredor, etc.) -->
         </div>
+        <div class="listing-row teaser" style="display:none;">
+          <a
+          style="color:black;"
+          class="teaser">{{teaser}}</a><!-- resumen del anuncio -->
+        </div>
         <div class="listing-row keywords">
           {{#keywords}}
           <a href={{url}} class="keyword">{{keyword}}</a>
           {{/keywords}}
         </div>
-        <div class="listing-row">
+        <div class="listing-row phone-row">
           <div class="phone">
             {{phone}}
           </div>
@@ -248,8 +253,9 @@
           luego # y las listas de los valores en forma de
           'nombreDeSeleccion1,nombreDelFiltro1,valor,cantidad,valor,cantidad,...,
           #,nombreDeSeleccion1,nombreDelFiltro,valor1,cantidad1,valor2,cantidad2...'
-          -->
-        autos,camry,#,year,Año,1997,1,1998,3,2001,5,2012,7,2018,300,#,color,Color,Black,200,Blanco,500,Rojo,2000
+
+        autos,camry,#,year,Año,1997,1,1998,3,2001,5,2012,7,2018,300,#,color,Color,Black,200,Blanco,500,Rojo,2000-->
+        titulo,autos,,#
       </div>
     </div>
     {{/hasFilters}}

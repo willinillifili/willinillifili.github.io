@@ -217,7 +217,7 @@ const listing = {
       ],
       teaser : "Esto es un resumen de la descripcion del ...",
       views : "15",
-      vendor: "All Brand Auto",
+      vendor: "",
       phone : "(787) 946-7575",
       image : "./assets/corolla.jpg",
     },
@@ -319,7 +319,7 @@ const listing = {
       ],
       teaser : "Esto es un resumen de la descripcion del ...",
       views : "15",
-      vendor: "All Brand Auto",
+      vendor: "",
       phone : "(787) 946-7575",
       image : "./assets/corolla.jpg",
     },
@@ -666,24 +666,27 @@ const listing = {
   ],
   filters: ["Año   ▼  ", "Color ▼",  "Ordenar Por ▼ "]
 };
-const googleAdResponsive =`<div class="ad-listing not-featured ad-listing-width googleAd">
-                              <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                              <!-- VariableGoogle -->
-                              <ins class="adsbygoogle"
-                              style="display:block"
-                              data-ad-client="ca-pub-5552515189039838"
-                              data-ad-slot="1633405477"
-                              data-ad-format=""
-                              data-full-width-responsive="true"></ins>
-                              <script>
-                              (adsbygoogle = window.adsbygoogle || []).push({});
-                              </script>
-                            </div>`;
 
-const googleAdInline = `<div class="ad-listing not-featured ad-listing-width googleAd">
+const googleAdFixed =`<div style="width:WIDTHpx; height:HEIGHTpx;"
+                           class="ad-listing not-featured ad-listing-width googleAd">
+                          <script async
+                                  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+                          </script>
+                        <!-- VariableGoogle -->
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:WIDTHpx;height:HEIGHTpx;"
+                             data-ad-client="ca-pub-5552515189039838"
+                             data-ad-slot="1633405477"
+                             data-auto-ad-size="false"></ins>
+                          <script>
+                           (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                        </div>`;
+
+const googleAdInfeed = `<div style="width:WIDTHpx;height:HEIGHTpx;" class="ad-listing not-featured ad-listing-width googleAd">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <ins class="adsbygoogle"
-     style="display:block"
+<ins class="adsbygoogle"
+     style="display:block;width:WIDTHpx;height:HEIGHTpx;"
      data-ad-format="fluid"
      data-ad-layout-key="-d6-2+7t-22+mj"
      data-ad-client="ca-pub-5552515189039838"
@@ -765,9 +768,12 @@ function isMobile() {
   return isMobile = $(".items").css("display") === "none";
 }
   const filterData = parsedFilterData()
+  if (filterData.filters.length == 0 ) {
+    filterData.hasData = false;
+    if (window.innerWidth > 700) $('#listado').css('grid-row', '4');
+  }
 
   const hasFilters = filterData.hasData;
-
   data = {
     parentCategories : filterData.parentCategories,
     filters : filterData.filters,
@@ -813,16 +819,16 @@ function isMobile() {
 
     const parentCategories = result.shift();
 
-    // remember to fix this asap
-    $(".bc-category").text(parentCategories[1]);
+    // remember to fix this asapx
+    $(".bc-category").text(parentCategories[0]);
 
     filterData.parentCategories = [
       {
-        value : parentCategories[0],
+        value : parentCategories[1],
         name : 'category'
       },
       {
-        value : parentCategories[1],
+        value : parentCategories[2],
         name : 'keyword'
       },
     ];
@@ -839,7 +845,6 @@ function isMobile() {
         });
         i++;
       }
-
       filterData.filters.push(filter);
     });
     console.log(filterData);
@@ -917,10 +922,12 @@ function isMobile() {
 	output = Mustache.render(template, data);
 	$('#listado').html(output);
 
-  // keep track of ad list state
+ // keep track of ad list state
  const adList = {
    columns : 3,
    selected : 3,
+   adHeight : 129,
+   adWidth : '100%',
    paidAds : {
      length : $(".paid-ad").length,
      list : $(".paid-ad"),
@@ -930,17 +937,16 @@ function isMobile() {
  }
 
  const paidAds = adList.paidAds;
- placeGoogleAds(4);
- handleAdWidth();
- setMenuWidth();
- attachPremiumLabels();
+ initialize()
 
  if (paidAds.length > 1) cyclePaidAds(adList.columns, 0, paidAds.length, paidAds.list);
 
  $(window).on("resize", function() {
-   handleAdWidth();
-   setMenuWidth();
-   cyclePaidAds(adList.columns, 0, paidAds.length, paidAds.list);
+   if (window.innerWidth > 700) {
+     handleAdWidth();
+     setMenuWidth();
+     cyclePaidAds(adList.columns, 0, paidAds.length, paidAds.list);
+   }
  });
 
  // handles the column changer
@@ -962,7 +968,15 @@ function isMobile() {
 
 /* HELPER FUNCTIONS */
 
+/**
+  * Adjust width of center section and ad width according to screen size.
+  * @todo refactor as much of this into css as possible. This is only in
+  * javascript because it was the quickest way to handle complex
+  * requirements of the responsive behavior.
+*/
+
 function handleAdWidth() {
+  console.log('handleAdWidth');
   adList.columns = adList.selected;
   let columns = adList.selected;
   if (window.innerWidth > 900) {
@@ -996,34 +1010,64 @@ function handleAdWidth() {
     setImageDimensions();
     adList.columns = 3;
   } else if (window.innerWidth <= 700) {
+    let width = String(window.innerWidth);
+    adList.adWidth = width;
     $('.center').css('grid-column', '1 / 4');
     $(".ad-listing").css("width", "100%");
+    $(".not-featured").css("width", width + 'px');
+    $(".not-featured").css("overflow", "hidden");
     $(".ad-listing").css("height", "129px");
     setPaidAdWidth(2);
     adList.columns = 2;
   }
 }
 
-function setAdWidth(tiles) {
-  // this should be dryer
-  adList.columns = tiles;
+/**
+  * Set the width of the ads so that they maintain a 1:1.15
+  * width to height ratio.
+  * @param {Number} columns Number of columns in the ad listing grid
+*/
+
+function setAdWidth(columns) {
+  adList.columns = columns;
   let padding = 0;
-  if (tiles == 2) {
-    padding = 27;
+
+  switch(columns) {
+    case 2:
+      padding = 27;
+    break;
+
+    case 3:
+      padding = 28;
+    break;
+
+    case 4:
+      padding = 29;
+    break;
+
+    default:
+      return;
   }
-  if (tiles == 3) padding = 28;
-  if (tiles == 4) {
-    padding = 29;
-  }
+
   let adsContainerWidth = $(".ads").innerWidth();
-  let adWidth = (adsContainerWidth / tiles) - padding;
+  let adWidth = (adsContainerWidth / columns) - padding;
   let adHeight = adWidth * 1.15;
+
+  /* update the adList fields so they can be used by ads loaded afterwards
+     such as the google ads */
+
+  adList.adWidth = adWidth;
+  adList.adHeight = adHeight;
 
   $(".not-featured").css("width", String(adWidth) + "px");
   $(".not-featured").css("height", String(adHeight) + "px");
 }
 
-// **this should later be specified in css. remember to fix**
+/**
+  * Adjust menu dimensions based on screen width
+  * @todo refactor this behavior into css.
+*/
+
 function setMenuWidth() {
   if (window.innerWidth > 700) {
     let menuStart = 0;
@@ -1057,7 +1101,9 @@ function parsePaidAds() {
   let rawData = $("#paid-ads-data").text();
   if (!rawData.trim()) return [];
   let splitData = rawData.split(",");
+
   // we intend to divide the list into objects of url source/destination pairs
+
   let paidAdsTuples = [];
   for (let i = 0; i < splitData.length; i+=2) {
     paidAdsTuples.push({
@@ -1088,17 +1134,44 @@ function cyclePaidAds(ads, cyclePosition, length, adList) {
   }, 6000);
 }
 
-/* @frequency is an integer representing how many normal ads
-to count before placing the next google ad. */
+/**
+  * Insert  google ads into the listing grid
+  * @param {Number} frequency Number of normal ads between each google ad.
+*/
 
 function placeGoogleAds(frequency) {
+  console.log('placeGoogleAds');
   let ads = $('.not-featured');
-  let googleAd = window.innerWidth > 700 ? googleAdResponsive : googleAdInline;
+  let googleAd = window.innerWidth > 700 ? googleAdFixed : googleAdInfeed;
+
+  googleAd = googleAd.replace(/WIDTH/g, String(adList.adWidth))
+                     .replace(/HEIGHT/g, String(adList.adHeight))
+
   // first ad should always be google ad
+
   $('.ads').prepend(googleAd);
+
   for (let i = 0; i < ads.length; i++) {
     if ((i + 1) % frequency === 0) {
       ads.eq(i).after(googleAd);
+    }
+  }
+}
+
+async function initialize() {
+  await handleAdWidth();
+  await placeGoogleAds(4);
+  await setMenuWidth();
+  await attachPremiumLabels();
+  handleMissingVendor();
+}
+
+function handleMissingVendor() {
+  let vendor = $('.vendor');
+  let teaser = $('.listing-row.teaser');
+  for (let i = 0; i < vendor.length; i++) {
+    if (!vendor[i].textContent) {
+      teaser[i].style.display = 'flex';
     }
   }
 }
