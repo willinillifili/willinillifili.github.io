@@ -2,656 +2,294 @@
 <html lang="es">
 <head>
   <title>
-    Registrate | Clasitrónicos
+    Listado | Clasitrónicos
   </title>
   <meta charset="UTF-8">
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/6228ba2463.js" crossorigin="anonymous"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-  <script src="script-test.js"></script>
-  <style>
-
-    html, body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        background: #BFEEEA;
-    }
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .image {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 200px;
-      height: 150px;
-    }
-
-    #photoFields {
-      display: flex;
-      flex-direction: column;
-    }
-
-    main {
-        height: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap-reverse;
-    }
-
-    section {
-      width: 25%;
-      min-width: 300px;
-      //  height: 80%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .listing-row {
-      width: 100%;
-      display: flex;
-      margin-top: 10px;
-      justify-content: space-between;
-    }
-
-    form {
-        width: 100%;
-        height: 80%;
-        display: flex;
-        flex-direction: row;
-        overflow-x: hidden;
-    }
-
-    #formScrollButtons {
-      width: 100%;
-      position: relative;
-    }
-
-    #formScrollButtons button:nth-child(1) {
-      position: absolute;
-      left: 0;
-    }
-
-    #formScrollButtons button:nth-child(2) {
-      position: absolute;
-      right: 0;
-    }
-
-    #formScrollButtons button:nth-child(3) {
-      position: absolute;
-      right: 0;
-    }
-
-    fieldset {
-      width: 100%;
-      display: inline-block;
-      border: 0;
-      overflow-y: hidden;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      z-index: 30;
-      padding-top: 25px;
-      width: 100%;
-      text-align: center;
-      height: 50px;
-      text-transform: capitalize;
-      margin-bottom: 20px;
-      background: white;
-    }
-
-    fieldset * {
-      margin-bottom: 20px;
-    }
-
-    label {
-        margin-bottom: 20px;
-    }
-
-    .ad-preview {
-      background: white;
-      padding: 10px;
-    }
-
-    select, input {
-      height: 25px;
-    }
-
-    .required::after{
-      content: "*";
-      color: #FF4466;
-      display: inline-block;
-    }
-
-    input[name="submit"] {
-      visibility: hidden;
-    }
-
-    legend {
-      visibility: hidden;
-    }
-
-  </style>
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/listado.css">
+  <script src="./assets/js/script-listado.js"></script>
 </head>
 <body>
-    <header>
-      <span>Categoria</span>
-    </header>
-    <main>
-      <section class="form">
-        <form>
-           <fieldset>
-             <legend>categoria y localizacion</legend>
-             <label for="category" class="required">categoria</label><br>
-             <select id="category" onchange="adjustKeywordFieldset()" name="category" size="1">
-             <!--<option value="test">Prueba</option>-->
-               <option value="actividades">Actividades - Eventos</option>
-               <option value="apartamentosalquiler">Apartamentos - Alquiler</option>
-               <option value="vacaciones">Apartamentos - Vacaciones</option>
-               <option value="apartamentosventas">Apartamentos - Ventas</option>
-               <option value="autos">Autos</option>
-               <option value="trailers">Remolques</option>
-               <option value="autosantiguos">Autos Antiguos</option>
-               <option value="aviones">Aviones</option>
-               <option value="botes">Botes</option>
-               <option value="casasalquiler">Casas - Alquiler</option>
-               <!--<option value="casasvacaciones">Casas - Vacaciones</option>-->
-               <option value="casasventas">Casas - Ventas</option>
-               <option value="clases">Clases</option>
-               <!--<option value="comercialesalquiles">Comerciales - Alquiler</option>-->
-               <!--<option value="comercialesventas">Comerciales - Ventas</option>-->
-               <option value="comerciales">Comerciales</option>
-               <option value="empleosbusca">Empleos, Se Busca</option>
-               <option value="empleosofrece">Empleos, Se Ofrece</option>
-               <option value="enceres">Enceres</option>
-               <!--<option value="haciendasvacaciones">Haciendas - Vacaciones</option>-->
-               <option value="helicopteros">Helicopteros</option>
-               <option value="instrumentos">Instrumentos Musicales</option>
-               <!--<option value="hospedajesalquiler">Hospedajes - Alquiler</option>-->
-               <!--<option value="hoteles">Hoteles</option>-->
-               <option value="libros">Libros</option>
-               <option value="mascotas">Mascotas</option>
-               <option value="miscelaneos">Miscelaneos/Otros</option>
-               <option value="motoras">Motoras</option>
-               <option value="muebles">Muebles</option>
-               <!--<option value="otros">Otros</option>-->
-               <option value="pickups">Pickups</option>
-               <option value="prendas">Prendas</option>
-               <option value="ropa">Ropa</option>
-               <option value="servicios">Servicios</option>
-               <option value="salud">Salud</option>
-               <!--<option value="terrenosalquiler">Terrenos - Alquiler</option>
-               <!--<option value="terrenosventas">Terrenos - Ventas</option>-->
-               <option value="terrenos">Terrenos</option>
-               <option value="trailers">Trailers</option>
-               <option value="vacaciones">Vacaciones</option>
-               <option value="vanes">Vanes</option>
-               <!--<option value="villasvacaciones">Villas - Vacaciones</option>-->
-               <!--<option value="villasventas">Villas - Ventas</option>-->
-             </select>
-             <label for="city" class="required">localizacion</label><br>
-             <select id="city" name="city" size="1">
-               <option value="Adjuntas">Adjuntas</option>
-               <option value="Aguada">Aguada</option>
-               <option value="Aguadilla">Aguadilla</option>
-               <option value="Aguas Buenas">Aguas Buenas</option>
-               <option value="Aibonito">Aibonito</option>
-               <option value="Añasco">Añasco</option>
-               <option value="Arecibo">Arecibo</option>
-               <option value="Arroyo">Arroyo</option>
-               <option value="Barceloneta">Barceloneta</option>
-               <option value="Barranquitas">Barranquitas</option>
-               <option value="Bayamon">Bayamon</option>
-               <option value="Cabo Rojo">Cabo Rojo</option>
-               <option value="Caguas">Caguas</option>
-               <option value="Camuy">Camuy</option>
-               <option value="Canovanas">Canovanas</option>
-               <option value="Carolina">Carolina</option>
-               <option value="Catano">Catano</option>
-               <option value="Cayey">Cayey</option>
-               <option value="Ceiba">Ceiba</option>
-               <option value="Ciales">Ciales</option>
-               <option value="Cidra">Cidra</option>
-               <option value="Coamo">Coamo</option>
-               <option value="Comerio">Comerio</option>
-               <option value="Corozal">Corozal</option>
-               <option value="Culebra">Culebra</option>
-               <option value="Dorado">Dorado</option>
-               <option value="Fajardo">Fajardo</option>
-               <option value="Florida">Florida</option>
-               <option value="Guanica">Guanica</option>
-               <option value="Guayama">Guayama</option>
-               <option value="Guayanilla">Guayanilla</option>
-               <option value="Guaynabo">Guaynabo</option>
-               <option value="Gurabo">Gurabo</option>
-               <option value="Hatillo">Hatillo</option>
-               <option value="Hormigueros">Hormigueros</option>
-               <option value="Humacao">Humacao</option>
-               <option value="Isabela">Isabela</option>
-               <option value="Jayuya">Jayuya</option>
-               <option value="Juana Diaz">Juana Diaz</option>
-               <option value="Juncos">Juncos</option>
-               <option value="Lajas">Lajas</option>
-               <option value="Lares">Lares</option>
-               <option value="Las Marias">Las Marías</option>
-               <option value="Las Piedras">Las Piedras</option>
-               <option value="Loiza">Loiza</option>
-               <option value="Luquillo">Luquillo</option>
-               <option value="Manati">Manati</option>
-               <option value="Maricao">Maricao</option>
-               <option value="Maunabo">Maunabo</option>
-               <option value="Mayagüez">Mayagüez</option>
-               <option value="Moca">Moca</option>
-               <option value="Morovis">Morovis</option>
-               <option value="Naguabo">Naguabo</option>
-               <option value="Naranjito">Naranjito</option>
-               <option value="Orocovis">Orocovis</option>
-               <option value="Patillas">Patillas</option>
-               <option value="Penuelas">Penuelas</option>
-               <option value="Ponce">Ponce</option>
-               <option value="Quebradillas">Quebradillas</option>
-               <option value="Rincon">Rincon</option>
-               <option value="Rio Grande">Rio Grande</option>
-               <option value="Sabana Grande">Sabana Grande</option>
-               <option value="Salinas">Salinas</option>
-               <option value="San German">San German</option>
-               <option value="San Juan">San Juan</option>
-               <option value="San Lorenzo">San Lorenzo</option>
-               <option value="San Sebastian">San Sebastian</option>
-               <option value="Santa Isabel">Santa Isabel</option>
-               <option value="Toa Alta">Toa Alta</option>
-               <option value="Toa Baja">Toa Baja</option>
-               <option value="Trujillo Alto">Trujillo Alto</option>
-               <option value="Utuado">Utuado</option>
-               <option value="Vega Alta">Vega Alta</option>
-               <option value="Vega Baja">Vega Baja</option>
-               <option value="Vieques">Vieques</option>
-               <option value="Villalba">Villalba</option>
-               <option value="Yabucoa">Yabucoa</option>
-               <option value="Yauco">Yauco</option>
-            </select>
-           </fieldset>
-           <fieldset>
-             <legend>informacion del anuncio</legend>
-             <label for="name">titulo del anuncio</label>
-             <input id="name" type="text" name="title" maxlength="60" value="">
-             <label for="price">precio (en dolares)</label>
-             <input id="price" type="text" name="price" maxlength="10" value="">
-             <label for="description">texto descriptivo del anuncio</label>
-             <textarea id="description"
-                       wrap="virtual"
-                       cols="50"
-                       rows="5"
-                       name="adtext"></textarea>
-           </fieldset>
-           <fieldset>
-             <legend>informacion de contacto</legend>
-             <label for="phone1">telefono 1</label>
-             <input id="phone1" type="tel" name="phone1" maxlength="30" value="">
-             <label for="phone2">telefono 2</label>
-             <input id="phone2" type="tel" name="phone2" maxlength="30" value="">
-             <label for="email">email</label>
-             <input id="email" type="text" name="email" maxlength="50" value="">
-             <label for="website">website</label>
-             <input id="website" type="text" name="website" maxlength="70" value="">
-           </fieldset>
-           <fieldset id="photoFields">
-             <legend>Fotos</legend>
-             <label for="photofile">foto #1</label>
-             <input id="photofile"
-                    type="file"
-                    name="photofile"
-                    accept="image/*"
-                    data-index="1">
-           </fieldset>
-           <fieldset>
-             <legend>Palabras Clave</legend>
-             <div id="autoKeywords" style="display:none;">
-               <label for="make">marca</label><br>
-               <select id="make" name="make" size="1">
-                  <option value="">No Aplica</option>
-                  <option value="Acura">Acura</option>
-                  <option value="Aston Martin">Aston Martin</option>
-                  <option value="Audi">Audi</option>
-                  <option value="BMW">BMW</option>
-                  <option value="Buick">Buick</option>
-                  <option value="Cadillac">Cadillac</option>
-                  <option value="Chevrolet">Chevrolet</option>
-                  <option value="Chrysler">Chrysler</option>
-                  <option value="Daewoo">Daewoo</option>
-                  <option value="Dodge">Dodge</option>
-                  <option value="Ferrari">Ferrari</option>
-                  <option value="Fiat">Fiat</option>
-                  <option value="Ford">Ford</option>
-                  <option value="GMC">GMC</option>
-                  <option value="Honda">Honda</option>
-                  <option value="Hyundai">Hyundai</option>
-                  <option value="Infiniti">Infiniti</option>
-                  <option value="Isuzu">Isuzu</option>
-                  <option value="Jaguar">Jaguar</option>
-                  <option value="Jeep">Jeep</option>
-                  <option value="Kia">Kia</option>
-                  <option value="Lamborghini">Lamborghini</option>
-                  <option value="Land Rover">Land Rover</option>
-                  <option value="Lexus">Lexus</option>
-                  <option value="Lincoln">Lincoln</option>
-                  <option value="Maserati">Maserati</option>
-                  <option value="Mercedes Benz">Mercedes Benz</option>
-                  <option value="Mercury">Mercury</option>
-                  <option value="Mini">Mini</option>
-                  <option value="Mitsubishi">Mitsubishi</option>
-                  <option value="Nissan">Nissan</option>
-                  <option value="Pontiac">Pontiac</option>
-                  <option value="Porsche">Porsche</option>
-                  <option value="RAM">RAM</option>
-                  <option value="Renault">Renault</option>
-                  <option value="Saab">Saab</option>
-                  <option value="Scion">Scion</option>
-                  <option value="Smart">Smart</option>
-                  <option value="Subaru">Subaru</option>
-                  <option value="Suzuki">Suzuki</option>
-                  <option value="Toyota">Toyota</option>
-                  <option value="Volkswagen">Volkswagen</option>
-                  <option value="Volvo">Volvo</option>
-                </select>
-               <br><label for="model">modelo</label><br>
-               <input id="model" type="text" name="model" maxlength="30" value="">
-               <label for="year">year</label><br>
-               <select id="year" name="year" size="1">
-                  <option value="">0000</option>
-                  <option value="2020">2020</option>
-                  <option value="2019">2019</option>
-                  <option value="2018">2018</option>
-                  <option value="2017">2017</option>
-                  <option value="2016">2016</option>
-                  <option value="2015">2015</option>
-                  <option value="2014">2014</option>
-                  <option value="2013">2013</option>
-                  <option value="2012">2012</option>
-                  <option value="2011">2011</option>
-                  <option value="2010">2010</option>
-                  <option value="2009">2009</option>
-                  <option value="2008">2008</option>
-                  <option value="2007">2007</option>
-                  <option value="2006">2006</option>
-                  <option value="2005">2005</option>
-                  <option value="2004">2004</option>
-                  <option value="2003">2003</option>
-                  <option value="2002">2002</option>
-                  <option value="2001">2001</option>
-                  <option value="2000">2000</option>
-                  <option value="1999">1999</option>
-                  <option value="1998">1998</option>
-                  <option value="1997">1997</option>
-                  <option value="1996">1996</option>
-                  <option value="1995">1995</option>
-                  <option value="1994">1994</option>
-                  <option value="1993">1993</option>
-                  <option value="1992">1992</option>
-                  <option value="1991">1991</option>
-                  <option value="1990">1990</option>
-                </select>
-               <br><label for="miles">millaje</label><br>
-               <input id="miles" type="text" name="miles" maxlength="20" value="">
-               <label for="doors">puertas</label><br>
-               <input id="doors" type="text" name="doors" maxlength="20" value="">
-               <label for="color">color</label><br>
-               <input id="color" type="text" name="color" maxlength="20" value="">
-             </div>
-             <div id="generalKeywords">
-               <label for="key1">palabra clave</label>
-               <input id="key1" type="text" name="key1" maxlength="18" value="">
-               <label for="key2">palabra clave</label>
-               <input id="key2" type="text" name="key2" maxlength="18" value="">
-             </center>
-             </div>
-           </fieldset>
-           <input name="submit" type="submit" value="publicar">
-        </form>
-        <div id="formScrollButtons">
-          <button>Regresar</button>
-          <button>Proximo</button>
-          <button>Publicar</button>
+  <div class="content grid-container">
+<div id="menu" class="grid-item menu">
+  <div class="snackbar menu-section pointer menu-mid-width">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+      <path fill-rule="evenodd" fill="white" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z">
+      </path>
+    </svg>
+    </div>
+    <a href="https://clasitronicos.com/index.html" class="logo menu-section pointer">
+      <img alt="logo" src="https://clasitronicos.com/assets/bannerred.png"/>
+      </a>
+      <a href="https://www.clasitronicos.com/cgi-bin/formanunciox.cgi?n=PR"
+         class="desktop-only-flex publicar">
+         PUBLICAR GRATIS
+      </a>
+      <!--div class="search menu-section pointer desktop-only">
+        <form
+        action="https://www.clasitronicos.com/cgi-bin/getadx.cgi"
+        method="post"
+        class="centralize-row">
+        <input type="text" placeholder="que (y donde).." name="keyword">
+        <input type="hidden" name="country" size="12" value="PR">
+        <button type="submit">
+          <span>
+            <i class="fa fa-search fa-sm"></i>
+            <span>
+        </button>
+      </div-->
+      <div class="country menu-section mobile-only">
+        <!--div class="circle">
+          <img alt="current country flag" src="https://clasitronicos.com/assets/flags/puerto_rico.gif"/>
+        </div-->
+        <span class="search-icon-mobile pointer" style="color: white;">
+          <i class="fa fa-search fa-lg"></i>
+        </span>
+      </div>
+        <div class="items menu-section desktop-only">
+          {{#item}}
+            <a href="{{url}}" class="item {{type}}">
+              {{title}}
+              </a>
+          {{/item}}
+          <span class="search-icon-mobile" class="item" style="color: var(--darkgrey);">
+            <i class="fa fa-search fa-sm"></i>
+          </span>
+          </div>
+        <div class="categories">
+          <a href="https://www.clasitronicos.com/cgi-bin/formanunciox.cgi?n=PR"
+             class="publicar mobile-only">
+             PUBLICAR GRATIS
+          </a>
+          <div class="tablet-only onboarding tablet-onboarding">
+            <a
+              href="https://www.clasificadoselectronicos.com/html-files/premium.htm"
+              class="category no-arrow tablet-category">Premium</a>
+              <a
+              href="https://www.clasificadoselectronicos.com/puertorico/regusuario.htm"
+              class="category no-arrow tablet-category">Registrate</a>
+              <a
+              href="https://www.clasificadoselectronicos.com/cgi-bin/micuenta.cgi"
+              class="category no-arrow tablet-category">Conectate</a>
+          </div>
+          {{#category}}
+          <div class="category-item">
+            <div class="category pointer">{{title}}</div>
+            <div class="subcategories">
+              {{#subcategories}}
+              <a href="{{url}}" class="subcategory category-item pointer">
+                {{title}}
+              </a>
+              {{/subcategories}}
+              </div>
+            </div>
+          {{/category}}
+          <div class="category-item mobile-only onboarding">
+            <a
+            href="https://www.clasificadoselectronicos.com/html-files/premium.htm"
+            class="category no-arrow">Premium</a>
+          </div>
+          <div class="category-item mobile-only onboarding">
+            <a
+            href="https://www.clasificadoselectronicos.com/puertorico/regusuario.htm"
+            class="category no-arrow">Registrate</a>
+          </div>
+          <div class="category-item mobile-only onboarding">
+            <a
+              href="https://www.clasificadoselectronicos.com/cgi-bin/micuenta.cgi"
+              class="category no-arrow">Conectate</a>
+          </div>
+          </div>
+  </div>
+  <aside class="change-columns">
+    <button id="tres" type="button" class="col-changer">3 columnas</button>
+    <button id="cuatro" type="button" class="col-changer">4 columnas</button>
+  </aside>
+  <div id="listado" class="listado center">
+    {{#paidAdsSection}}
+    <div class="ad-listing paid-ads">
+      <span>Anuncios Pagados</span>
+      <div class="paid-ads-images">
+        {{#paid_ads}}
+        <a href="{{ destination }}" class="image paid-ad" style="display:none;">
+            <img alt="paid advertisement" src="{{ source }}"/>
+        </a>
+        {{/paid_ads}}
+      </div>
+      <div style="display: none;" id="paid-ads-data">
+        <!--
+          Aqui van los urls de los anuncios pagados. El formato es
+          source_url_1,destination_url_1,source_url_2,destination_url_2 ...-->
+        https://www.clasificadoselectronicos.com/puertorico/clientes/litosx.jpg,
+        https://www.infopaginas.com/b/aguadilla/centro-oftalmologico-y-ptica-dr-raul-lopez-verge,
+        https://www.clasificadoselectronicos.com/puertorico/clientes/prlawx.jpg,
+        https://www.infopaginas.com/b/aguadilla/centro-oftalmologico-y-ptica-dr-raul-lopez-verge,
+        https://www.clasificadoselectronicos.com/puertorico/clientes/drfmorales.jpg,
+        https://www.infopaginas.com/b/aguadilla/centro-oftalmologico-y-ptica-dr-raul-lopez-verge,
+        https://www.clasificadoselectronicos.com/puertorico/clientes/lopez.jpg,
+        https://www.infopaginas.com/b/aguadilla/centro-oftalmologico-y-ptica-dr-raul-lopez-verge,
+        https://www.clasificadoselectronicos.com/puertorico/clientes/solano.jpg,
+        https://www.infopaginas.com/b/aguadilla/centro-oftalmologico-y-ptica-dr-raul-lopez-verge,
+        https://www.clasificadoselectronicos.com/puertorico/clientes/pmextreme.jpg,
+        https://www.infopaginas.com/b/aguadilla/centro-oftalmologico-y-ptica-dr-raul-lopez-verge
+      </div>
+    </div>
+    {{/paidAdsSection}}
+    <a name="newad"></a>
+    <div class="ads">
+    {{#ads}}
+      <div class="ad-listing {{type}} not-featured ad-listing-width"><!-- Aqui comienza el anuncio -->
+        <div class="premium-label" style="display:none;">
+          Premium
         </div>
-      </section>
-      <section class="preview">
-        <div class="ad-preview">
-            <div class="image ad-image" style="background:lightgrey;">
-               <svg xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    width="50"
-                    height="50">
-                    <path
-                    fill="rgba(0,0,0,0.3)"
-                    fill-rule="evenodd"
-                    d="M19.25 4.5H4.75a.25.25 0 00-.25.25v14.5c0 .138.112.25.25.25h.19l9.823-9.823a1.75 1.75 0 012.475 0l2.262 2.262V4.75a.25.25 0 00-.25-.25zm.25 9.56l-3.323-3.323a.25.25 0 00-.354 0L7.061 19.5H19.25a.25.25 0 00.25-.25v-5.19zM4.75 3A1.75 1.75 0 003 4.75v14.5c0 .966.784 1.75 1.75 1.75h14.5A1.75 1.75 0 0021 19.25V4.75A1.75 1.75 0 0019.25 3H4.75zM8.5 9.5a1 1 0 100-2 1 1 0 000 2zm0 1.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z">
-                    </path>
-                </svg>
-            </div>
-            <div class="info">
-            <div class="listing-row">
-              <span class="province">Region</span>
-              <span class="price">Precio</span>
-            </div>
-            <div class="listing-row title-wrapper">
-              <span class="title">Titulo</span><!-- titulo del anuncio -->
-            </div>
-            <div class="listing-row">
-              <span style="color:black;" class="vendor">Negocio</span><!-- vendedor (dealer, corredor, etc.) -->
-            </div>
-            <div class="listing-row teaser" style="display:none;">
-              <span class="teaser">Descripcion</span><!-- resumen del anuncio -->
-            </div>
-            <div class="listing-row keywords">
-              <span class="keyword">Palabras Clave</span>
-            </div>
-            <div class="listing-row phone-row">
-              <div class="phone">
-                  Telefono
-              </div>
-            </div>
-            <div class="listing-row">
-              <div class="views"><!-- numero de visitas al anuncio -->
-                <span style="color:black;">
-                  0
-                </span> vistas
-              </div>
-              <div class="id">
-                PR98336381
-                </div>
-            </div>
+        <a href="https://www.clasitronicos.com/cgi-bin/fotos.cgi?id=PR136834&db=4"
+           class="image ad-image">
+           <img class="front" src="https://www.clasificadoselectronicos.com/fotos20e/PR98537886serviciosb.jpg" alt=""/>
+           <img class="background-blur" src="https://www.clasificadoselectronicos.com/fotos20e/PR98537886serviciosb.jpg" alt=""/>
+        </a>
+        <div class="info">
+        <div class="listing-row">
+          <div class="location">
+            <a href="{{url}}" class="city">{{city}}</a>            
+            <a href="{{url}}" class="province">{{province}}</a>
+          </div>
+          <div class="price">${{price}}</div>
+        </div>
+        <div class="listing-row title-wrapper">
+          <a href="{{url}}" class="title">{{title}}</a><!-- titulo del anuncio -->
+        </div>
+        <div class="listing-row">
+          <a
+          style="color:black;"
+          href="{{title}}"
+          class="vendor">{{vendor}}</a><!-- vendedor (dealer, corredor, etc.) -->
+        </div>
+        <div class="listing-row teaser" style="display:none;">
+          <a class="teaser">{{teaser}}</a><!-- resumen del anuncio -->
+        </div>
+        <div class="listing-row keywords">
+          {{#keywords}}
+          <a href={{url}} class="keyword">{{keyword}}</a>
+          {{/keywords}}
+        </div>
+        <div class="listing-row phone-row">
+          <div class="phone">
+            {{phone}}
           </div>
         </div>
-        <div class="ad-mode-toggler"></div>
-      </section>
-    </main>
-  </body>
-  <script>
-    const preview = {
-      imageContainer : document.querySelector('.image'),
-      city : document.querySelector('.province'),
-      price : document.querySelector('.price'),
-      title : document.querySelector('.title'),
-      vendor : document.querySelector('.vendor'),
-      phone1 : document.querySelector('.phone'),
-      key1 : document.querySelector('.keyword'),
-      key2 : document.querySelector('.keyword')
-    }
-
-    const fields = {
-      key1 : document.querySelector('input[name="key1"]'),
-      key2 : document.querySelector('input[name="key2"]')
-    }
-
-    const FormScroller = {
-        currentFieldset : 1,
-        nextShowing : true,
-        backShowing : false,
-    }
-
-    const form = document.querySelector('form');
-    form.addEventListener('change', updatePreview);
-    const next = document.querySelector('#formScrollButtons button:nth-child(2)');
-    const back = document.querySelector('#formScrollButtons button:nth-child(1)');
-    const publishDummy = document.querySelector('#formScrollButtons button:nth-child(3)');
-    const publish = document.querySelector('input[name="publicar"]');
-    back.style.display = 'none';
-    publishDummy.style.display = 'none';
-    let currentFieldset = 1;
-    next.onclick = () => scrollForm('forward');
-    back.onclick = () => scrollForm('backward');
-    adjustFieldsetWidth();
-
-    /**
-    * effects: Appends new file input field to photos fieldset.
-    TODO: reimplement this function using element only
-    **/
-    function addFileInputField(element) {
-      let photoInput = document.querySelector('#photoFields input:last-child');
-      if (element.getAttribute('data-index')
-          !== photoInput.getAttribute('data-index')) {
-            return false;
-          }
-      const parent = document.querySelector('#photoFields');
-      const lastInput = -2;
-      const newIndex = Number( photoInput.getAttribute('data-index') ) + 1;
-      if (newIndex > 7) return false;
-      const newInputName = "photofile" + newIndex;
-      let newFileField = `<label for="${newInputName}">foto #${newIndex}</label>
-                            <input id="${newInputName}" type="file"
-                                   name="${newInputName}"
-                                   data-index="${newIndex}">`;
-      newFileField = stringToNode(newFileField);
-      parent.append(newFileField[0]);
-      parent.append(newFileField[0]);
-      return false;
-    }
-
-    /**
-    * effects: Chooses which keyword fieldset to display based on category selection.
-    **/
-    function adjustKeywordFieldset() {
-      let category = document.querySelector("select[name='category']").value;
-      if ( isCarCategory(category) ) {
-        document.getElementById('autoKeywords').style.display = 'block';
-        document.getElementById('generalKeywords').style.display = 'none';
-      }
-    }
-
-    function isCarCategory(category) {
-        return (category === 'autos' || category === 'autos antiguos'
-        || category === 'motoras' || category === 'pickups' ||
-        category === 'vanes');
-    }
-
-    function adjustFieldsetWidth() {
-        let width = document.getElementsByTagName('form')[0].offsetWidth - 30;
-        let inputs = document.getElementsByTagName('input');
-        let selects = document.getElementsByTagName('select');
-        for (let i = 0; i < inputs.length; i++) {
-          inputs[i].style.width = width + 'px';
-        }
-        selects[0].style.width = width + 'px';
-    }
-
-    function scrollForm(direction) {
-      direction === 'forward' ? currentFieldset++ : currentFieldset--;
-      const firstFieldset = 1;
-      const lastFieldset = 5;
-      if (currentFieldset >= lastFieldset) {
-        next.style.display = 'none';
-        publishDummy.style.display = 'block';
-        currentFieldset = lastFieldset;
-      }
-
-      if (currentFieldset <= firstFieldset) {
-        back.style.display = 'none';
-        currentFieldset = firstFieldset;
-      }
-
-      if (currentFieldset > firstFieldset && currentFieldset < lastFieldset) {
-          next.style.display = 'block';
-          back.style.display = 'block';
-          publishDummy.style.display = 'none';
-      }
-
-      let nextFieldSet = document
-          .querySelector('fieldset:nth-child('+currentFieldset+')');
-      document.querySelector('header').innerText = nextFieldSet.firstElementChild.textContent;
-      nextFieldSet.scrollIntoView( {block:'nearest', behavior:'smooth'} );
-    }
-
-    function updatePreview(e) {
-      const elem = e.target
-      let value = elem.value;
-      let name = elem.getAttribute('name');
-
-      if (elem.getAttribute('type') === 'file') {
-          handlePhotoPreview(elem);
-          addFileInputField(elem);
-          return;
-      }
-
-      if (name === 'price') {
-        value = "$" + value;
-      }
-
-      if (name === 'key2' || name === 'key1') {
-        const keys = [];
-        keys[0] = fields.key1.value ? fields.key1.value : "";
-        keys[1] = fields.key2.value ? fields.key2.value : "";
-        value = keys[0] + " " + keys[1];
-      }
-
-      if ( Object.keys(preview).includes(name) ) {
-        preview[name].innerText = value;
-      }
-    }
-
-    /**
-    *
-    **/
-    function handlePhotoPreview(element) {
-      if ( element.files && element.files[0]
-        && element.getAttribute('data-index') === "1") {
-        if (preview.imageContainer.childNodes[1].tagName !== "IMG") {
-          replaceSVGWithImage();
-        }
-
-        const reader = new FileReader();
-
-        reader.onload = e => {
-          document.querySelector('.image img')
-                  .setAttribute('src', e.target.result);
-        }
-
-        reader.readAsDataURL(element.files[0]);
-      }
-    }
-
-    function replaceSVGWithImage() {
-      const imageContainer = document.querySelector('.image');
-      const svg = document.querySelector('.image svg');
-      const image = document.createElement('img');
-      imageContainer.replaceChild(image, svg);
-    }
-
-    function stringToNode(htmlString) {
-      let div = document.createElement('div');
-      div.innerHTML = htmlString.trim();
-      return div.children;
-    }
-
-  </script>
-</html>
+        <div class="listing-row">
+          <div class="views"><!-- numero de visitas al anuncio -->
+            <span style="color:black;">
+              {{views}}
+            </span> vistas
+          </div>
+          <div class="id">
+            PR98336381
+            </div>
+        </div>
+      </div>
+    </div><!-- Aqui termina el anuncio -->
+    {{/ads}}
+  </div>
+</div>
+<div id="popup-searchbar" class="center">
+  <div class="search pointer popup-search">
+    <form action="https://www.clasitronicos.com/cgi-bin/getadx.cgi"
+          method="post"
+          class="centralize-row">
+      <input type="text" placeholder="que (y donde).." name="keyword">
+      <input type="hidden" name="country" size="12" value="PR">
+      <button type="submit">
+        <span>
+          <i class="fa fa-search fa-lg"></i>
+          </span>
+      </button>
+    </form>
+  </div>
+</div>
+<!-- comienza barra con el boton de publicar en mobil -->
+<div class="grid-item breadcrumbs center mobile-only">
+  <a class="aviso" href="https://www.clasificadoselectronicos.com/aviso.htm">
+    AVISO LEGAL</a>
+    <a href="https://www.clasitronicos.com/cgi-bin/formanunciox.cgi?n=PR"
+       class="publicar mobile-only">
+       PUBLICAR GRATIS
+    </a>
+    <div class="flag bc-flag">
+      <img alt="current country flag" src="https://clasitronicos.com/assets/flags/puerto_rico.gif"/>
+    </div>
+</div>
+<!-- termina barra con el boton de publicar en mobil -->
+<!-- comienza barra con el titulo en mobil -->
+<div class="grid-item breadcrumbs center title mobile-only">
+    <a href="#" style="text-transform:capitalize;" class="bc-category">Autos</a>
+    <span style="font-size:18px;" class="separator-vertical">|</span>
+    <a href="https://www.clasitronicos.com/mundo.htm"
+    class="bc-country pointer">Puerto Rico, </a>
+    <a href="https://www.clasitronicos.com/mundo.htm"
+    class="bc-country pointer bc-province">&nbsp Caguas</a>
+</div>
+<!-- termina barra con el titulo en mobil -->
+<!-- comienza barra con titulo, aviso y bandera en desktop -->
+<div class="grid-item breadcrumbs center desktop-only dsktp-breadcrumbs">
+  <a class="aviso" href="https://www.clasificadoselectronicos.com/aviso.htm">
+    AVISO LEGAL</a>
+    <a href="#" style="text-transform:capitalize;" class="bc-category">Autos</a>
+    <span style="font-size:18px;" class="separator-vertical">|</span>
+    <a href="https://www.clasitronicos.com/mundo.htm"
+    class="bc-country pointer">Puerto Rico, </a>
+    <a href="https://www.clasitronicos.com/mundo.htm"
+    class="bc-country pointer bc-province">&nbsp Caguas</a>
+  <div class="flag bc-flag">
+      <img alt="current country flag" src="https://clasitronicos.com/assets/flags/puerto_rico.gif"/>
+    </div>
+</div>
+<!-- comienza barra con titulo, aviso y bandera en desktop -->
+    <div id="listing-breadcrumbs-container" class="center">
+    {{#hasFilters}}
+    <div id="listing-breadcrumbs" class="filters">
+      <form action="https://www.clasitronicos.com/cgi-bin/getadx.cgi"
+          method="post">
+          {{#parentCategories}}
+          <input type="hidden"
+                 name="{{name}}"
+                 size="12"
+                 value="{{value}}">
+          {{/parentCategories}}
+          <input type="hidden" name="country" size="12" value="PR">
+          {{#filters}}
+          <label class="{{ show }}" for="{{selectionName}}">{{name}}</label>
+          <select class="{{ show }}" name="{{selectionName}}">
+            <option value>{{name}}</option> <!-- default or "null" value -->
+            {{#values}}
+            <option value="{{value}}">
+              {{value}}
+              <span class="option-quantity">({{quantity}})<span>
+            </option>
+            {{/values}}
+          </select>
+          {{/filters}}
+          <input class="buscar pointer" type="submit" value="Buscar">
+      </form>
+      <div id="filter-data" style="display: none;">
+        <!-- la lista empieza con la categoria seguida por el keyword
+          luego # y las listas de los valores en forma de
+          'nombreDeSeleccion1,nombreDelFiltro1,valor,cantidad,valor,cantidad,...,
+          #,nombreDeSeleccion1,nombreDelFiltro,valor1,cantidad1,valor2,cantidad2...'
+          -->
+        camry(116),toyota,camry,#,year,Año,1997,1,1996,2,#,color,Color,red,2,blue,3
+      </div>
+    </div>
+    {{/hasFilters}}
+    </div>
+  </div>
+</body>
+<footer>
+  	2020 Interzonga Communications &#169
+  </footer>
