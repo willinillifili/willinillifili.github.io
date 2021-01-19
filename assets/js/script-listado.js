@@ -939,9 +939,9 @@ function removeAccent(name) {
 	$('#popup-searchbar').html(output);*/
 
   let screenSize = { isMobile : false };
-  screenSize.isMobile = window.innerWidth < 1000 ? true : false;
+  screenSize.isMobile = window.innerWidth < 700 ? true : false;
   window.addEventListener("resize", () => {
-    screenSize.isMobile = window.innerWidth < 1000 ? true : false;
+    screenSize.isMobile = window.innerWidth < 700 ? true : false;
   })
 
   // handles toggling of searchbar in mobile
@@ -968,22 +968,22 @@ function removeAccent(name) {
 
   function shiftEverythingDown() {
     if (screenSize.isMobile) {
-      $(".breadcrumbs").css("grid-row", "8 / span 2");
-      $(".filters").css("grid-row", "10 / span 2");
-      $(".listado").css("grid-row", "12 / span 2");
+      $(".breadcrumbs").css("grid-row", "7 / span 2");
+      $("#listing-breadcrumbs-container").css("grid-row", "9 / span 2");
+      $(".listado").css("grid-row", "11 / span 2");
     }
 
     else {
-      $(".breadcrumbs").css("grid-row", "5 / 6");
-      $(".filters").css("grid-row", "6");
-      $(".listado").css("grid-row", "7");
+      $(".breadcrumbs").css("grid-row", "5 / span 2");
+      $(".filters").css("grid-row", "7");
+      $("#listado").css("grid-row", "6");
     }
   }
 
   function shiftEverythingUp() {
     if (screenSize.isMobile) {
-      $(".breadcrumbs").css("grid-row", "4 / span 2");
-      $(".filters").css("grid-row", "6 / span 2");
+      $(".breadcrumbs").css("grid-row", "5 / span 2");
+      $("#listing-breadcrumbs-container").css("grid-row", "7 / span 2");
       $(".listado").css("grid-row", "9 / span 2");
     }
 
