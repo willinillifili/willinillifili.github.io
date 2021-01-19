@@ -1157,8 +1157,8 @@ function setMenuWidth() {
     let center = document
                  .querySelector('.center')
                  .style.gridColumn.split(' / ');
-    $('.logo').css("grid-column", center[0] + ' / span 1');
-    $('.publicar').css("grid-column", String(Number(center[0]) + 1) + ' / span 1');
+    $('.logo-publish-container').css("grid-column", center[0] + ' / span 1');
+    //$('.publicar').css("grid-column", String(Number(center[0]) + 1) + ' / span 1');
     $('.items').css("grid-column", String(Number(center[0]) + 3) + ' / ' + center[1]);
     $('.snackbar').css("grid-column", String(Number(center[1]) - 1));
     if (window.innerWidth < 950) {

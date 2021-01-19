@@ -116,13 +116,22 @@ footer {
   padding: 2px;
   width: 9em;
   height: 2em;
-  margin-left: 5px;
+  margin-left: 20px;
   color: white;
   background: #ff4466;
   grid-column: 4;
   grid-row: span 2;
   transition: opacity 0.1s;
   border-radius: 5px;
+}
+
+.logo-publish-container {
+  grid-row: span 2;
+  grid-column: 3;
+}
+
+.logo {
+  width: 75%;
 }
 
 .categories {
@@ -209,7 +218,7 @@ footer {
 }
 
 .logo {
-  grid-column: 3;
+  grid-column: 2;
 }
 
 .menu .logo img {
@@ -792,6 +801,10 @@ select, option {
 
 @media only screen and (min-width : 700px) {
 
+  .logo-publish-container {
+    grid-row: 2;
+  }
+
   .publicar {
     cursor: pointer;
     display: flex;
@@ -1051,7 +1064,8 @@ select, option {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Roboto;
+    font-family: Montserrat;
+    font-weight: bold;
     padding: 5px;
     width: 10em;
     height: 2em;
