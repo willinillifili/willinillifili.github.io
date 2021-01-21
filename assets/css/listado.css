@@ -61,6 +61,57 @@ a {
   filter: blur(2px);
 }
 
+div.breadcrumbs {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 10px;
+}
+
+.breadcrumbs .bc-flag {
+  width: min(16.5%, 19px);
+  //margin-right: 10px;
+}
+
+.bc-title {
+  min-width: 164px;
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbs > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width : 340px) {
+  .breadcrumbs > div, .breadcrumbs > a {
+    width: 16.5%;
+  }
+
+  .bc-title .bc-category {
+    font-size: 13px;
+  }
+  .bc-title a {
+    font-size: 9px;
+  }
+}
+
+.bc-title div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 96px;
+}
+
+.breadcrumbs {
+  overflow-x: hidden;
+}
+
+#listing-breadcrumbs {
+  overflow-x: hidden;
+}
+
 footer {
   min-height: 100px;
   margin-top: 10px;
@@ -318,13 +369,12 @@ footer {
 
 .bc-category {
   color: rgba(0,0,0,0.5);
-  margin-left: 40px;
   font-size: 16px;
 }
 
 .separator-vertical {
   content : "|";
-  margin: 0px 10px;
+  margin: 0px 5px;
 }
 
 .bc-category:hover {
@@ -350,7 +400,6 @@ footer {
 .bc-flag {
   width: 19px;
   height: 100%;
-  position: absolute;
   right: 22px;
   opacity: 100%;
 }
@@ -458,15 +507,14 @@ select, option {
 
 .aviso {
   text-align:center;
-  width: 7em;
-  position:absolute;
+  max-width: 7em;
   left:0;
-  font-size: 9px !important;
+  font-size: 7px;
   font-weight: normal !important;
   padding: 5px;
   background:rgba(0,0,0,0.2);
-  margin-left: 2%;
-  margin-right: 10px;
+  //margin-left: 2%;
+  //margin-right: 10px;
   color: white;
   border-radius: 5px;
   cursor: pointer;
@@ -800,6 +848,13 @@ select, option {
 }
 
 @media only screen and (min-width : 700px) {
+
+  .aviso {font-size: 9px;}
+
+  .breadcrumbs > div { width: 50%; }
+
+  .bc-title .bc-category {font-size: 20px;}
+  .bc-title a {font-size: 15px;}
 
   .logo-publish-container {
     grid-row: 2;
@@ -1197,7 +1252,6 @@ select, option {
   .bc-flag {
     width: 74px;
     height: 25%;
-    position: absolute;
     right: 0;
   }
 
