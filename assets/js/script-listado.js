@@ -201,7 +201,7 @@ const listing_breadcrumbs = {
 const listing = {
   ads : [
     {
-      province : "Puerto Rico",
+      province : "Puerto Rico Provincia Larga",
       city : "Bayamon",
       price : "170,000",
       title : "2020 Toyota Camry XSE Auto (Natl)",
@@ -905,8 +905,8 @@ async function initializeFilterAndTitle() {
 }
 
 function handleFlag() {
-  if ( getCodeFromURL() && countries[ getCodeFromURL() ]) {
-    let country = countries[ getCodeFromURL() ];
+  if ( getCountryCode() && countries[ getCountryCode() ]) {
+    let country = countries[ getCountryCode() ];
     let path = 'https://clasitronicos.com/assets/flags/' +
     toFlagFileName(country);
     let flagImage = document.querySelector('.bc-flag img');
@@ -921,9 +921,14 @@ function toFlagFileName(name) {
   return removeAccent(fileName) + ".gif";
 }
 
-function getCodeFromURL() {
+function getCountryCode() {
   let URL = window.location.href;
-  if (URL.includes("n=")) return URL.match("n=[A-Z][A-Z]")[0].slice(2);
+  if (URL.includes("n=")) {
+    return URL.match("n=[A-Z][A-Z]")[0].slice(2);
+  }
+  else {
+    return document.querySelector('input[name="country"]').value;
+  }
 }
 
 function removeAccent(name) {

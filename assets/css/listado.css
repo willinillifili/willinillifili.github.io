@@ -591,6 +591,19 @@ select, option {
   //background: rgba(0,0,0,0.05);
 }
 
+.listing-row {
+  position: relative;
+}
+
+.listing-row:first-child {
+  flex-wrap: wrap-reverse;
+}
+
+.price {
+  position: relative;
+  right: 0;
+}
+
 .info .price {
   font-size: 13px;
   font-weight: 400;
@@ -605,7 +618,7 @@ select, option {
 
 .location a:nth-child(2) {
   font-size: 8px;
-  font-weight: bold;
+  //font-weight: bold;
   color: #bb997795;
 }
 
