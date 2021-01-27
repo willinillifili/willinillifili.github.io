@@ -201,7 +201,7 @@ const listing_breadcrumbs = {
 const listing = {
   ads : [
     {
-      province : "Puerto Rico Provincia Larga",
+      province : "Puerto Rico",
       city : "Bayamon",
       price : "170,000",
       title : "2020 Toyota Camry XSE Auto (Natl)",
@@ -1102,7 +1102,8 @@ function handleAdWidth() {
     adList.adWidth = width;
     $('.center').css('grid-column', '1 / 4');
     $(".ad-listing").css("width", "100%");
-    $(".not-featured").css("width", width + 'px');
+    console.log(window.innerWidth);
+    $(".not-featured").css("width", (window.innerWidth - 32) + 'px');
     $(".not-featured").css("overflow", "hidden");
     $(".ad-listing").css("height", "129px");
     setPaidAdWidth(2);
