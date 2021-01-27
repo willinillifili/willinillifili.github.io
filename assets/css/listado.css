@@ -595,10 +595,6 @@ select, option {
   position: relative;
 }
 
-.listing-row:first-child {
-  flex-wrap: wrap-reverse;
-}
-
 .price {
   position: relative;
   right: 0;
@@ -610,6 +606,11 @@ select, option {
   color: var(--darkgrey);
 }
 
+.location {
+  display: flex;
+  flex-direction: column !important;
+}
+
 .location a:first-child {
   font-size: 10px;
   font-weight: normal;
@@ -618,6 +619,7 @@ select, option {
 
 .location a:nth-child(2) {
   font-size: 8px;
+  width: 200%;
   //font-weight: bold;
   color: #bb997795;
 }
@@ -1422,7 +1424,7 @@ select, option {
   }
 
   .location a:first-child {
-    font-size: max(0.9vw, 90%);
+    font-size: max(0.95vw, 95%);
   }
 
   .location a:nth-child(2) {
