@@ -296,6 +296,13 @@ footer {
   color: rgba(0,0,0,0.5);
 }
 
+.teaser, .title {
+  display: inline !important;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .teaser-wrapper, .title-wrapper {
   flex-wrap: nowrap;
   min-width: 270px;
@@ -581,7 +588,7 @@ select, option {
 }
 
 .ad-listing .info {
-  width: 50%;
+  width: 45%;
   display: flex;
   position: relative;
   flex-direction: column;

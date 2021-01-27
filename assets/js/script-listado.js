@@ -1103,9 +1103,9 @@ function handleAdWidth() {
     $('.center').css('grid-column', '1 / 4');
     $(".ad-listing").css("width", "100%");
     console.log(window.innerWidth);
-    $(".not-featured").css("width", (window.innerWidth - 32) + 'px');
+    $(".not-featured").css("width", "100%");
     $(".not-featured").css("overflow", "hidden");
-    $(".ad-listing").css("height", "129px");
+    $(".ad-listing").css("height", "auto");
     setPaidAdWidth(2);
     adList.columns = 2;
   }
@@ -1253,6 +1253,7 @@ async function initialize() {
   await setMenuWidth();
   await attachPremiumLabels();
   handleMissingVendor();
+  truncateTeaser()
   removeBlankField('.province');
   removeBlankField('.city');
 }
@@ -1272,5 +1273,14 @@ function removeBlankField(fieldClass) {
   for (let field of fields) {
     if (!field.innerText) $(field).remove();
   }
+}
+
+/*
+  truncates teaser to
+*/
+function truncateTeaser() {
+  let teaserHeight = $('a.teaser').css('height');
+  let otherInfoElementHeigth = $('.info a.title').css('height');
+  console.log(teaserHeight !== otherInfoElementHeigth);
 }
 });
