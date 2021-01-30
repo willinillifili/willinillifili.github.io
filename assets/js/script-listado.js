@@ -1253,7 +1253,6 @@ async function initialize() {
   await setMenuWidth();
   await attachPremiumLabels();
   handleMissingVendor();
-  truncateTeaser()
   removeBlankField('.province');
   removeBlankField('.city');
 }
@@ -1273,14 +1272,5 @@ function removeBlankField(fieldClass) {
   for (let field of fields) {
     if (!field.innerText) $(field).remove();
   }
-}
-
-/*
-  truncates teaser to
-*/
-function truncateTeaser() {
-  let teaserHeight = $('a.teaser').css('height');
-  let otherInfoElementHeigth = $('.info a.title').css('height');
-  console.log(teaserHeight !== otherInfoElementHeigth);
 }
 });
