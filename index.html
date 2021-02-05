@@ -12,6 +12,10 @@
   <script src="script-test.js"></script>
   <style>
 
+    :root {
+        --pink : #FF4466;
+    }
+
     h1, h2, h3, h4, h5, h6{
       margin: 0;
       padding: 0;
@@ -45,8 +49,14 @@
       height: 300px;
     }
 
+    #photoFields label {
+      margin: 0px;
+      display: inline-block;
+    }
+
     #photoFields div {
       width: 100%;
+      margin-top: 30px;
     }
 
     #photoFields div input {
@@ -132,12 +142,13 @@
       background: white;
     }
 
-    fieldset * {
-      margin-bottom: 20px;
+    select, input, textarea {
+
     }
 
     label {
-        margin-bottom: 20px;
+      margin: 15px 0px;
+      display: block;
     }
 
     .ad-preview {
@@ -161,13 +172,37 @@
       display: inline-block;
     }
 
-    input[name="submit"] {
-      visibility: hidden;
-    }
-
     legend {
       visibility: hidden;
     }
+
+    .publish-options {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 70%;
+    }
+
+    input[type="email"]:invalid + label:before,
+    input[type="tel"]:invalid + label:before  {
+        display: block;
+        color: var(--pink);
+        content: "invalido";
+        margin-bottom: 20px;
+    }
+
+    input[type="tel"]:invalid,
+    input[type="email"]:invalid {
+      border: 2px solid var(--pink);
+    }
+
+    input[type="submit"] {
+      margin-top: 40px;
+    }
+
+/*    input[type="tel"]:invalid + label:before {
+
+    }*/
 
   </style>
 </head>
@@ -177,12 +212,17 @@
     </header>
     <main>
       <section class="form">
-        <form>
+        <form enctype="multipart/multipart/form-data"
+              action="https://www.clasificadoselectronicos.com/cgi-bin/anunciox.cgi"
+              method="post">
            <fieldset>
              <legend>categoria y localizacion</legend>
-             <label for="category" class="required">categoria</label><br>
-             <select id="category" onchange="adjustKeywordFieldset()" name="category" size="1">
-             <!--<option value="test">Prueba</option>-->
+             <label for="category" class="required">categoria</label>
+             <select id="category"
+                     onchange="adjustKeywordFieldset()"
+                     name="category"
+                     size="1">
+               <option value="" selected></option>
                <option value="actividades">Actividades - Eventos</option>
                <option value="apartamentosalquiler">Apartamentos - Alquiler</option>
                <option value="vacaciones">Apartamentos - Vacaciones</option>
@@ -227,8 +267,9 @@
                <!--<option value="villasvacaciones">Villas - Vacaciones</option>-->
                <!--<option value="villasventas">Villas - Ventas</option>-->
              </select>
-             <label for="city" class="required">localizacion</label><br>
+             <label for="city" class="required">localizacion</label>
              <select id="city" name="city" size="1">
+               <option value=""></option>
                <option value="Adjuntas">Adjuntas</option>
                <option value="Aguada">Aguada</option>
                <option value="Aguadilla">Aguadilla</option>
@@ -311,11 +352,16 @@
            </fieldset>
            <fieldset>
              <legend>informacion del anuncio</legend>
-             <label for="name">titulo del anuncio</label>
+             <label class="required" for="name">titulo del anuncio</label>
              <input id="name" type="text" name="title" maxlength="60" value="">
              <label for="price">precio (en dolares)</label>
-             <input id="price" type="text" name="price" maxlength="10" value="">
-             <label for="description">texto descriptivo del anuncio</label>
+             <input id="price"
+                    type="text"
+                    name="price"
+                    maxlength="10"
+                    value=""
+                    placeholder="$">
+             <label for="description">descripcion(no incluya telefono/email)</label>
              <textarea id="description"
                        wrap="virtual"
                        cols="50"
@@ -324,12 +370,28 @@
            </fieldset>
            <fieldset>
              <legend>informacion de contacto</legend>
-             <label for="phone1">telefono 1</label>
-             <input id="phone1" type="tel" name="phone1" maxlength="30" value="">
+             <label class="required" for="phone1">telefono 1</label>
+             <input id="phone1"
+                    type="tel"
+                    name="phone1"
+                    maxlength="30"
+                    value=""
+                    pattern="[0-9]{3}[0-9]{3}[0-9]{4}">
              <label for="phone2">telefono 2</label>
-             <input id="phone2" type="tel" name="phone2" maxlength="30" value="">
-             <label for="email">email</label>
-             <input id="email" type="text" name="email" maxlength="50" value="">
+             <input id="phone2"
+                    type="tel"
+                    name="phone2"
+                    maxlength="30"
+                    value=""
+                    pattern="[0-9]{3}[0-9]{3}[0-9]{4}">
+             <label class="required" for="email">email</label>
+             <input id="email"
+                    type="email"
+                    name="email"
+                    maxlength="50"
+                    value=""
+                    pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+                    >
              <label for="website">website</label>
              <input id="website" type="text" name="website" maxlength="70" value="">
            </fieldset>
@@ -342,7 +404,7 @@
            <fieldset>
              <legend>Palabras Clave</legend>
              <div id="autoKeywords" style="display:none;">
-               <label for="make">marca</label><br>
+               <label for="make">marca</label>
                <select id="make" name="make" size="1">
                   <option value="">No Aplica</option>
                   <option value="Acura">Acura</option>
@@ -441,7 +503,56 @@
              </center>
              </div>
            </fieldset>
-           <input name="submit" type="submit" value="publicar">
+           <fieldset><!-- start captcha -->
+             <h4>Captcha</h4>
+             <input></input>
+             <!--
+             <div class="captcha"><! start test >
+               <div class="captcha-image">
+                 <img alt="captcha image" src=""/>
+               </div>
+               <div class="captcha-multiple-choice">
+                 <label for="captcha-answer-0">Gato</label>
+                 <input id="captcha-answer-0"
+                        type="radio"
+                        name="image1"
+                        vale="0">
+               </div>
+             </div><! end test >
+             <div class="captcha"><! start test >
+               <div class="captcha-image">
+                 <img alt="captcha image" src=""/>
+               </div>
+               <div class="captcha-multiple-choice">
+               </div>
+             </div><! end test-->
+           </fieldset><!-- end captcha -->
+           <fieldset>
+             <legend>Finalizar</legend>
+             <p>Si desea: </p>
+             <ul>
+               <li>Editar su anuncio</li>
+               <li>Publicar cantidad ilimitada de anuncios (Premium)</li>
+               <li>Remover su anuncio</li>
+               <li>Mucho mas</li>
+             </ul>
+             <p>Debe acceder a su cuenta o registrar cuenta nueva.
+               Solo toma un minuto, y cuando termine su anuncio ya
+               estara pubicado.
+             </p>
+             <div class="publish-options">
+               <a href="https://www.clasificadoselectronicos.com/cgi-bin/micuenta.cgi">
+                 acceder
+               </a>
+               <a style="margin-left: 20px;"
+                  href="https://www.clasificadoselectronicos.com/puertorico/regusuario.htm">
+                 registrarse
+               </a>
+               <input name="submit"
+                      type="submit"
+                      value="No gracias, publicar ahora">
+            </div>
+           </fieldset>
         </form>
         <div id="formScrollButtons">
           <button>Regresar</button>
@@ -539,7 +650,6 @@
     renderPhotoFields(photoIndices);
     adjustFieldsetWidth();
 
-
     function renderPhotoFields(photoIndices) {
       const uploadSection = document.querySelector("#photoFields");
       let photoFields = photoIndices
@@ -620,23 +730,31 @@
         let inputs = document.getElementsByTagName('input');
         // These divs contain the input label + input field
         let photoInputDivs = document.querySelectorAll('#photoFields div');
+        let textareas = document.querySelectorAll('textarea');
         let selects = document.getElementsByTagName('select');
         for (let i = 0; i < inputs.length; i++) {
           inputs[i].style.width = width + 'px';
         }
-        for (let i = 0; i < photoInputDivs.length; i++) {
-          photoInputDivs[i].style.width = width + 'px';
-        }
+
+        adjustWidth(photoInputDivs, width);
+        adjustWidth(inputs, width);
+        adjustWidth(textareas, width);
         selects[0].style.width = width + 'px';
+    }
+
+    function adjustWidth(nodeSet, width) {
+      for (let i = 0; i < nodeSet.length; i++) {
+        nodeSet[i].style.width = width + 'px';
+      }
     }
 
     function scrollForm(direction) {
       direction === 'forward' ? currentFieldset++ : currentFieldset--;
       const firstFieldset = 1;
-      const lastFieldset = 5;
+      const lastFieldset = 7;
       if (currentFieldset >= lastFieldset) {
         next.style.display = 'none';
-        publishDummy.style.display = 'block';
+        //publishDummy.style.display = 'block';
         currentFieldset = lastFieldset;
       }
 
@@ -686,30 +804,32 @@
     /**
     *
     **/
-    function handlePhotoPreview(element) {
-      //parentElement points to div container
-      if ( invalidExtension(element.value) ) {
-        element.parentElement.classList.add("photoError");
-        element.value = "";
-        return 0;
+    function handlePhotoPreview(imageInputField) {
+      if ( invalidExtension(imageInputField.value) ) {
+        //parentElement points to div container of image upload field.
+        imageInputField.parentElement.classList.add("photoError");
+        imageInputField.value = "";
+        return false;
       }
-      if ( element.files && element.files[0]
-        && element.getAttribute('data-index') === "1") {
+
+      if ( imageInputField.files && imageInputField.files[0]
+        && imageInputField.getAttribute('data-index') === "1") {
+        // on page load, preview image will be a placeholder svg that
+        // needs to be replaced
         if (preview.imageContainer.childNodes[1].tagName !== "IMG") {
           replaceSVGWithImage();
         }
         const reader = new FileReader();
-        const parentDivClassList = element.parentElement.classList;
         reader.onload = e => {
           document.querySelector('.image img')
                   .setAttribute('src', e.target.result);
         }
-        reader.readAsDataURL(element.files[0]);
-        if (parentDivClassList.value.split(' ').includes("photoError")) {
-          parentDivClassList.remove("photoError");
-        }
-        return 1;
+        reader.readAsDataURL(imageInputField.files[0]);
       }
+
+      const parentDivClassList = imageInputField.parentElement.classList;
+      parentDivClassList.remove("photoError");
+      return true;
     }
 
     function invalidExtension(path) {
@@ -729,6 +849,16 @@
       div.innerHTML = htmlString.trim();
       return div.children[0];
     }
+
+    function emailIsValid(email) {
+      return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email);
+    }
+
+    function phoneIsValid(phone) {
+      return
+    }
+
+    function renderCaptcha() {}
 
   </script>
 </html>
