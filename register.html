@@ -12,6 +12,11 @@
   <script src="script-test.js"></script>
   <style>
 
+    h1, h2, h3, h4, h5, h6{
+      margin: 0;
+      padding: 0;
+    }
+
     html, body {
         margin: 0;
         padding: 0;
@@ -36,6 +41,22 @@
     #photoFields {
       display: flex;
       flex-direction: column;
+      overflow-y: scroll;
+      height: 300px;
+    }
+
+    #photoFields div {
+      width: 100%;
+    }
+
+    #photoFields div input {
+      width: 80% !important;
+    }
+
+    .photoError::after {
+        content: "Error: el formato de la imagen es invalido.";
+        display: block;
+        color: #FF4466;
     }
 
     main {
@@ -129,6 +150,12 @@
     }
 
     .required::after{
+      content: "*";
+      color: #FF4466;
+      display: inline-block;
+    }
+
+    .alert::before {
       content: "*";
       color: #FF4466;
       display: inline-block;
@@ -308,12 +335,9 @@
            </fieldset>
            <fieldset id="photoFields">
              <legend>Fotos</legend>
-             <label for="photofile">foto #1</label>
-             <input id="photofile"
-                    type="file"
-                    name="photofile"
-                    accept="image/*"
-                    data-index="1">
+             <h4 class="alert">
+               solo se aceptan imagenes en los formatos: .jpeg, .jpg, .png,
+             </h4>
            </fieldset>
            <fieldset>
              <legend>Palabras Clave</legend>
@@ -468,7 +492,7 @@
                 </span> vistas
               </div>
               <div class="id">
-                PR98336381
+                ############
                 </div>
             </div>
           </div>
@@ -511,31 +535,67 @@
     let currentFieldset = 1;
     next.onclick = () => scrollForm('forward');
     back.onclick = () => scrollForm('backward');
+    const photoIndices = [1, 2, 3, 4, 5, 6, 7];
+    renderPhotoFields(photoIndices);
     adjustFieldsetWidth();
+
+
+    function renderPhotoFields(photoIndices) {
+      const uploadSection = document.querySelector("#photoFields");
+      let photoFields = photoIndices
+          .map( photoIndex => renderPhotoField(photoIndex, uploadSection) );
+
+    }
+
+    function renderPhotoField(photoIndex, uploadSection) {
+      const newInputName = "photofile" + photoIndex;
+      let newElement = `<div>
+                            <label for="${newInputName}">
+                              foto #${photoIndex}
+                            </label>
+                            <input id="${newInputName}" type="file"
+                                   name="${newInputName}"
+                                   data-index="${photoIndex}">
+                          </div>`;
+      newElement = stringToNode(newElement);
+      if (photoIndex > 1) newElement.children[1].disabled = true;
+      uploadSection.append(newElement);
+      return 0;
+    }
 
     /**
     * effects: Appends new file input field to photos fieldset.
     TODO: reimplement this function using element only
     **/
     function addFileInputField(element) {
-      let photoInput = document.querySelector('#photoFields input:last-child');
+      let photoInput = document.querySelector('#photoFields div:last-child input');
       if (element.getAttribute('data-index')
           !== photoInput.getAttribute('data-index')) {
             return false;
           }
-      const parent = document.querySelector('#photoFields');
+      photoInput.disabled = true;
+      const uploadSection = document.querySelector('#photoFields');
       const lastInput = -2;
       const newIndex = Number( photoInput.getAttribute('data-index') ) + 1;
       if (newIndex > 7) return false;
       const newInputName = "photofile" + newIndex;
-      let newFileField = `<label for="${newInputName}">foto #${newIndex}</label>
+      let newFileField = `<div>
+                            <label for="${newInputName}">foto #${newIndex}</label>
                             <input id="${newInputName}" type="file"
                                    name="${newInputName}"
-                                   data-index="${newIndex}">`;
+                                   data-index="${newIndex}">
+                          </div>`;
       newFileField = stringToNode(newFileField);
-      parent.append(newFileField[0]);
-      parent.append(newFileField[0]);
+      uploadSection.append(newFileField[0]);
+      //photoUploadSection.append(newFileField[0]);
       return false;
+    }
+
+    function enableNextPhotoInput(element) {
+      const nextInputIndex = Number( element.getAttribute('data-index') ) + 1;
+      if (nextInputIndex > 7) return false;
+      document.querySelector("input[data-index='"+nextInputIndex+"']")
+      .disabled = false;
     }
 
     /**
@@ -558,9 +618,14 @@
     function adjustFieldsetWidth() {
         let width = document.getElementsByTagName('form')[0].offsetWidth - 30;
         let inputs = document.getElementsByTagName('input');
+        // These divs contain the input label + input field
+        let photoInputDivs = document.querySelectorAll('#photoFields div');
         let selects = document.getElementsByTagName('select');
         for (let i = 0; i < inputs.length; i++) {
           inputs[i].style.width = width + 'px';
+        }
+        for (let i = 0; i < photoInputDivs.length; i++) {
+          photoInputDivs[i].style.width = width + 'px';
         }
         selects[0].style.width = width + 'px';
     }
@@ -598,8 +663,7 @@
       let name = elem.getAttribute('name');
 
       if (elem.getAttribute('type') === 'file') {
-          handlePhotoPreview(elem);
-          addFileInputField(elem);
+          if ( handlePhotoPreview(elem) ) enableNextPhotoInput(elem);
           return;
       }
 
@@ -623,21 +687,34 @@
     *
     **/
     function handlePhotoPreview(element) {
+      //parentElement points to div container
+      if ( invalidExtension(element.value) ) {
+        element.parentElement.classList.add("photoError");
+        element.value = "";
+        return 0;
+      }
       if ( element.files && element.files[0]
         && element.getAttribute('data-index') === "1") {
         if (preview.imageContainer.childNodes[1].tagName !== "IMG") {
           replaceSVGWithImage();
         }
-
         const reader = new FileReader();
-
+        const parentDivClassList = element.parentElement.classList;
         reader.onload = e => {
           document.querySelector('.image img')
                   .setAttribute('src', e.target.result);
         }
-
         reader.readAsDataURL(element.files[0]);
+        if (parentDivClassList.value.split(' ').includes("photoError")) {
+          parentDivClassList.remove("photoError");
+        }
+        return 1;
       }
+    }
+
+    function invalidExtension(path) {
+      const allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+      return !allowedExtensions.exec(path);
     }
 
     function replaceSVGWithImage() {
@@ -650,7 +727,7 @@
     function stringToNode(htmlString) {
       let div = document.createElement('div');
       div.innerHTML = htmlString.trim();
-      return div.children;
+      return div.children[0];
     }
 
   </script>

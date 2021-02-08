@@ -592,10 +592,14 @@ select, option {
   display: flex;
   position: relative;
   flex-direction: column;
-  justify-content: space-between;
   font-size: 15px;
   padding: 10px;
   //background: rgba(0,0,0,0.05);
+}
+
+.listing-row:last-child {
+  position: absolute;
+  bottom: 0;
 }
 
 .listing-row {
@@ -680,11 +684,15 @@ select, option {
 
 .title {
   font-weight: bold;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .province, .phone, .views {
   color: #8E8D8D;
+}
+
+.listing-row:last-child {
+  width: 90%;
 }
 
 .views {
@@ -1427,8 +1435,12 @@ select, option {
     font-size: max(0.7vw, 12px);
   }
 
-  .title, .keyword, .vendor {
+  .keyword, .vendor {
     font-size: max(0.8vw, 90%);
+  }
+
+  .title {
+    font-size: max(0.85vw, 100%);
   }
 
   .location a:first-child {
