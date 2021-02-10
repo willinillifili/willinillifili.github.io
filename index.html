@@ -146,7 +146,7 @@
     <a name="newad"></a>
     <div class="ads">
     {{#ads}}
-      <div class="ad-listing {{type}} not-featured ad-listing-width"><!-- Aqui comienza el anuncio -->
+      <div class="ad-listing {{type}} not-featured ad-listing-width desktop-only"><!-- Aqui comienza el anuncio (desktop) -->
         <div class="premium-label" style="display:none;">
           Premium
         </div>
@@ -172,19 +172,19 @@
           href="{{title}}"
           class="vendor">{{vendor}}</a><!-- vendedor (dealer, corredor, etc.) -->
         </div>
-        <div class="listing-row teaser" style="display:none;">
+        <!--div class="listing-row teaser" style="display:none;">
           <a class="teaser">{{teaser}}</a><!-- resumen del anuncio -->
-        </div>
-        <!--div class="listing-row keywords">
+        </div-->
+        <div class="listing-row keywords">
           {{#keywords}}
           <a href={{url}} class="keyword">{{keyword}}</a>
           {{/keywords}}
-        </div-->
-        <!--div class="listing-row phone-row">
+        </div>
+        <div class="listing-row phone-row">
           <div class="phone">
             {{phone}}
           </div>
-        </div-->
+        </div>
         <div class="listing-row">
           <div class="views"><!-- numero de visitas al anuncio -->
             <span style="color:black;">
@@ -196,7 +196,48 @@
             </div>
         </div>
       </div>
-    </div><!-- Aqui termina el anuncio -->
+    </div><!-- Aqui termina el anuncio (desktop)-->
+    {{/ads}}
+    {{#ads}}
+    <div class="ad-listing {{type}} not-featured ad-listing-width mobile-only"><!-- Aqui comienza el anuncio mobil -->
+      <div class="premium-label" style="display:none;">
+        Premium
+      </div>
+      <a href="https://www.clasitronicos.com/cgi-bin/fotos.cgi?id=PR136834&db=4"
+         class="image ad-image">
+         <img class="front" src="https://www.clasificadoselectronicos.com/fotos20e/PR98537886serviciosb.jpg" alt=""/>
+         <img class="background-blur" src="https://www.clasificadoselectronicos.com/fotos20e/PR98537886serviciosb.jpg" alt=""/>
+      </a>
+      <div class="info">
+      <div class="listing-row" style="align-items: flex-start;">
+        <div class="views"><!-- numero de visitas al anuncio -->
+          <span> {{views}} </span> vistas
+        </div>
+        <div class="price">${{price}}</div>
+      </div>
+      <div class="listing-row title-wrapper">
+        <a href="{{url}}" class="title">{{title}}</a><!-- titulo del anuncio -->
+      </div>
+      <div class="listing-row">
+        <div class="location">
+          <a href="{{url}}" class="city">{{city}}</a>
+          <a href="{{url}}" class="province">{{province}}</a>
+        </div>
+      </div>
+      <div class="listing-row">
+        <a href="{{title}}" class="vendor">{{vendor}}</a><!-- vendedor (dealer, corredor, etc.) -->
+      </div>
+      <div class="listing-row keywords">
+        {{#keywords}}
+        <a href={{url}} class="keyword">{{keyword}}</a>
+        {{/keywords}}
+      </div>
+      <div class="listing-row phone-row">
+        <div class="phone">{{phone}}</div>
+        <div class="id"> PR98336381 </div>
+      </div>
+    </div>
+  </div><!-- Aqui termina el anuncio (mobil)-->
     {{/ads}}
   </div>
 </div>

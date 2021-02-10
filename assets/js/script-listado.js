@@ -209,10 +209,11 @@ const listing = {
       teaser : "Esto es un resumen de la descripcion del ...",
       views : "15",
       vendor: "",
+      phone: "(787) 946-7575",
       image : "./assets/corolla.jpg",
     },
     {
-      province : "",
+      province : "Puerto Rico",
       city : "Ponce",
       price : "170,000",
       title : "2020 Toyota Camry XSE Auto (Natl)",
@@ -230,10 +231,10 @@ const listing = {
       views : "15",
       vendor: "All Brand Auto",
       phone : "(787) 946-7575",
-      image : "./assets/corolla.jpg",
+      image : "./assets/220autos.jpg",
     },
     {
-      province : "Puerto Rico",
+      city : "Bayamon",
       price : "170,000",
       title : "2020 Toyota Camry XSE Auto (Natl)",
       type : "premium",
@@ -254,7 +255,7 @@ const listing = {
       image : "./assets/corolla.jpg",
     },
     {
-      province : "bayamon",
+      city : "Bayamon",
       price : "170,000",
       title : "2020 Toyota Camry XSE Auto (Natl)",
       keywords : [
@@ -1218,7 +1219,6 @@ function cyclePaidAds(ads, cyclePosition, length, adList) {
 */
 
 function placeGoogleAds(frequency) {
-  console.log('placeGoogleAds');
   let ads = $('.not-featured');
   let googleAd = window.innerWidth > 700 ? googleAdFixed : googleAdInfeed;
 
@@ -1230,7 +1230,8 @@ function placeGoogleAds(frequency) {
   $('.ads').prepend(googleAd);
 
   for (let i = 0; i < ads.length; i++) {
-    if ((i + 1) % frequency === 0) {
+    if ((i + 1) % frequency === 0 && $(ads.eq(i)[0]).css("display") != 'none') {
+      console.log();
       ads.eq(i).after(googleAd);
     }
   }

@@ -5,6 +5,8 @@
   --darkgrey: #1C2B29;
   --lightgrey : #F7F9F9;
   --lightblue: #D9F5F2;
+  --lightgrey2: #8E8D8D;
+  --lightyellow: #ffffcc
 }
 
 body {
@@ -534,7 +536,7 @@ select, option {
   grid-row: 8;
   font-family: Montserrat;
   height: auto;
-  background-image: linear-gradient(45deg, rgba(0,187,170,0.15) 0%,
+  //background-image: linear-gradient(45deg, rgba(0,187,170,0.15) 0%,
   rgba(91,0,81,0.15) 100%);
 }
 
@@ -547,7 +549,7 @@ select, option {
   display: flex;
   justify-content: space-between;
   padding: 10px 0px;
-  background: white;
+  background: rgba(0,0,0,0.05);
   //min-height: 120px;
   margin-top: 10px;
 }
@@ -613,25 +615,24 @@ select, option {
 
 .info .price {
   font-size: 13px;
-  font-weight: 400;
-  color: var(--darkgrey);
+  font-weight: bold;
+  color: var(--lightgrey2);
 }
 
 .location {
   display: flex;
+  font-weight: bold;
   flex-direction: column !important;
 }
 
 .location a:first-child {
   font-size: 12px;
-  font-weight: normal;
   color: #bb9977 !important;
 }
 
 .location a:nth-child(2) {
   font-size: 9px;
   width: 200%;
-  //font-weight: bold;
   color: #bb997795;
 }
 
@@ -652,20 +653,19 @@ select, option {
   margin-bottom: 2%;
 }
 
-.listing-row.phone-row:before {
+.listing-row .phone:before {
   content: '☎';
   font-size: 12px;
-  display: block;
+  display: inline-block;
   color: transparent;
   text-shadow: 0 0 0 #bb997798 !important;
   margin-right: 10px;
 }
 
-.phone-row {
-  justify-content: flex-start;
-}
+.phone { align-items: flex-end; }
+.phone-row {align-items : flex-end;}
 
-.title, .keywords a {
+.title {
     color: #4A9193;
 }
 
@@ -675,6 +675,10 @@ select, option {
 }
 
 .keyword {
+  background: #4A919390;
+  padding: 1px 5px;
+  color: white;
+  border-radius: 5px;
   margin-right: 10px;
 }
 
@@ -684,7 +688,7 @@ select, option {
 
 .title {
   font-weight: bold;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .province, .phone, .views {
@@ -705,13 +709,11 @@ select, option {
   color: #bb9977;
 }
 
-.vendor, .keywords, .phone, .views {
-  font-size: 10px
-}
+.vendor, .keywords, .phone, .views { font-size: 10px }
 
-.vendor {
-  font-size: 12px;
-}
+.vendor { color: var(--lightgrey2); }
+
+.vendor { font-size: 12px; }
 
 .title-wrapper {
     flex-wrap: wrap;
@@ -880,6 +882,12 @@ select, option {
 
 @media only screen and (min-width : 700px) {
 
+  .ad-listing { background: white; }
+
+  .info div.price {
+    color: var(--darkgrey);
+    font-weight: normal;
+  }
   .aviso {font-size: 9px;}
 
   .breadcrumbs > div { width: 50%; }
@@ -1008,7 +1016,7 @@ select, option {
   }
 
   .mobile-only {
-      display: none;
+      display: none !important;
   }
 
   .desktop-only {
