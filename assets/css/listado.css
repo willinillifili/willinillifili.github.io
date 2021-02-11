@@ -1448,7 +1448,7 @@ select, option {
   }
 
   .title {
-    font-size: max(0.85vw, 100%);
+    font-size: max(0.90vw, 105%);
   }
 
   .location a:first-child {
