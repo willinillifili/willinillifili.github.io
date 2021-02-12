@@ -209,11 +209,10 @@ const listing = {
       teaser : "Esto es un resumen de la descripcion del ...",
       views : "15",
       vendor: "",
-      phone: "(787) 946-7575",
       image : "./assets/corolla.jpg",
     },
     {
-      province : "Puerto Rico",
+      province : "",
       city : "Ponce",
       price : "170,000",
       title : "2020 Toyota Camry XSE Auto (Natl)",
@@ -231,10 +230,10 @@ const listing = {
       views : "15",
       vendor: "All Brand Auto",
       phone : "(787) 946-7575",
-      image : "./assets/220autos.jpg",
+      image : "./assets/corolla.jpg",
     },
     {
-      city : "Bayamon",
+      province : "Puerto Rico",
       price : "170,000",
       title : "2020 Toyota Camry XSE Auto (Natl)",
       type : "premium",
@@ -255,7 +254,7 @@ const listing = {
       image : "./assets/corolla.jpg",
     },
     {
-      city : "Bayamon",
+      province : "bayamon",
       price : "170,000",
       title : "2020 Toyota Camry XSE Auto (Natl)",
       keywords : [
@@ -1242,9 +1241,8 @@ async function initialize() {
   await placeGoogleAds(4);
   await setMenuWidth();
   await attachPremiumLabels();
-  handleMissingVendor();
-  removeBlankField('.province');
-  removeBlankField('.city');
+  //handleMissingVendor();
+  removeBlankField('.location');
 }
 
 function handleMissingVendor() {
