@@ -904,6 +904,8 @@ select, option {
   grid-row: 10;
 }
 
+/* LISTADO LAYOUT */
+
 .views{order: 1; }
 .price{
   order: 2;
@@ -933,14 +935,23 @@ select, option {
 .vendor{order: 6; width: 100%; }
 .keywords{order: 7; width: auto}
 .keywords a{
-  background: #4A919390;
+  background: rgba(0,0,0,0.15);
   color: white;
   padding: 1px 4px;
   border-radius: 5px;
 }
-.phone{order: 8; width: 60%;}
-.id{order: 9; width: 40%; justify-content: flex-end;}
+a.ver-mas{
+  font-size: 10px;
+  text-decoration: underline;
+  color: rgba(0,187,170,1);
+  width: 41%;
+  order : 8;
+  justify-content: flex-end;
+}
+.phone{order: 9; width: 60%;}
+.id{order: 10; width: 40%; justify-content: flex-end;}
 .vendor, .phone, .views {justify-content: flex-start !important;}
+.info *:empty {display: none;}
 
 
 @media only screen and (min-width : 700px) {
@@ -978,9 +989,10 @@ select, option {
     background: transparent;
     padding: 0;
   }
-  .phone{order: 7;}
-  .views{order: 8;}
-  .id{order: 9; width: 50%;}
+  .ver-mas{ order : 7}
+  .phone{order: 8;}
+  .views{order: 9;}
+  .id{order: 10; width: 50%;}
 
   .breadcrumbs > div { width: 50%; }
 

@@ -18,6 +18,11 @@ $(document).ready(function(){const countries = {"AR":"argentina","BO":"bolivia",
         type : "onboarding"
       },
       {
+        title : "english",
+        url : "{{link}}",
+        type : ""
+      },
+      {
         title : "contacto",
         url : "https://www.clasificadoselectronicos.com/contacto.htm",
         type: ""
@@ -1154,7 +1159,7 @@ function setMenuWidth() {
                  .style.gridColumn.split(' / ');
     $('.logo-publish-container').css("grid-column", center[0] + ' / span 1');
     //$('.publicar').css("grid-column", String(Number(center[0]) + 1) + ' / span 1');
-    $('.items').css("grid-column", String(Number(center[0]) + 3) + ' / ' + center[1]);
+    $('.items').css("grid-column", String(Number(center[0]) + 2) + ' / ' + center[1]);
     $('.snackbar').css("grid-column", String(Number(center[1]) - 1));
     if (window.innerWidth < 950) {
         $('.items').css("grid-column", String(Number(center[1]) - 2));
