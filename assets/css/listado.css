@@ -2,10 +2,12 @@
 
 :root {
   --primary: #00BBAA;
+  --dark-primary: #4A9193;
   --darkgrey: #1C2B29;
   --lightgrey : #F7F9F9;
   --lightblue: #D9F5F2;
   --lightgrey2: #8E8D8D;
+  --webinads-background: #eeeeee;
 }
 
 body {
@@ -578,7 +580,7 @@ select, option {
   display: flex;
   justify-content: space-between;
   padding: 10px 0px;
-  background: var(--lightgrey);
+  background: var(--webinads-background);
   //min-height: 120px;
   margin-top: 10px;
 }
@@ -710,7 +712,7 @@ select, option {
 .info .title {
   font-weight: bold;
   font-size: 14px;
-  color: var(--primary);
+  color: var(--dark-primary);
 }
 
 .province, .phone, .views {
@@ -906,9 +908,9 @@ select, option {
 
 /* LISTADO LAYOUT */
 
-.views{order: 1; }
 .price{
-  order: 2;
+  order: 1;
+  width: 100%;
   justify-content: flex-end;
   color: var(--lightgrey2);
 }
@@ -916,7 +918,7 @@ select, option {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  order: 3;
+  order: 2;
   width: 100%;
   justify-content: flex-start !important;
 }
@@ -925,15 +927,16 @@ select, option {
   width: auto;
   text-transform: capitalize;
 }
-.location:nth-child(1){order: 4;}
-.info .location:nth-child(2){order: 5;
+.location:nth-child(1){order: 3;}
+.info .location:nth-child(2){
+  order: 4;
   display: inline-flex;
   align-items: flex-end;
   margin-left: 5px;
 }
 .info .location {width: auto;}
-.vendor{order: 6; width: 100%; }
-.keywords{order: 7; width: auto}
+.vendor{order: 5; width: 100%; }
+.keywords{order: 6; width: auto}
 .keywords a{
   background: rgba(0,0,0,0.15);
   color: white;
@@ -945,14 +948,14 @@ a.ver-mas{
   text-decoration: underline;
   color: rgba(0,187,170,1);
   width: 41%;
-  order : 8;
+  order : 7;
   justify-content: flex-end;
 }
-.phone{order: 9; width: 60%;}
-.id{order: 10; width: 40%; justify-content: flex-end;}
+.phone{order: 8; width: 60%;}
+.id{order: 9; width: 40%; justify-content: flex-end;}
 .vendor, .phone, .views {justify-content: flex-start !important;}
 .info *:empty {display: none;}
-
+.views{order: 10; }
 
 @media only screen and (min-width : 700px) {
 
@@ -960,6 +963,7 @@ a.ver-mas{
   .title, .vendor, .phone {width : 100%;}
   .title, .location, .views {justify-content: flex-start !important;}
   .id, .price {justify-content: flex-end;}
+  .price {width: 50%;}
   .vendor, .phone {justify-content: flex-start !important;}
   .aviso {font-size: 9px;}
   .info .location:nth-child(2) {
@@ -983,13 +987,17 @@ a.ver-mas{
   .info .vendor{order: 5; color: var(--darkgrey);}
   .keywords{
     order: 6;
+    width: 50%;
   }
   .keywords a {
     color : #4A9193;
     background: transparent;
     padding: 0;
   }
-  .ver-mas{ order : 7}
+  a.ver-mas{
+    order : 7;
+    width: 50%;
+  }
   .phone{order: 8;}
   .views{order: 9;}
   .id{order: 10; width: 50%;}
