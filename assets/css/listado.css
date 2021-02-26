@@ -719,6 +719,10 @@ select, option {
   color: #8E8D8D;
 }
 
+.phone {
+  font-size: 70%;
+}
+
 .listing-row:last-child {
   width: 90%;
 }
@@ -733,7 +737,7 @@ select, option {
   color: #bb9977;
 }
 
-.vendor, .keywords, .phone, .views {
+.vendor, .keywords, .views {
   font-size: 10px
 }
 
@@ -909,8 +913,8 @@ select, option {
 /* LISTADO LAYOUT */
 
 .price{
-  order: 1;
-  width: 100%;
+  order: 9;
+  width: 50%;
   justify-content: flex-end;
   color: var(--lightgrey2);
 }
@@ -929,14 +933,19 @@ select, option {
 }
 .location:nth-child(1){order: 3;}
 .info .location:nth-child(2){
-  order: 4;
+  order: 3;
   display: inline-flex;
   align-items: flex-end;
   margin-left: 5px;
 }
 .info .location {width: auto;}
-.vendor{order: 5; width: 100%; }
-.keywords{order: 6; width: auto}
+.info a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.vendor{order: 4; width: 100%; }
+.keywords{order: 9; width: 100%;}
 .keywords a{
   background: rgba(0,0,0,0.15);
   color: white;
@@ -944,18 +953,28 @@ select, option {
   border-radius: 5px;
 }
 a.ver-mas{
-  font-size: 10px;
-  text-decoration: underline;
-  color: rgba(0,187,170,1);
-  width: 41%;
-  order : 7;
-  justify-content: flex-end;
+  font-size: 7px;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-color: lightgrey;
+  text-decoration-thickness: 0.2px;
+  background: #4A919399;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  height: 15px;
+  //margin-top: 25px;
+  width: 100%;
+  order : 10;
+  text-transform: uppercase;
+  border-radius: 5px;
 }
-.phone{order: 8; width: 60%;}
-.id{order: 9; width: 40%; justify-content: flex-end;}
+.phone{order: 6; width: 60%;}
+.id{order: 7; width: 40%; justify-content: flex-end;}
 .vendor, .phone, .views {justify-content: flex-start !important;}
 .info *:empty {display: none;}
-.views{order: 10; }
+.views{order: 8;}
+.views span, .vendor { color: rgba(0,0,0,0.7) !important; }
 
 @media only screen and (min-width : 700px) {
 
@@ -985,14 +1004,19 @@ a.ver-mas{
   .location:nth-child(2) {order: 3;}
   .info .title{order: 4; color: #4A9193;}
   .info .vendor{order: 5; color: var(--darkgrey);}
-  .keywords{
+  .info div.keywords{
     order: 6;
-    width: 50%;
+    width: 100%;
+    justify-content: flex-start ;
+    align-items: center;
   }
   .keywords a {
     color : #4A9193;
     background: transparent;
     padding: 0;
+    width: 12%;
+    font-size: 100%;
+    justify-content: flex-start;
   }
   a.ver-mas{
     order : 7;

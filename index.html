@@ -146,7 +146,7 @@
     <a name="newad"></a>
     <div class="ads">
     {{#ads}}
-      <div class="ad-listing {{type}} not-featured ad-listing-width"><!-- Aqui comienza el anuncio (desktop) -->
+      <div style="color:{{COLOR}};" class="ad-listing {{type}} not-featured ad-listing-width"><!-- Aqui comienza el anuncio (desktop) -->
         <div class="premium-label" style="display:none;">
           Premium
         </div>
@@ -173,8 +173,8 @@
             {{#keywords}}
               <a href={{url}} class="keyword">{{keyword}}</a>
             {{/keywords}}
+            <a class="ver-mas" href={{link-ver-mas}}>ver mas</a>
           </div>
-          <a class="ver-mas" href={{link-ver-mas}}>ver mas ..</a>
           <div class="views"><!-- numero de visitas al anuncio -->
             <span>
               {{views}}
