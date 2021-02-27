@@ -979,6 +979,7 @@ a.ver-mas{
 @media only screen and (min-width : 700px) {
 
   /*new ad info styles*/
+  .ad-listing { background: white; }
   .title, .vendor, .phone {width : 100%;}
   .title, .location, .views {justify-content: flex-start !important;}
   .id, .price {justify-content: flex-end;}
