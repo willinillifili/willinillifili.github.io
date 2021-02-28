@@ -976,6 +976,10 @@ a.ver-mas{
 .views{order: 8;}
 .views span, .vendor { color: rgba(0,0,0,0.7) !important; }
 
+a.english {
+  background: #4191cc !important;
+}
+
 @media only screen and (min-width : 700px) {
 
   /*new ad info styles*/
