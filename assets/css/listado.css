@@ -964,7 +964,7 @@ a.ver-mas{
   color: white;
   height: 15px;
   //margin-top: 25px;
-  width: 100%;
+  max-width: 75px;
   order : 10;
   text-transform: uppercase;
   border-radius: 5px;
@@ -1019,13 +1019,12 @@ a.english {
     color : #4A9193;
     background: transparent;
     padding: 0;
-    width: 12%;
+    width: auto;
     font-size: 100%;
     justify-content: flex-start;
   }
   a.ver-mas{
     order : 7;
-    width: 50%;
   }
   .phone{order: 8;}
   .views{order: 9;}
@@ -1641,7 +1640,11 @@ a.english {
   color: var(--primary);
 }
 
+.english {display : flex !important; margin-left: 5px;}
+
 @media only screen and (min-width : 900px) {
+
+  .english {display: none !important;}
 
   .country {
     grid-column: 6;
