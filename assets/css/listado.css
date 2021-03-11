@@ -1022,10 +1022,12 @@ a.english {
     background: transparent;
     padding: 0;
     width: auto;
+    max-width: none;
     font-size: 100%;
     justify-content: flex-start;
   }
   a.ver-mas{
+    max-width: none;
     order : 7;
   }
   .phone{order: 8;}
