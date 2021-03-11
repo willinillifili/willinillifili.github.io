@@ -699,6 +699,7 @@ select, option {
 .keywords {
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .keyword {
@@ -951,6 +952,7 @@ select, option {
   color: white;
   padding: 1px 4px;
   border-radius: 5px;
+  max-width: 25px;
 }
 a.ver-mas{
   font-size: 7px;
@@ -964,7 +966,7 @@ a.ver-mas{
   color: white;
   height: 15px;
   //margin-top: 25px;
-  max-width: 75px;
+  max-width: 45px;
   order : 10;
   text-transform: uppercase;
   border-radius: 5px;
