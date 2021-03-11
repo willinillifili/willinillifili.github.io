@@ -214,6 +214,24 @@ const listing = {
       teaser : "Esto es un resumen de la descripcion del ...",
       views : "15",
       vendor: "",
+      keywords : [
+        {
+          keyword : "toyota",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Toyota&c=dealers",
+        },
+        {
+          keyword : "camry",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Camry&c=dealers",
+        },
+        {
+          keyword : "usado",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Camry&c=dealers",
+        },
+        {
+          keyword : "camry 2022",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Camry&c=dealers",
+        }
+      ],      
       image : "./assets/corolla.jpg",
     },
     {
@@ -230,6 +248,14 @@ const listing = {
           keyword : "camry",
           url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Camry&c=dealers",
         },
+        {
+          keyword : "usado",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Camry&c=dealers",
+        },
+        {
+          keyword : "camry 2022",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Camry&c=dealers",
+        }
       ],
       teaser : "Esto es un resumen de la descripcion del ...",
       views : "15",
@@ -246,6 +272,18 @@ const listing = {
         {
           keyword : "toyota",
           url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Toyota&c=dealers",
+        },
+        {
+          keyword : "camry",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Camry&c=dealers",
+        },
+        {
+          keyword : "camry",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Camry&c=dealers",
+        },
+        {
+          keyword : "camry",
+          url : "https://www.clasitronicos.com/cgi-bin/getadx.cgi?n=PR&k=Camry&c=dealers",
         },
         {
           keyword : "camry",

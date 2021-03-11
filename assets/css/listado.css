@@ -952,7 +952,8 @@ select, option {
   color: white;
   padding: 1px 4px;
   border-radius: 5px;
-  max-width: 25px;
+  width: auto;
+  margin-top: 5px;
 }
 a.ver-mas{
   font-size: 7px;
