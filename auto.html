@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>
+    Listado | Clasitrónicos
+  </title>
+  <meta charset="UTF-8">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/6228ba2463.js" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/listado.css">
+  <script src="./assets/js/script-auto.js"></script>
+</head>
+<body>
+  <div class="content grid-container">
+<div id="menu" class="grid-item menu">
+  <div class="snackbar menu-section pointer mobile-only">
+    ≡
+    </div>
+    <a href="https://clasitronicos.com/index.html" class="logo menu-section pointer">
+      <img alt="logo" src="https://clasitronicos.com/assets/ClasitronicosLogo3-azul.png"/>
+      </a>
+      <div class="search menu-section pointer desktop-only">
+        <form
+        action="https://www.clasitronicos.com/cgi-bin/getadx.cgi"
+        method="post"
+        class="centralize-row">
+        <input type="text" placeholder="que (y donde).." name="keyword">
+        <input type="hidden" name="country" size="12" value="PR">
+        <button type="submit">
+          <span>
+            <i class="fa fa-search fa-sm"></i>
+            <span>
+        </button>
+      </div>
+      <div class="country menu-section mobile-only">
+        <div class="circle">
+          <img alt="current country flag" src="https://clasitronicos.com/assets/flags/puerto_rico.gif"/>
+        </div>
+        </div>
+        <div class="items menu-section desktop-only">
+          {{#item}}
+            <a href="{{url}}" class="item {{type}}">
+              {{title}}
+              </a>
+          {{/item}}
+          <div class="item desktop-only flag">
+              <img alt="current country flag" src="https://clasitronicos.com/assets/flags/puerto_rico.gif"/>
+            </div>          
+          </div>
+        <div class="categories">
+          {{#category}}
+          <div class="category-item">
+            <div class="category pointer">{{title}}</div>
+            <div class="subcategories">
+              {{#subcategories}}
+              <a href="{{url}}" class="subcategory category-item pointer">
+                {{title}}
+              </a>
+              {{/subcategories}}
+              </div>
+            </div>
+          {{/category}}
+          </div>
+  </div>
+<div id="autos" class="grid-item grid-center table">
+  {{#autos}}
+  <div class="table-row">
+    <div class="logo table-cell">
+      <img alt="the {{brand}} logo"
+           src="https://www.clasitronicos.com/assets/car-logos/{{logo}}"/>
+    </div>
+    <div class="brand table-cell">
+      <a
+      href="https://clasitronicos.com/cgi-bin/getadx.cgi?n={{country}}&c=autos&k={{brand}}">
+      {{brand}}
+    </a>&nbsp&nbsp({{total}})
+    </div>
+    <div class="arrow table-cell">
+      <div class="dropdown-arrow pointer">
+          <span>»</span>
+        </div>
+    </div>
+  </div>
+  <div class="models-wrapper">
+    <div class="models">
+      {{#models}}
+        <a href="https://www.clasitronicos.com/cgi-bin/getadx.cgi?n={{country}}&k={{name}}"
+        class="model pointer">
+          <span class="name">{{name}}</span>
+          &nbsp&nbsp
+          <span class="total">({{total}})</span>
+          </a>
+      {{/models}}
+      </div>
+  </div>
+  {{/autos}}
+  {{^autos}}
+    <div style="
+      text-align: center;
+      grid-column: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-family: Montserrat;
+      font-weight: bold;
+      color: black;
+      font-size: 20px;
+      height: 80vh;
+    ">
+      Lo sentimos, no hay anuncios para este pais
+     <a style="
+        margin: 10px;
+        border: 1px solid grey;
+        padding: 10px;
+     "
+     href="https://clasitronicos.com/index.html"> Regresar </a>
+    </div>
+  {{/autos}}
+  <div id="pais" style="display:none;">PR</div>
+  <div id="autos-data" style="display: none;">
+    <!--   $ : Denota el comienzo de una marca de carro nueva.
+           * : Denota el comienzo de la lista de modelos
+               que corresponden a la marca. -->
+    <!--$,acura,0,*,ilx,0,model,0,model,0,model,0,model,0,model,0,model,0,$,bmw,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,
+    *,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,
+    *,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,
+    *,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,$,brand,0,*,model,0,model,0,model,0,model,0,model,0,model,0,model,0,-->
+  </div>
+</div>
+  </div>
+</body>
+<footer>
+  </footer>
